@@ -1,6 +1,6 @@
 # Compiler and source files
 CC = gcc
-SRC = src/game.c src/core/dialogue.c src/core/grid.c src/core/player.c
+SRC = src/*.c
 OBJ = $(SRC:.c=.o)
 TARGET = game
 
@@ -8,8 +8,8 @@ TARGET = game
 ifeq ($(OS),Windows_NT)
     # Windows settings
     EXE = .exe
-    RM = del /Q
-    MKDIR = mkdir
+    RM = rm -f
+    MKDIR = mkdir -p
     # Raylib paths for Windows
     RAYLIB_PATH = C:/raylib
     CFLAGS = -Wall -Wextra -std=c99 -I$(RAYLIB_PATH)/include -I./src
