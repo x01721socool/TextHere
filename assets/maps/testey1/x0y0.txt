@@ -1,0 +1,3 @@
+ny:norm2:hello this is testey1
+ny:norm2:yes this is still the block-cond dialogue
+ny:norm:this is just at the spawn

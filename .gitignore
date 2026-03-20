@@ -1,0 +1,12 @@
+build/
+*.o
+*.a
+*.exe
+
+.vscode/
+.idea/
+*.swp
+.DS_Store
+
+game.exe
+game
