@@ -14,6 +14,8 @@ very tuff game idk
 
 **windows**
 
+-must be running from powershell (cmd is possible idk havent tried it out)
+
 - get scoop to get gcc and raylib
 
 ```
@@ -39,7 +41,7 @@ brew install raylib
 
 ```
 #build
-make
+make #or ./build.bat if ur on windows
 
 #run the game
 ./build/game #add the .exe for windows
