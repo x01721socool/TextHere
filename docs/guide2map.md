@@ -17,7 +17,7 @@ cool-game/
 ## setting up ``map_walls.csv`` and ``map_ground.csv``
 
 as of right now, the game is hardcoded on 10x10. so these should be 10x10.
-``map_ground.csv`` as of right now is practically useless, so it is optional to add one
+``map_ground.csv`` as of right now is practically useless, so it is optional to add one.
 ``map_walls.csv`` has two states of existence of each coordinates and it looked
 something like this:
 ```
@@ -26,7 +26,7 @@ something like this:
 ...
 -1,1,1,...,1
 ```
-``-1`` indicates that a wall shouldn't be made here, whilst vice versa for ``1``
+``-1`` indicates that a wall shouldn't be made here, whilst vice versa for ``1``.
 
 as of right now, player's spawn position are hardcoded to be at 0,0
 
@@ -37,7 +37,7 @@ as of right now, player's spawn position are hardcoded to be at 0,0
 first, create a ``map_dialogue.csv`` on your map directory. inside should look something like this:
 ```
 <xpos1>,<ypos1>
-<xpos1>,<ypos1>
+<xpos2>,<ypos2>
 ...
 ```
 as it can be seen, each line defines a new  dialogue position. and each line has two properties it mus have: ``xpos`` and ``ypos``
