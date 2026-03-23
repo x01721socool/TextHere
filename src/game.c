@@ -20,8 +20,7 @@ int main(void){
 	while(!levelselected&&!WindowShouldClose()){
 		int key=GetCharPressed();
 		while(key>0){
-			if((key>=32&&key<=125)&&
-				(lettercount<32))
+			if((key>=32&&key<=125)&&(lettercount<32))
 			{
 				premaplevel[lettercount]=(char)key;
 				premaplevel[lettercount+1]='\0';
@@ -34,44 +33,30 @@ int main(void){
 				premaplevel[lettercount]='\0';
 			}
 			if (IsKeyPressed(KEY_ENTER)){
-				TraceLog(LOG_INFO,
-					"recieved string:%s",
-					premaplevel);
+				TraceLog(LOG_INFO,"recieved string:%s",premaplevel);
 				char buffer[64];
-				snprintf(buffer,
-					sizeof(buffer),
-					"assets/maps/%s/map_walls.csv",
-					premaplevel);
-				level=loadmap(buffer,10,10);
+				snprintf(buffer,sizeof(buffer),"assets/maps/%s",premaplevel);
+				level=loadmap(buffer);
 				levelselected=true;
 			}
 		BeginDrawing();
 			ClearBackground(RAYWHITE);
-			DrawText(premaplevel,
-				180,300-20,40,
-				BLACK);
+			DrawText(premaplevel,180,280,40,BLACK);
 		EndDrawing();
 	}
 	char levelfolder[64];
 	snprintf(levelfolder,sizeof(levelfolder),"assets/maps/%s",premaplevel);
 	DialogueMap dlgmap=LoadDialogueMap(levelfolder);
-	Player player={.pos={32,32},
-			.speed=200.0f,
-			.size=24.0f};
+	Player player={.pos={32,32},.speed=200.0f,.size=24.0f};
 	SetTargetFPS(64);
 	Camera2D camera={0};
 	camera.zoom=1.0f;camera.rotation=0.0f;
 	DialogueBlock *activedialogueblock=NULL;
 	while (!WindowShouldClose()) {
 		if (activedialogueblock==NULL){
-			Pupdate(&player,
-				TS,
-				level);
+			Pupdate(&player,TS,level);
 		}
-		CheckAndStartDialogue(&player.pos,
-					TS,
-					&dlgmap,
-					&activedialogueblock);
+		CheckAndStartDialogue(&player.pos,TS,&dlgmap,&activedialogueblock);
 		camera.target=player.pos;
 		camera.offset=(Vector2){400.0f,300.0f};
 		if (IsKeyPressed(KEY_ESCAPE)){

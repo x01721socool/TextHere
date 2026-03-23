@@ -3,19 +3,24 @@
 #include <stdio.h>
 #include <stdlib.h>
 
-gamemap loadmap(const char *filename, int w, int h) {
-	gamemap map = {.width = w, .height = h};
-	map.data = (int *)malloc(w * h * sizeof(int));
-
-	FILE *file =fopen(filename, "r");
-	if (file == NULL){
+gamemap loadmap(const char *filename) {
+	gamemap map = {.width=10,.height=10};
+	map.data = (int *)malloc(10 * 10 * sizeof(int));
+	char wallchar[80],infochar[80];
+	snprintf(wallchar,sizeof(wallchar),"%s/map_walls.csv",filename);
+	snprintf(infochar,sizeof(infochar),"%s/info.txt",filename);
+	FILE *filewall =fopen(wallchar, "r");
+	FILE *fileinfo =fopen(infochar, "r");
+	if (filewall == NULL){
 		TraceLog(LOG_ERROR, "load %s: :(",filename);
 		return map;
 	}
-	for (int i=0; i<w*h;i++){
-		if(fscanf(file, "%d,", &map.data[i]) != 1) break;
+	if (fileinfo==NULL){TraceLog(LOG_WARNING,"%s does not exist. no biggie, will just use default",infochar);}
+	for (int i=0; i<10*10;i++){
+		if(fscanf(filewall, "%d,", &map.data[i]) != 1) break;
 	}
-	fclose(file);
+	/* planning to add fileinfo reading here*/
+	fclose(filewall); fclose(fileinfo);
 	return map;
 }
 void unloadmap(gamemap *map){

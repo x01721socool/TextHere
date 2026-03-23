@@ -1,11 +1,11 @@
 #ifndef GRIDH
 #define GRIDH
-#define MAPW 10
-#define MAPH 10
 typedef struct {
 	int width,height,*data;
+	float ips;
+	Vector2 sp;
 } gamemap;
 void drawmap(gamemap map, int ts);
-gamemap loadmap(const char *filename,int w, int h);
+gamemap loadmap(const char *filename);
 void unloadmap(gamemap *map);
-#endif
+#endif GRIDH
