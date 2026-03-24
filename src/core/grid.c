@@ -5,7 +5,6 @@
 
 gamemap loadmap(const char *filename) {
 	gamemap map = {.width=10,.height=10};
-	map.data = (int *)malloc(10 * 10 * sizeof(int));
 	char wallchar[80],infochar[80];
 	snprintf(wallchar,sizeof(wallchar),"%s/map_walls.csv",filename);
 	snprintf(infochar,sizeof(infochar),"%s/info.txt",filename);
@@ -15,11 +14,12 @@ gamemap loadmap(const char *filename) {
 		TraceLog(LOG_ERROR, "load %s: :(",filename);
 		return map;
 	}
-	if (fileinfo==NULL){TraceLog(LOG_WARNING,"%s does not exist. no biggie, will just use default",infochar);}
-	for (int i=0; i<10*10;i++){
+	if (fileinfo==NULL){TraceLog(LOG_WARNING,"%s does not exist - using defaults...",infochar);}
+	/*fileinfo mechanic could be placed here*/
+	map.data=(int*)malloc(map.width*map.height*sizeof(int));
+	for (int i=0; i<map.width*map.height;i++){
 		if(fscanf(filewall, "%d,", &map.data[i]) != 1) break;
 	}
-	/* planning to add fileinfo reading here*/
 	fclose(filewall); fclose(fileinfo);
 	return map;
 }

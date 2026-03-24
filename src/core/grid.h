@@ -1,7 +1,7 @@
 #ifndef GRIDH
 #define GRIDH
 typedef struct {
-	int width,height,*data;
+	int *data,width,height;
 	float ips;
 	Vector2 sp;
 } gamemap;
