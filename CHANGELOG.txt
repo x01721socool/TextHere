@@ -1,0 +1,7 @@
+##version 0.1
+-finally releasing to github
+-changed the dialogue so that it activates at a certain
+coords and not only and always at start
+##version 0.2 25-3-26
+-implemented info.txt, allowing maps to be loaded with a few configs like spawns, initial speed, and size.
+-fixed a problem on docs/guide2map.md where maps actually start from assets/, not straight to maps/

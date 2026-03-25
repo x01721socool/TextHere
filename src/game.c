@@ -47,7 +47,7 @@ int main(void){
 	char levelfolder[64];
 	snprintf(levelfolder,sizeof(levelfolder),"assets/maps/%s",premaplevel);
 	DialogueMap dlgmap=LoadDialogueMap(levelfolder);
-	Player player={.pos={32,32},.speed=200.0f,.size=24.0f};
+	Player player={.pos={level.sp.x*TS+32,level.sp.y*TS+32},.speed=level.ips,.size=24.0f};
 	SetTargetFPS(64);
 	Camera2D camera={0};
 	camera.zoom=1.0f;camera.rotation=0.0f;

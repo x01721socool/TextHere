@@ -5,18 +5,21 @@
 ```
 cool-game/
 |-...
-|-maps/
-    |-...
-    |-yourmap/
-        |-x<xcords>y<ycords>.txt #create more than one if you have more dialogues in map_dialogue.csv
-        |-map_dialogue.csv
-        |-map_walls.csv
-        |-map_ground.csv
+|-assets/
+    |-maps/
+        |-...
+        |-yourmap/
+            |-x<xcords>y<ycords>.txt #create more than one if you have more dialogues in map_dialogue.csv
+            |-map_dialogue.csv
+            |-map_walls.csv
+            |-map_ground.csv
+            |-info.txt
 ```
 
 ## setting up ``map_walls.csv`` and ``map_ground.csv``
 
-as of right now, the game is hardcoded on 10x10. so these should be 10x10.
+you must first plan how big the map will be. an interger off may cause a disturbance on
+the game. this information will later be used on ``info.txt``
 ``map_ground.csv`` as of right now is practically useless, so it is optional to add one.
 ``map_walls.csv`` has two states of existence of each coordinates and it looked
 something like this:
@@ -28,7 +31,32 @@ something like this:
 ```
 ``-1`` indicates that a wall shouldn't be made here, whilst vice versa for ``1``.
 
-as of right now, player's spawn position are hardcoded to be at 0,0
+## setting up the information about the map (``info.txt``)
+
+the ``info.txt`` **stores the required information about the map**. a line must **have a key
+and a value, separated by a colon**
+
+```
+#example
+key1:value1
+key2:valuex,valuey
+key3:...
+```
+
+as of right now **each map has 3 keys that can be modified via** ``info.txt``
+
+### available keys for ``info.txt``:
+
+- ``ips`` :**Inital Player Speed**: the amount of speed a player have upon the initial state of the game.
+value MUST be a FLOAT number
+
+- ``sp`` :**Spawn Position**: a Vector2D value that determines the position inside tha map of where the 
+player will load in. the value MUST be in the form of ``<x>,<y>``, where x and y are FLOATS ranging 
+from 0 to the map limit corresponding to their axis.
+
+- ``size`` :**Size of the map**:a two-interger value that defines the size of the map. the value MUST be in
+the form of ``<w>,<h>`` where w and h are INTERGERS representing EXACTLY the size of the map corresponding
+to their axis. an interger off to these values may lead a slight corruption inside the game.
 
 ## creating dialogues
 
