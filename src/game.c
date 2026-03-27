@@ -65,7 +65,7 @@ int main(void){
 		BeginDrawing();
 			ClearBackground(RAYWHITE);
 			BeginMode2D(camera);
-				drawmap(level,TS);
+				drawmap(level, TS, camera);
 				Pdraw(&player);
 			EndMode2D();
 			UpdateAndDrawActiveDialogue(activedialogueblock);

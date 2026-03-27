@@ -55,19 +55,17 @@ gamemap loadmap(const char *filename) {
 		}
 	}
 	fclose(filewall); fclose(fileinfo);
+	map.mapdir=filename;
 	return map;
 }
 void unloadmap(gamemap *map){
 	if (map->data != NULL){free(map->data); map->data=NULL;}
 }
-void drawmap(gamemap map, int ts){
-	for (int i=0; i<map.width * map.height; i++){
-		if (map.data[i]>0) {
-			int x=i%map.width;
-			int y=i/map.width;
-			if (map.data[i]==1){
-				DrawRectangle(x*ts,y*ts,ts,ts,BLACK);
-			}
+void drawmap(gamemap map,int ts,Camera2D camera){
+	for(int j=(int)camera.target.y-300;j<=(int)camera.target.y+300+ts;j+=ts){
+		for(int i=(int)camera.target.x-400;i<=(int)camera.target.x+400+ts;i+=ts){
+			//supposedly get spritesheet from map struct to do sprite
+			//sheet stuff
 		}
 	}
 }
