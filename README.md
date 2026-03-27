@@ -62,5 +62,5 @@ make clean #clean build artifacts
 if you're looking for how to mechanic of the game works or etc, please check out the ``docs/`` directory. you may also contact me if some question doesnt raise an answer to you!
 
 ## License
-
+GPL v3
 see [LICENSE]
