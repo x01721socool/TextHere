@@ -12,15 +12,19 @@ cool-game/
             |-x<xcords>y<ycords>.txt #create more than one if you have more dialogues in map_dialogue.csv
             |-map_dialogue.csv
             |-map_walls.csv
-            |-map_ground.csv
+            |-map_render.csv
             |-info.txt
 ```
 
-## setting up ``map_walls.csv`` and ``map_ground.csv``
+## setting up ``map_walls.csv`` and ``map_render.csv``
 
 you must first plan how big the map will be. an interger off may cause a disturbance on
 the game. this information will later be used on ``info.txt``
-``map_ground.csv`` as of right now is practically useless, so it is optional to add one.
+you may notice that ``map_ground.csv`` is replaced to ``map_render.csv``. this is due to also
+add render compactabilty for walls. configuring this will be mentioned later.
+
+# ``map_walls.csv``
+
 ``map_walls.csv`` has two states of existence of each coordinates and it looked
 something like this:
 ```
@@ -30,6 +34,20 @@ something like this:
 -1,1,1,...,1
 ```
 ``-1`` indicates that a wall shouldn't be made here, whilst vice versa for ``1``.
+
+# ``map_render.csv``
+
+look at the image ``assets/spritesheet.png``. pick a tile you would like to use and find its x and y
+position ** in terms of grid, not pixels **. note:grid axises begin in 0. calculate their id by 
+this equation
+
+```ypos*(spritesheet width in terms of grid)+xpos```
+
+go back to map_render.csv, and use that id in that coordinate. map_render MUST be have the same rows
+and collumns as what you'll set the size of the map in info.txt
+
+note that you can do all this in Tiled with the ``assets/sprite/fh.tsx`` as a spritesheet, though
+documentation wont be given for this due to lack of experience with it.
 
 ## setting up the information about the map (``info.txt``)
 
