@@ -19,7 +19,7 @@ void Pupdate(Player *p, const int ts, gamemap map) {
 
     // Boundary check + Wall check
     if (gx >= 0 && gx < map.width && gy >= 0 && gy < map.height) {
-        if (map.data[gy * map.width + gx] != 1) {
+        if (map.walls[gy * map.width + gx] != 1) {
             p->pos.x = nextPos.x;
         }
     }
@@ -29,7 +29,7 @@ void Pupdate(Player *p, const int ts, gamemap map) {
     gy = (int)(nextPos.y / ts);
 
     if (gx >= 0 && gx < map.width && gy >= 0 && gy < map.height) {
-        if (map.data[gy * map.width + gx] != 1) {
+        if (map.walls[gy * map.width + gx] != 1) {
             p->pos.y = nextPos.y;
         }
     }

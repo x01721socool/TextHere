@@ -2,11 +2,10 @@
 #define GRIDH
 #include "raylib.h"
 typedef struct {
-	int *data,width,height;
+	int *walls,*render,width,height;
 	float ips;
 	Vector2 sp;
-	const char *mapdir;
-	Texture2D spritesheet;
+	Texture2D tileset;
 } gamemap;
 void drawmap(gamemap map, int ts,Camera2D camera);
 gamemap loadmap(const char *filename);
