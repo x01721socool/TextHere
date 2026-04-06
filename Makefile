@@ -1,6 +1,6 @@
 # Compiler and source files
 CC = gcc
-SRC = src/*.c
+SRC = $(shell find src -name "*.c")
 OBJ = $(SRC:.c=.o)
 TARGET = game
 
@@ -19,7 +19,7 @@ else
     EXE =
     RM = rm -f
     MKDIR = mkdir -p
-    CFLAGS = -Wall -Wextra -std=c99 -I./src
+    CFLAGS = -Wall -Wextra -std=c99 -D_POSIX_C_SOURCE=200809L -I./src -I./src/core
     LDFLAGS = -lraylib -lm -lpthread -ldl -lrt -lX11
 endif
 
