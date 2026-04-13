@@ -55,9 +55,11 @@ int main(void){
 	while (!WindowShouldClose()) {
 		if (activedialogueblock==NULL){
 			Pupdate(&player,TS,level);
+			camera.target=player.pos;
 		}
-		CheckAndStartDialogue(&player.pos,TS,&dlgmap,&activedialogueblock);
-		camera.target=player.pos;
+		CheckAndStartDialogue(&player.pos,TS,&dlgmap,
+				&activedialogueblock,
+				&camera);
 		camera.offset=(Vector2){400.0f,300.0f};
 		if (IsKeyPressed(KEY_ESCAPE)){
 			levelselected=false;
@@ -68,7 +70,9 @@ int main(void){
 				drawmap(level, TS, camera);
 				Pdraw(&player);
 			EndMode2D();
-			UpdateAndDrawActiveDialogue(activedialogueblock);
+			UpdateAndDrawActiveDialogue(activedialogueblock,
+					player.pos,
+					&camera);
 			if (activedialogueblock&&!activedialogueblock->ds.active)
 				activedialogueblock=NULL;
 		EndDrawing();

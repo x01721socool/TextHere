@@ -1,6 +1,6 @@
 # Compiler and source files
 CC = gcc
-SRC = src/*.c
+SRC = $(wildcard src/*.c) $(wildcard src/core/*.c)
 OBJ = $(SRC:.c=.o)
 TARGET = game
 

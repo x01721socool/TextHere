@@ -23,16 +23,18 @@ typedef struct {
 	int count;
 }DialogueMap;
 
-DialogueSystem LoadDialogue(const char *filename);
-void UpdateDialogue(DialogueSystem *ds);
+DialogueSystem LoadDialogue(const char *filename,Vector2 plypos,Camera2D *cam);
+void UpdateDialogue(DialogueSystem *ds,Vector2 plypos,Camera2D *cam);
 void DrawDialogue(DialogueSystem *ds);
 void UnloadDialogue(DialogueSystem *ds);
-void ParseDialogueLine(DialogueSystem *ds);
+void ParseDialogueLine(DialogueSystem *ds, Camera2D *cam,Vector2 plypos);
 DialogueMap LoadDialogueMap(const char *levelfolder);
 void FreeDialogueMap(DialogueMap *dm);
 void CheckAndStartDialogue(const Vector2 *playerpos,
 				int tilesize,
 				DialogueMap *dm,
-				DialogueBlock **activeBlock);
-void UpdateAndDrawActiveDialogue(DialogueBlock *activeBlock);
+				DialogueBlock **activeBlock,
+				Camera2D *cam);
+void UpdateAndDrawActiveDialogue(DialogueBlock *activeBlock,Vector2 plypos,
+		Camera2D *cam);
 #endif

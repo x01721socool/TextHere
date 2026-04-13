@@ -1,8 +1,9 @@
+#define _DEFAULT_SOURCE
 #include "dialogue.h"
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
-DialogueSystem LoadDialogue(const char *filename){
+DialogueSystem LoadDialogue(const char *filename,Vector2 plypos,Camera2D *cam){
 	DialogueSystem ds={.lines =NULL,
 	       		.count=0, .lettercount=0,
 			.current=0, .texttimer=0.0f,
@@ -18,15 +19,16 @@ DialogueSystem LoadDialogue(const char *filename){
 		ds.lines[ds.count -1]=strdup(buffer);
 	}
 	fclose(file);
-	if(ds.count>0)ParseDialogueLine(&ds);
+	if(ds.count>0)ParseDialogueLine(&ds,cam,plypos);
 	return ds;
 }
 
-void UpdateDialogue(DialogueSystem *ds){
+void UpdateDialogue(DialogueSystem *ds,Vector2 plypos, Camera2D *cam){
 	if(!ds->active)return;
 	float speed=0.01f;ds->texttimer+=GetFrameTime();
 	if(ds->texttimer>=speed){
-		if (ds->lettercount<strlen(ds->currentText)){ds->lettercount++;}
+		if (ds->lettercount<(int)(strlen(ds->currentText))){
+			ds->lettercount++;}
 		ds->texttimer=0.0f;
 	}
 	if(IsKeyPressed(KEY_ENTER)){
@@ -37,15 +39,41 @@ void UpdateDialogue(DialogueSystem *ds){
 			if(ds->current >=ds->count){
 				ds->active=false;
 			}else{
-				ParseDialogueLine(ds);
+				ParseDialogueLine(ds,cam,plypos);
 			}
 		}
 	}
 }
-void ParseDialogueLine(DialogueSystem *ds){
+void ParseDialogueLine(DialogueSystem *ds,Camera2D *cam, Vector2 plypos){
 	if(ds->current >= ds->count)return;
-	char *fullline=strdup(ds->lines[ds->current]);
+	char *fullline=ds->lines[ds->current];
 	char *name =strtok(fullline, ":");
+	if (strcmp(name,"CAMERA")==0){
+		char *option = strtok(NULL,":");
+		if (strcmp(option,"CENTERPLAYER")==0){
+			cam->target=plypos;
+		}
+		else if (strcmp(option,"TPTOPOS")==0){
+			int x,y;
+			char *cords=strtok(NULL,":");
+			if (sscanf(cords,"%d,%d",&x,&y)<2){
+				TraceLog(LOG_WARNING,"faulty cam cords"
+						"!: %s",fullline);
+				cam->target=plypos;
+			}
+			cam->target=(Vector2){(float)(x*64),(float)(y*64)};
+		} else {
+				TraceLog(LOG_WARNING,"BAD camera option!: %s",
+						fullline);
+		}
+		ds->current++;
+		if (ds->current<ds->count){
+			ParseDialogueLine(ds,cam,plypos);
+		} else{
+			ds->active=false;
+		}
+		return;
+	} else{
 	if (name) strcpy(ds->currentName,name);
 	char *emotion=strtok(NULL,":");
 	char *text=strtok(NULL,":");
@@ -56,9 +84,8 @@ void ParseDialogueLine(DialogueSystem *ds){
 		sprintf(path, "assets/sprite/dialogue/%s/%s.png",name,emotion);
 		if(ds->currentPortrait.id>0)UnloadTexture(ds->currentPortrait);
 		ds->currentPortrait=LoadTexture(path);}
-	free(fullline);
 	ds->lettercount=0;ds->texttimer=0.0f;
-}
+}}
 
 void DrawDialogue(DialogueSystem *ds){
 	if(!ds->active)return;
@@ -90,8 +117,20 @@ void DrawDialogue(DialogueSystem *ds){
 		 BLACK);
 }
 void UnloadDialogue(DialogueSystem *ds){
-	for(int i=0;i<ds->count;i++)free(ds->lines[i]);
+	if (ds->lines==NULL) return;
+	for(int i=0;i<ds->count;i++){
+		if (ds->lines[i]!=0){
+			free(ds->lines[i]);
+			ds->lines[i]=NULL;
+		}
+	}
 	free(ds->lines);
+	ds->lines=NULL;
+	ds->count=0;
+	if (ds->currentPortrait.id>0){
+		UnloadTexture(ds->currentPortrait);
+		ds->currentPortrait.id=0;
+	}
 }
 DialogueMap LoadDialogueMap(const char *levelfolder){
 	DialogueMap dm={.blocks=NULL,.count=0};
@@ -154,7 +193,8 @@ void FreeDialogueMap(DialogueMap *dm){
 void CheckAndStartDialogue(const Vector2 *playerpos,
 				int tilesize,
 				DialogueMap *dm,
-				DialogueBlock **activeblock){
+				DialogueBlock **activeblock,
+				Camera2D *cam){
 	if (!dm||dm->count==0)return;
 	if (*activeblock) return;
 	int ptilex=(int)(playerpos->x/tilesize);
@@ -163,7 +203,9 @@ void CheckAndStartDialogue(const Vector2 *playerpos,
 		DialogueBlock *b = &dm->blocks[i];
 		if (b->alreadyseen) continue;
 		if (b->tilex==ptilex&&b->tiley==ptiley){
-			b->ds=LoadDialogue(b->txtpath);
+			b->ds=LoadDialogue(b->txtpath,
+					(Vector2){playerpos->x,playerpos->y},
+					cam);
 			b->hasds=true;
 			b->alreadyseen=true;
 			*activeblock=b;
@@ -171,12 +213,12 @@ void CheckAndStartDialogue(const Vector2 *playerpos,
 		}
 	}
 }
-void UpdateAndDrawActiveDialogue(DialogueBlock *activeblock){
+void UpdateAndDrawActiveDialogue(DialogueBlock *activeblock,Vector2 plypos,
+		Camera2D *cam){
 	if (!activeblock) return;
-	UpdateDialogue(&activeblock->ds);
+	UpdateDialogue(&activeblock->ds,plypos,cam);
 	DrawDialogue(&activeblock->ds);
 	if (!activeblock->ds.active){
-		UnloadDialogue(&activeblock->ds);
 		activeblock->hasds=false;
 	}
 }
