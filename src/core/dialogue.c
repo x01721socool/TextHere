@@ -46,8 +46,10 @@ void UpdateDialogue(DialogueSystem *ds,Vector2 plypos, Camera2D *cam){
 }
 void ParseDialogueLine(DialogueSystem *ds,Camera2D *cam, Vector2 plypos){
 	if(ds->current >= ds->count)return;
-	char *fullline=ds->lines[ds->current];
-	char *name =strtok(fullline, ":");
+	char linecpy[256];
+	strncpy(linecpy,ds->lines[ds->current], sizeof(linecpy));
+	char *name =strtok(linecpy, ":");
+	if (!name) return;
 	if (strcmp(name,"CAMERA")==0){
 		char *option = strtok(NULL,":");
 		if (strcmp(option,"CENTERPLAYER")==0){
@@ -58,32 +60,36 @@ void ParseDialogueLine(DialogueSystem *ds,Camera2D *cam, Vector2 plypos){
 			char *cords=strtok(NULL,":");
 			if (sscanf(cords,"%d,%d",&x,&y)<2){
 				TraceLog(LOG_WARNING,"faulty cam cords"
-						"!: %s",fullline);
+						"!: %s",linecpy);
 				cam->target=plypos;
 			}
 			cam->target=(Vector2){(float)(x*64),(float)(y*64)};
 		} else {
 				TraceLog(LOG_WARNING,"BAD camera option!: %s",
-						fullline);
+						linecpy);
 		}
 		ds->current++;
-		if (ds->current<ds->count){
-			ParseDialogueLine(ds,cam,plypos);
-		} else{
-			ds->active=false;
-		}
+		ParseDialogueLine(ds,cam,plypos);
 		return;
 	} else{
-	if (name) strcpy(ds->currentName,name);
+	strcpy(ds->currentName,name);
 	char *emotion=strtok(NULL,":");
 	char *text=strtok(NULL,":");
-	strcpy(ds->currentText,text!=NULL?text:ds->lines[ds->current]);
-	
-	if(name&&emotion){
-		char path[128];
-		sprintf(path, "assets/sprite/dialogue/%s/%s.png",name,emotion);
-		if(ds->currentPortrait.id>0)UnloadTexture(ds->currentPortrait);
-		ds->currentPortrait=LoadTexture(path);}
+
+	if (emotion) {
+		char path[256];
+		snprintf(path,sizeof(path),"assets/sprite/"
+			"dialogue/%s/%s.png",name,emotion);
+		if (ds->currentPortrait.id!=0)
+			UnloadTexture(ds->currentPortrait);
+		ds->currentPortrait=LoadTexture(path);
+	}
+	if (text){
+		strncpy(ds->currentText,text,
+				sizeof(ds->currentText)-1);
+	} else {
+		strncpy(ds->currentText,"...",sizeof("...")-1);
+	}
 	ds->lettercount=0;ds->texttimer=0.0f;
 }}
 

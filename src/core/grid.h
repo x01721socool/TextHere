@@ -10,4 +10,4 @@ typedef struct {
 void drawmap(gamemap map, int ts,Camera2D camera);
 gamemap loadmap(const char *filename);
 void unloadmap(gamemap *map);
-#endif GRIDH
+#endif // GRIDH

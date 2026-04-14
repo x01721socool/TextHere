@@ -73,8 +73,12 @@ int main(void){
 			UpdateAndDrawActiveDialogue(activedialogueblock,
 					player.pos,
 					&camera);
-			if (activedialogueblock&&!activedialogueblock->ds.active)
+			if (activedialogueblock
+				&&!activedialogueblock->ds.active){
+				UnloadDialogue(&activedialogueblock->ds);
+				activedialogueblock->hasds=false;
 				activedialogueblock=NULL;
+			}
 		EndDrawing();
 	}
 	unloadmap(&level);

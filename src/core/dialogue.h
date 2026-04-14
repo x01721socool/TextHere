@@ -13,7 +13,7 @@ typedef struct {
 
 typedef struct {
 	int tilex,tiley;
-	char txtpath[128];
+	char txtpath[256];
 	bool alreadyseen,hasds;
 	DialogueSystem ds;
 } DialogueBlock;
