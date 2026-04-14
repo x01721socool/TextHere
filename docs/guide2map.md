@@ -103,37 +103,5 @@ if inside ``map_dialogue.csv`` has the position ``1,5``, then the name of the tx
 
 ### the anatomy of dialogue txt and how to write them
 
-inside every txt file reside lines of dialogue. every line indicates every dialogue turn. they must
-look something like this
-```
-<character>:<emotion>:<what to say>
-```
-- ``<character>``: inside ``cool-game/assets/sprite`` resides a ``dialogue`` directory, in which has
-lists of characters. so ``<character>`` is the **directory name inside
- the directory ``cool-game/assets/sprite`` of the character** you wanted to use.
-
--``<emotion>``: if you take a look inside one of the character's ``cool-game/assets/sprite/dialogue``
-you will see images with exactly the size of 128x160. for every ``<character>`` ``<emotion>`` is
-**the image name inside the ``cool-game/assets/sprite/dialogue/<character>`` that you wanted to use**.
-they must be exactly **128 pixels in width** and **160 pixels in height** or else they may overlap or barely
-touched the dialogue box
-
--``<what to say>``: self explanatory
-
-failure to locate ``<character>`` or ``<emotion>`` won't bring a much problem since it will continue
-starting the game, with the only exception that there wont be any image
-
-Knowing this, you can create your own character for dialogues by following:
-
-```
-cool-game/
-|-...
-|-assets/
-    |-maps/
-    |-sprites/
-        |-...
-        |-dialoges/
-            |-...
-            |-yourcharacter
-                |-<emotions>.png
-```
+the guide on creating dialogue.txt has been moved thoroughly as a .md file
+``docs/dialogue.md``
