@@ -1,4 +1,4 @@
-ny:suprised:also this is camera test
+ny:suprise:also this is camera test
 CAMERA:TPTOPOS:3,6
 ny:norm2:this is a random pos
 

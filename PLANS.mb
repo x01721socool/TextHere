@@ -4,11 +4,10 @@ game's plan on what feature to add. below starts from
 the easiest and prolly what i'll do and then down to
 hardest one and so on.
 
--implementing exist via escape button
+-implementing exit via escape button
 -designing the start menu
 -more dialogue characters
--rendering characters
--rendering maps
--implementing simple talking npc
+-rendering characters and player
+-actually adding npcs (normal and aggressive)
 
 and so on so forth
