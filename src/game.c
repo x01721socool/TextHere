@@ -2,12 +2,12 @@
 #include <stddef.h>
 #include <stdbool.h>
 #include <stdio.h>
+#include <math.h>
 /*mechanic headers*/
 #include "core/player.h"
 #include "core/grid.h"
 #include "core/dialogue.h"
 #define TS 64 /*short for tile size*/
-
 //game.c becomes the motherboard
 //of the game and connects all functions/modules
 //alltogether
@@ -17,8 +17,15 @@ int main(void){
 	SetExitKey(KEY_NULL);
 	bool levelselected=false;int lettercount=0;
 	char premaplevel[33]={0};
+	Font deffont=GetFontDefault();
+	float tinyt=0.0f;
+	float oriw=MeasureText("[TextHere]",deffont.baseSize);
+	float orih=deffont.baseSize;
 	while(!levelselected&&!WindowShouldClose()){
 		int key=GetCharPressed();
+		float dt=GetFrameTime();
+		tinyt=tinyt>=2*PI?0:tinyt+dt;
+		TraceLog(LOG_INFO,"%f",tinyt);
 		while(key>0){
 			if((key>=32&&key<=125)&&(lettercount<32))
 			{
@@ -36,12 +43,17 @@ int main(void){
 				TraceLog(LOG_INFO,"recieved string:%s",premaplevel);
 				char buffer[64];
 				snprintf(buffer,sizeof(buffer),"assets/maps/%s",premaplevel);
-				level=loadmap(buffer);
-				levelselected=true;
+				FILE *filey;
+				if (filey=fopen(buffer,"r")){
+					level=loadmap(buffer);
+					levelselected=true;
+					fclose(filey);
+				} else ert=dt;
 			}
 		BeginDrawing();
 			ClearBackground(RAYWHITE);
 			DrawText(premaplevel,180,280,40,BLACK);
+			DrawTextPro(deffont,"[TextHere]",(Vector2){400-4*oriw/2,200},(Vector2){4*oriw/2,orih/2},45*sin(tinyt),50.0f,1.0f,BLACK);
 		EndDrawing();
 	}
 	char levelfolder[64];
