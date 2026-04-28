@@ -1,6 +1,3 @@
-//TODO:implement scene mechanic
-//TODO:DrawDialogue drawtextureex
-//TODO:implement free for currentScene
 #define _DEFAULT_SOURCE
 #include "dialogue.h"
 #include <stdio.h>
