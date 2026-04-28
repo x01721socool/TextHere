@@ -1,16 +1,14 @@
 # contributing the game
 
-this game currently operates on an **Invite-Only Repository**
+this game currently operates on an **Invite-Only Repository** and planning to drop that
 
 ## How to contribute
 
 1. **open an issue** describing ur idea or fix 
 
-2. **contact me** (mention in the issue ur having)
+2. or **fork the repository** if you can fix the issue
 
-3.**wait for approval** - self explanatory
-
-4. if aprovved, you can **fork and submit a pull request**
+3. **contact me** about what you did in summary if you want to merge to the main branch
 
 ## code standards
 
