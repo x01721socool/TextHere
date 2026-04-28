@@ -25,7 +25,6 @@ int main(void){
 		int key=GetCharPressed();
 		float dt=GetFrameTime();
 		tinyt=tinyt>=2*PI?0:tinyt+dt;
-		TraceLog(LOG_INFO,"%f",tinyt);
 		while(key>0){
 			if((key>=32&&key<=125)&&(lettercount<32))
 			{
@@ -48,12 +47,12 @@ int main(void){
 					level=loadmap(buffer);
 					levelselected=true;
 					fclose(filey);
-				} else ert=dt;
+				}
 			}
 		BeginDrawing();
 			ClearBackground(RAYWHITE);
 			DrawText(premaplevel,180,280,40,BLACK);
-			DrawTextPro(deffont,"[TextHere]",(Vector2){400-4*oriw/2,200},(Vector2){4*oriw/2,orih/2},45*sin(tinyt),50.0f,1.0f,BLACK);
+			DrawTextPro(deffont,"[TextHere]",(Vector2){400,200},(Vector2){3*oriw,3*orih},20*sin(tinyt),75.0f,1.0f,BLACK);
 		EndDrawing();
 	}
 	char levelfolder[64];
@@ -71,7 +70,8 @@ int main(void){
 		}
 		CheckAndStartDialogue(&player.pos,TS,&dlgmap,
 				&activedialogueblock,
-				&camera);
+				&camera,
+				levelfolder);
 		camera.offset=(Vector2){400.0f,300.0f};
 		if (IsKeyPressed(KEY_ESCAPE)){
 			levelselected=false;
@@ -84,7 +84,8 @@ int main(void){
 			EndMode2D();
 			UpdateAndDrawActiveDialogue(activedialogueblock,
 					player.pos,
-					&camera);
+					&camera,
+					levelfolder);
 			if (activedialogueblock
 				&&!activedialogueblock->ds.active){
 				UnloadDialogue(&activedialogueblock->ds);

@@ -1,4 +1,7 @@
 ny:suprise:also this is camera test
 CAMERA:TPTOPOS:3,6
 ny:norm2:this is a random pos
-
+CAMERA:CENTERPLAYER
+ny:norm:ok go back to me
+SCENE:testscene
+ny:suprise:does ts actually work
