@@ -7,4 +7,9 @@ coords and not only and always at start
 -fixed a problem on docs/guide2map.md where maps actually start from assets/, not straight to maps/
 ##version 0.3 31-3-26
 -implemented render mechanic, now tiles can be rendered based off their id
--check out assets/guide2map.md for guides
+-check out docs/guide2map.md for guides
+##version 0.5 30-4-26
+-this version deserves a jump since its too massive
+-added menu
+-implemented "scenes" and "cameras" to dialogues
+-check out docs/dialogueadv.md for guides abt that

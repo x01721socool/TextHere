@@ -38,9 +38,6 @@ sudo apt-get install gcc make libraylib-dev
 brew install raylib
 ```
 
-### building
-
-```
 #build
 
 - if you're on windows, do ``./build.bat``. unless you edit the bat file, there isnt much option there

@@ -38,7 +38,7 @@ initiating this command can simply be done in this format
 ```
 CAMERA:GOTOPOS:<xpos>,<ypos>
 ```
-two arguements are needed in this line as numbers: <xpos> and <ypos>
+two arguements are needed in this line as numbers: ''<xpos>'' and ''<ypos>''
 
 **NOTE 1**:it is possible to do GOTOPOS on a coordinate outside of the map boundary
 **NOTE 2**:GOTOPOS does **NOT** lock the camera to the position after the dialogue ended, as it will just snap
@@ -54,14 +54,14 @@ the command can be initialized under this format
 ```
 SCENE:<imagename>
 ```
-only one arguement is needed in this: <imagename>
+only one arguement is needed in this: ''<imagename>''
 
-<imagename> is an arguement that defines the name of the image (excluding png) inside the directory ''/scenes'' inside the
+''<imagename>'' is an arguement that defines the name of the image (excluding png) inside the directory ''/scenes'' inside the
 desired map directory
 
 when you want to use the command, you must create a directory named "scenes" inside the map directory before putting the desired
 scene images inside. the images **MUST** be 800x600px in size, and a png.
 
-**NOTE**:there is no clear option on clearing the image, but one way is to set the <imagename> arguement to be something that
+**NOTE**:there is no clear option on clearing the image, but one way is to set the ''<imagename>'' arguement to be something that
 doesn't exist in the ''/scenes'' directory. that way SCENE can't load a scene because theres no image inside with that
 name
