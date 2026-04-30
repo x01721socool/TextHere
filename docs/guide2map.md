@@ -101,7 +101,10 @@ for every dialogue position, there must be a txt file named ``x<xpos>y<ypos>.txt
 if inside ``map_dialogue.csv`` has the position ``1,5``, then the name of the txt must be
 ``x1y5.txt`` and so forth.
 
-### the anatomy of dialogue txt and how to write them
+### writing basic dialogue
+
+unfortunately for this .md i could only fit the basic dialogue guide since others are pretty long. to check out how to do stuffs like
+''CAMERA'' or ''SCENE'', check out ''docs/dialogueadv.md''
 
 inside every txt file reside lines of dialogue. every line indicates every dialogue turn. they must
 look something like this

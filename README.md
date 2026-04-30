@@ -1,39 +1,40 @@
 # Game
 
-very tuff game idk
+Raylib-based game. initially planning to be something like Hotline Miami but there's still no npc so were still far
+from finished
 
 ### requirements
 
 - raylib
 
-- gcc or clang
+- gcc
 
-- make tool
+- make tool (for linux)
 
 ### setup by OS
 
 **windows**
 
--must be running from powershell (cmd is possible idk havent tried it out)
+- Get Raylib via Website. make sure the raylib's bin and libs are in ``C:/Raylib``
 
-- get scoop to get gcc and raylib
+- Get gcc via scoop
 
 ```
 winget install scoop
-scoop install gcc raylib
+scoop install gcc
 ```
+
+this method isnt actually tested alot so dunno if it'll work
 
 **Linux (Debian and etc)**
 
 ```
-bash
 sudo apt-get install gcc make libraylib-dev
 ```
 
 **macos**
 
 ```
-bash
 brew install raylib
 ```
 
@@ -41,21 +42,17 @@ brew install raylib
 
 ```
 #build
-make #or ./build.bat if ur on windows
 
-#run the game
-./build/game #add the .exe for windows
+- if you're on windows, do ``./build.bat``. unless you edit the bat file, there isnt much option there
 
-#or just use shortcuts as
-make run #build and run in instant
-make clean #clean build artifacts
-```
+- if you're on linux, do ``make``. unlike build.bat, theres two options which is ``all`` or ``clear``
 
 ## features
 - top down character
 - type out map name at the start
-- certain cooords initiate a dialogue
-- prolly easy to make maps
+- certain coordinates start a dialogue
+- a dialogue can control camera movement or "Scenes" outside of basic dialogue stuff
+- prolly easy to make maps with probably clear documentation
 
 ## any questions?
 

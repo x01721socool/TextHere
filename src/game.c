@@ -2,6 +2,7 @@
 #include <stddef.h>
 #include <stdbool.h>
 #include <stdio.h>
+#include <string.h>
 #include <math.h>
 /*mechanic headers*/
 #include "core/player.h"
@@ -40,14 +41,18 @@ int main(void){
 			}
 			if (IsKeyPressed(KEY_ENTER)){
 				TraceLog(LOG_INFO,"recieved string:%s",premaplevel);
+				TraceLog(LOG_INFO,"length of that:%d",(int)strlen(premaplevel));
 				char buffer[64];
 				snprintf(buffer,sizeof(buffer),"assets/maps/%s",premaplevel);
+				TraceLog(LOG_INFO,"full buffer string:%s",buffer);
 				FILE *filey;
-				if (filey=fopen(buffer,"r")){
+				char checkbuffer[70];
+				snprintf(checkbuffer,sizeof(checkbuffer),"%s/info.txt",buffer);
+				if (filey=fopen(checkbuffer,"r")){
+					fclose(filey);
 					level=loadmap(buffer);
 					levelselected=true;
-					fclose(filey);
-				}
+				} else TraceLog(LOG_WARNING,"failure to open/detect %s!",buffer);
 			}
 		BeginDrawing();
 			ClearBackground(RAYWHITE);
