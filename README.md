@@ -1,6 +1,6 @@
 # Game
 
-Raylib-based game. initially planning to be something like Hotline Miami but there's still no npc so were still far
+Raylib-based game. initially planning to be something like Hotline Miami but there's still no npc so it's still far
 from finished
 
 ### requirements
