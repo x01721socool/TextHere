@@ -1,6 +1,6 @@
 # contributing the game
 
-this game currently operates on an **Invite-Only Repository** and planning to drop that
+this game *no longer operate on an Invite-only repo* and is **free for anyone to contribute**
 
 ## How to contribute
 
