@@ -8,6 +8,7 @@
 #include "core/player.h"
 #include "core/grid.h"
 #include "core/dialogue.h"
+#include "core/basicnpc.h"
 #define TS 64 /*short for tile size*/
 //game.c becomes the motherboard
 //of the game and connects all functions/modules
@@ -68,6 +69,9 @@ int main(void){
 	Camera2D camera={0};
 	camera.zoom=1.0f;camera.rotation=0.0f;
 	DialogueBlock *activedialogueblock=NULL;
+	npc npctest = {
+		.pos={3*TS+32,2*TS+32}
+	};
 	while (!WindowShouldClose()) {
 		if (activedialogueblock==NULL){
 			Pupdate(&player,TS,level);
@@ -83,6 +87,7 @@ int main(void){
 		}
 		BeginDrawing();
 			ClearBackground(RAYWHITE);
+			Drawnpc(&npctest);
 			BeginMode2D(camera);
 				drawmap(level, TS, camera);
 				Pdraw(&player);
