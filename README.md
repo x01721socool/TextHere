@@ -1,6 +1,6 @@
-# Game
+# TextHere (initial game project name)
 
-Raylib-based game. initially planning to be something like Hotline Miami but there's still no npc so were still far
+Raylib-based game. initially planning to be something like Hotline Miami but there's still no npc so it's still far
 from finished
 
 ### requirements
@@ -53,8 +53,8 @@ brew install raylib
 
 ## any questions?
 
-if you're looking for how to mechanic of the game works or etc, please check out the ``docs/`` directory. you may also contact me if some question doesnt raise an answer to you!
+if you're looking for how to mechanic of the game works or etc, please check out the [docs/](docs/) directory, especially [here](docs/wiki.md) for a complete beginner guide to just play the game. you may also contact me if some question doesnt raise an answer to you!
 
 ## License
 GPL v3
-see [LICENSE]
+see [LICENSE](LICENSE)
