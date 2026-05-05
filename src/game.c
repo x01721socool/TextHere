@@ -71,10 +71,10 @@ int main(void){
   DialogueBlock *activedialogueblock=NULL;
   npc npctest = {
     .pos={5*TS+32,7*TS+32},
-    .active=true
+    .active=true,
+    .speed=200.0f
   };
-  npcgoto(&npctest,(Vector2){32,32},
-      3);
+  npcgoto(&npctest,(Vector2){32,32});
   while (!WindowShouldClose()) {
     if (activedialogueblock==NULL){
       Pupdate(&player,TS,level);
