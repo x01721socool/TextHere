@@ -58,3 +58,8 @@ if you're looking for how to mechanic of the game works or etc, please check out
 ## License
 GPL v3
 see [LICENSE](LICENSE)
+
+## credits
+
+- **A* pathfinding algorithm**:based on [Shardul Hirolikar's implementation](https://github.com/HimanshuK704/A-Star-Pathfinding-Algorithm-in-C) (MIT License)
+- **Game Engine**: [Raylib](https://github.com/raysan5/raylib) by Ramon Santamaria
