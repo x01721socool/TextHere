@@ -4,6 +4,8 @@
 #include "player.h"
 #include "math.h"
 #include <stddef.h>
+#include "astarpathfinding.h"
+#include <stdlib.h>
 void Drawnpc(const npc *n) {
 	if (!n->active) return;
 	DrawCircle(n->pos.x,n->pos.y,16,RED);
@@ -17,7 +19,7 @@ void npcgoto(npc *n, Vector2 target){
 
 void Updatenpc (npc *n) {
   if (!n->active) return;
-  if (n->ismoving&&Vector2Distance(n->pos,n->endpos)<=1.0f) {
+  if (n->ismoving&&Vector2Distance(n->pos,n->endpos)<=8.0f) {
     if (n->path!=NULL&&n->curpoint+1<n->pathcount) {
       n->curpoint++;
       npcgoto(n,n->path[n->curpoint]);
@@ -31,9 +33,17 @@ void Updatenpc (npc *n) {
     n->pos.y+=(n->endpos.y-n->startpos.y)/hyp*range;
   }
 }
-void npcsetpath(npc *n,Vector2 *ps, int c) {
-  n->path=ps;
-  n->pathcount=c;
+
+void npcsetpath(npc *n,gamemap map, Vector2 target,int ts) {
+  if (n->path!=NULL){
+    free(n->path);
+    n->path=NULL;
+  }
+  pathstruct b=findpath(n,map,target,ts);
+  n->path=b.path;
+  n->pathcount=b.count;
   n->curpoint=0;
-  npcgoto(n,n->path[0]);
+  if (n->pathcount > 0) {
+      npcgoto(n, n->path[0]);
+  }
 }

@@ -14,5 +14,5 @@ typedef struct {
 void Drawnpc(const npc *n);
 void Updatenpc(npc *n);
 void npcgoto(npc *n, Vector2 target);
-void npcsetpath(npc *n, Vector2 *ps,int c);
+void npcsetpath(npc *n,gamemap map, Vector2 target,int ts);
 #endif

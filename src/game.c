@@ -2,6 +2,7 @@
 #include <stddef.h>
 #include <stdbool.h>
 #include <stdio.h>
+#include <stdlib.h>
 #include <string.h>
 #include <math.h>
 /*mechanic headers*/
@@ -74,7 +75,6 @@ int main(void){
     .active=true,
     .speed=200.0f
   };
-  npcgoto(&npctest,(Vector2){32,32});
   while (!WindowShouldClose()) {
     if (activedialogueblock==NULL){
       Pupdate(&player,TS,level);
@@ -84,6 +84,17 @@ int main(void){
         &activedialogueblock,
         &camera,
         levelfolder);
+    if (!npctest.ismoving) {
+     int rvalx,rvaly;
+     rvalx=rand();rvalx=rand();
+     int x,y;
+     x = rvalx%level.width;y=rvaly%level.height;
+     if (level.walls[y*level.width + x]!=1) {
+       npcsetpath(&npctest,level,(Vector2){x*TS+32,y*TS+32},TS);
+    } else{rvalx=rand();rvaly=rand();
+       x=rvalx%level.width;y=rvaly%level.height;
+    }
+  }
     Updatenpc(&npctest);
     camera.offset=(Vector2){400.0f,300.0f};
     if (IsKeyPressed(KEY_ESCAPE)){
