@@ -79,7 +79,9 @@ void ParseDialogueLine(DialogueSystem *ds,Camera2D *cam, Vector2 plypos,const ch
       snprintf(path,sizeof(path),"%s/scenes/%s.png",levelfolder,option);
       if (ds->currentScene.id!=0) UnloadTexture(ds->currentScene);
       ds->currentScene=LoadTexture(path);
-    }
+    }ds->current++;
+    ParseDialogueLine(ds,cam,plypos,levelfolder);
+    return;
   } else{
   strcpy(ds->currentName,name);
   char *emotion=strtok(NULL,":");

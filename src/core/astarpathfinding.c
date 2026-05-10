@@ -60,7 +60,6 @@ pathstruct findpath(npc *n, gamemap map, Vector2 target, int ts) {
         // Find the open node with the lowest F cost (F = G + H)
         node* current = NULL;
         float lowestF = FLT_MAX;
-        int currentIdx = -1;
 
         for (int i = 0; i < map.width * map.height; i++) {
             if (grid[i].isopen) {
@@ -68,7 +67,6 @@ pathstruct findpath(npc *n, gamemap map, Vector2 target, int ts) {
                 if (f < lowestF) {
                     lowestF = f;
                     current = &grid[i];
-                    currentIdx = i;
                 }
             }
         }
