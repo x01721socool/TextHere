@@ -16,6 +16,7 @@ ray raywall(Vector2 pos, float rad,gamemap map,int ts,int lim) {
     if (mapx>=0&&mapx<map.width&&mapy>=0&&mapy<map.height){
       if (map.walls[map.width*mapy+mapx]==1) {
        r.length=i;
+       r.hit=true;
        r.dx=dx;r.dy=dy;
        return r;
       }
@@ -23,6 +24,7 @@ ray raywall(Vector2 pos, float rad,gamemap map,int ts,int lim) {
  
  }
   r.length=r.lengthlim;
+  r.hit=false;
   r.dx=dx;r.dy=dy;
   return r;
 }
