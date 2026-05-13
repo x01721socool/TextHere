@@ -4,4 +4,4 @@ ny:norm2:this is a random pos
 CAMERA:CENTERPLAYER
 ny:norm:ok go back to me
 SCENE:testscene
-ny:suprise:does ts actually work
+ny:suprise:poop fart

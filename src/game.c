@@ -10,6 +10,7 @@
 #include "core/grid.h"
 #include "core/dialogue.h"
 #include "core/basicnpc.h"
+#include "core/raycast.h"
 #define TS 64 /*short for tile size*/
 //game.c becomes the motherboard
 //of the game and connects all functions/modules
@@ -73,7 +74,7 @@ int main(void){
     .active=true,
     .speed=200.0f
   };
-  while (!WindowShouldClose()) {
+    while (!WindowShouldClose()) {
     if (activedialogueblock==NULL){
       Pupdate(&player,TS,level);
       camera.target=player.pos;
