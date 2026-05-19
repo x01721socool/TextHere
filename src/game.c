@@ -10,6 +10,7 @@
 #include "core/grid.h"
 #include "core/dialogue.h"
 #include "core/basicnpc.h"
+#include "core/astarpathfinding.h"
 #include "core/raycast.h"
 #define TS 64 /*short for tile size*/
 //game.c becomes the motherboard
@@ -83,21 +84,19 @@ int main(void){
         &activedialogueblock,
         &camera,
         levelfolder);
-    if (!npctest.ismoving) {
-     int rvalx,rvaly;
-     rvalx=rand();rvalx=rand();
-     int x,y;
-     x = rvalx%level.width;y=rvaly%level.height;
-     if (level.walls[y*level.width + x]!=1) {
-       npcsetpath(&npctest,level,(Vector2){x*TS+32,y*TS+32},TS);
-    } else{rvalx=rand();rvaly=rand();
-       x=rvalx%level.width;y=rvaly%level.height;
-    }
-  }
     Updatenpc(&npctest);
     camera.offset=(Vector2){400.0f,300.0f};
     if (IsKeyPressed(KEY_ESCAPE)){
       levelselected=false;
+    }
+    if (IsKeyPressed(KEY_G)){
+      TraceLog(LOG_INFO,"ppos:%d,%d",(int)(player.pos.x)/TS,(int)(player.pos.y)/TS);
+    int ppos[2]={(int)player.pos.x/TS,(int)player.pos.y/TS};
+    int **r=intsoverrads(3,ppos);
+    for (int i=0;i<3*4+2;i++){
+      TraceLog(LOG_INFO,"%d,%d",r[i][0],r[i][1]);
+    }
+    free(r);
     }
     BeginDrawing();
       ClearBackground(RAYWHITE);

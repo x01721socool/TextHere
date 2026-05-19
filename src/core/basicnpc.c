@@ -5,6 +5,7 @@
 #include "math.h"
 #include <stddef.h>
 #include "astarpathfinding.h"
+#include "raycast.h"
 #include <stdlib.h>
 void Drawnpc(const npc *n) {
 	if (!n->active) return;
@@ -47,3 +48,35 @@ void npcsetpath(npc *n,gamemap map, Vector2 target,int ts) {
       npcgoto(n, n->path[0]);
   }
 }
+
+void findpathinradius(npc *n,Vector2 targetpos,gamemap map, int ts,int rad) {
+  int npos[2]={(int)(n->pos.x/ts),(int)(n->pos.y/ts)};
+  int **q=intsoverrads(rad,npos);
+  int firstk=countfirstp(q);
+  remdupfirstp(q);
+  remblockedp(q,map);
+  remnegp(q);
+  remnray2circp(q,targetpos,ts,500);
+  int lastk=countfirstp(q);
+  int bestpathc=99999;
+  pathstruct bestpath;
+  for (int i=0;i<=lastk;i++){
+    Vector2 desiredpos=(Vector2){(float)(q[i][0]*ts+ts/2),
+      (float)(q[i][1]*ts+ts/2)};
+    pathstruct path=findpath(n, map, desiredpos, ts);
+    if (path.count<=bestpathc){
+      bestpathc=path.count;bestpath=path;
+    }
+  }
+  n->path=bestpath.path;
+  n->pathcount=bestpathc;
+  n->curpoint=0;
+  if (n->pathcount > 0) {
+      npcgoto(n, n->path[0]);
+  }
+}
+
+
+//todo:check raycast.c
+
+

@@ -11,6 +11,7 @@ typedef struct {
 	 
 } npc;
 
+
 void Drawnpc(const npc *n);
 void Updatenpc(npc *n);
 void npcgoto(npc *n, Vector2 target);

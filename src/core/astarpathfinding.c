@@ -6,14 +6,16 @@
  * 
  * Modified for TextHere project
  */
+#include "basicnpc.h"
 #include "astarpathfinding.h"
 #include "raymath.h"
+#include "raycast.h"
 #include <stdlib.h>
 #include <float.h>
 
 // 4-directional movement (Up, Down, Left, Right)
 static int dx[4] = { 1, 0, -1, 0 };
-static int dy[4] = { 0, 1, 0, -1 };
+static int dy[4]= { 0, 1, 0, -1 };
 
 // Heuristic function: Manhattan distance (good for 4-way grids)
 static float GetHeuristic(int x1, int y1, int x2, int y2) {
@@ -136,4 +138,96 @@ pathstruct findpath(npc *n, gamemap map, Vector2 target, int ts) {
 
     free(grid);
     return result;
+}
+
+int **intsoverrads(int radius,int pos[2]) {
+  int *p=malloc((size_t)(radius*2+1)*sizeof(int));
+  for (int i=0;i<=radius;i++){
+    p[i]=pos[0]-i;
+  }
+  for (int k=radius+1;k<=radius*2;k++){
+    p[k]=pos[0]+k-radius;
+  }
+  int **z=malloc((size_t)(radius*4+2)*sizeof(int*));
+  for (int j=0;j<radius*4+2;j++) {
+    z[j]=malloc(2*sizeof(int));
+    z[j][0]=p[j%(radius*2+1)];
+    z[j][1]=(int)sqrt(powf((float)radius,2.0f)-powf((float)p[j%(radius*2+1)],2.0f))*((j>radius)?-1:1);
+    if (z[j][1]==-2147483648) {
+      p[j%(radius*2+1)]=0;
+      z[j][1]=(int)sqrt(powf((float)radius,2.0f)-powf((float)p[j%(radius*2+1)],2.0f))*((j>radius)?-1:1);
+    }
+  }
+  free(p);
+  return z;
+}
+int countfirstp(int **p){
+  int k=0;
+  while (p[k]!=NULL){
+    k++;
+  }
+  return k;
+}
+void remdupfirstp(int **p) {
+  int **z=p;
+  int i=0;
+  while (z[i]!=NULL) {
+    if (z[i]==z[i+1]){
+      z[i+1]=NULL;
+      int c=i+1;
+      while (z[c+1]!=NULL){
+        z[c]=z[c+1];
+        c++;
+      }
+    }
+    i++;
+  }
+  p=z;
+}
+
+void remblockedp(int **p,gamemap map) {
+  int i=0;
+  while (p[i]!=NULL) {
+    if (map.walls[map.width*p[i][0]+p[i][1]]==1){
+      p[i]=NULL;
+      int c=i+1;
+      while(p[c+1]!=NULL){
+        p[c]=p[c+1];
+        c++;
+      }
+    }
+  i++;
+  }
+}
+void remnegp(int **p){
+  int i=0;
+  while (p[i]!=NULL){
+    if (p[i][0]<0||p[i][1]<0){
+      p[i]=NULL;
+      int c=i+1;
+      while (p[c+1]!=NULL){
+        p[c]=p[c+1];
+        c++;
+      }
+    }
+    i++;
+  }
+}
+void remnray2circp(int **p,Vector2 targ,int ts,int lim) {
+  int i=0;
+  while (p[i]!=NULL) {
+    Vector2 opos=(Vector2){(float)(p[i][0]*ts+32),
+      (float)(p[i][1]*ts+32)};
+    ray r={.lengthlim=lim,.hitwall=false,.hitcirc=false};
+    ray2circ(&r,opos,targ,lim,ts);
+    if (!r.hitcirc) {
+      p[i]=NULL;
+      int c=i+1;
+      while (p[c+1]!=NULL){
+        p[c]=p[c+1];
+        c++;
+      }
+    }
+    i++;
+  }
 }
