@@ -159,6 +159,7 @@ int **intsoverrads(int radius,int pos[2]) {
     }
   }
   free(p);
+  z[radius*4+2]=NULL;
   return z;
 }
 int countfirstp(int **p){
@@ -172,7 +173,7 @@ void remdupfirstp(int **p) {
   int **z=p;
   int i=0;
   while (z[i]!=NULL) {
-    if (z[i]==z[i+1]){
+    if (z[i]==z[i+1]&&z[i+1]!=NULL){
       z[i+1]=NULL;
       int c=i+1;
       while (z[c+1]!=NULL){
@@ -182,6 +183,7 @@ void remdupfirstp(int **p) {
     }
     i++;
   }
+  p[countfirstp(z)]=NULL;
   p=z;
 }
 
@@ -198,6 +200,7 @@ void remblockedp(int **p,gamemap map) {
     }
   i++;
   }
+  p[countfirstp(p)]=NULL;
 }
 void remnegp(int **p){
   int i=0;
@@ -212,6 +215,7 @@ void remnegp(int **p){
     }
     i++;
   }
+  p[countfirstp(p)]=NULL;
 }
 void remnray2circp(int **p,Vector2 targ,int ts,int lim) {
   int i=0;
@@ -230,4 +234,5 @@ void remnray2circp(int **p,Vector2 targ,int ts,int lim) {
     }
     i++;
   }
+  p[countfirstp(p)]=NULL;
 }

@@ -45,7 +45,7 @@ void ray2circ(ray *r,Vector2 opos,Vector2 targ,int lim,int tsize){
   //difference between target and original pos, but 
   //it just the same as above
   r->hitcirc=((float)tsize+powf(vx*px+vy*py,2.0f)
-      -px-py>=0)?(vx*px+vx*py-sqrtf((float)tsize+
+      -px-py>=0)?(vx*px+vy*py-sqrtf((float)tsize+
           powf(vx*px+vy*py,2.0f)-px-py)<=(float)r->lengthlim)?
             true:false:false;
   r->dx=vx;r->dy=vy;

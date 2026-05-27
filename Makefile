@@ -1,4 +1,4 @@
 all:
-	gcc src/game.c src/core/*.c -g -lraylib -lm -o game
+	$(CC) src/game.c src/core/*.c -lm -lraylib -lX11 -lGL -o game
 clear:
 	rm game

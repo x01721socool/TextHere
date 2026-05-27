@@ -60,7 +60,7 @@ void findpathinradius(npc *n,Vector2 targetpos,gamemap map, int ts,int rad) {
   int lastk=countfirstp(q);
   int bestpathc=99999;
   pathstruct bestpath;
-  for (int i=0;i<=lastk;i++){
+  for (int i=0;i<lastk;i++){
     Vector2 desiredpos=(Vector2){(float)(q[i][0]*ts+ts/2),
       (float)(q[i][1]*ts+ts/2)};
     pathstruct path=findpath(n, map, desiredpos, ts);
