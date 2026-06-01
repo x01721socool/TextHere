@@ -17,16 +17,19 @@
 //of the game and connects all functions/modules
 //alltogether
 
-int main(void){
-  InitWindow(800,600,"test");gamemap level;
-  SetExitKey(KEY_NULL);
+int main(int argc, char** argv){
+  InitWindow(800,600,"TextHere");gamemap level;
   bool levelselected=false;int lettercount=0;
-  char premaplevel[15]={0};
+  char premaplevel[15]={0};InitAudioDevice();
   Font deffont=GetFontDefault();
   float tinyt=0.0f;
   float oriw=MeasureText("[TextHere]",deffont.baseSize);
   float orih=deffont.baseSize;
+  Music music=LoadMusicStream("assets/music/togrip.wav");
+  music.looping=true;
+  PlayMusicStream(music);
   while(!levelselected&&!WindowShouldClose()){
+    UpdateMusicStream(music);
     int key=GetCharPressed();
     float dt=GetFrameTime();
     tinyt=tinyt>=2*PI?0:tinyt+dt;
@@ -65,6 +68,7 @@ int main(void){
       DrawTextPro(deffont,"[TextHere]",(Vector2){390,200},(Vector2){3*oriw,3*orih},20*sin(tinyt),75.0f,1.0f,BLACK);
     EndDrawing();
   }
+  UnloadMusicStream(music);
   char levelfolder[64];
   snprintf(levelfolder,sizeof(levelfolder),"assets/maps/%s",premaplevel);
   DialogueMap dlgmap=LoadDialogueMap(levelfolder);
@@ -118,6 +122,7 @@ int main(void){
     EndDrawing();
   }
   unloadmap(&level);
+  CloseAudioDevice();
   FreeDialogueMap(&dlgmap);
   CloseWindow();
   return 0;
