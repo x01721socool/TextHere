@@ -10,6 +10,7 @@ typedef struct {
   Texture2D currentPortrait;
   Texture2D currentScene;
   float texttimer; int lettercount;
+  Sound talking;
 } DialogueSystem;
 
 typedef struct {

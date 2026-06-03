@@ -29,7 +29,11 @@ void UpdateDialogue(DialogueSystem *ds,Vector2 plypos, Camera2D *cam,const char 
   float speed=0.01f;ds->texttimer+=GetFrameTime();
   if(ds->texttimer>=speed){
     if (ds->lettercount<(int)(strlen(ds->currentText))){
-      ds->lettercount++;}
+      ds->lettercount++;
+      if (IsSoundValid(ds->talking)) {
+	      PlaySound(ds->talking);
+      }
+    }
     ds->texttimer=0.0f;
   }
   if(IsKeyPressed(KEY_ENTER)){
@@ -86,6 +90,15 @@ void ParseDialogueLine(DialogueSystem *ds,Camera2D *cam, Vector2 plypos,const ch
   strcpy(ds->currentName,name);
   char *emotion=strtok(NULL,":");
   char *text=strtok(NULL,":");
+  char snbuf[256];
+  if (!IsSoundValid(ds->talking)) {
+  snprintf(snbuf,sizeof(snbuf),"assets/sound/talking/%s.wav",ds->currentName);
+  ds->talking=LoadSound(snbuf);
+  if (!IsSoundValid(ds->talking)){
+	  TraceLog(LOG_WARNING,"%s, the file may not exist"
+			  "for talking reasons",snbuf);
+  	}
+  }
 
   if (emotion) {
     char path[256];
@@ -153,6 +166,9 @@ void UnloadDialogue(DialogueSystem *ds){
   if (ds->currentPortrait.id>0){
     UnloadTexture(ds->currentPortrait);
     ds->currentPortrait.id=0;
+  }
+  if (IsSoundValid(ds->talking)){
+	  UnloadSound(ds->talking);
   }
 }
 DialogueMap LoadDialogueMap(const char *levelfolder){
