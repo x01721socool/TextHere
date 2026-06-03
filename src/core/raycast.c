@@ -31,24 +31,51 @@ void drawray(ray r){
   DrawLine((int)r.intpos.x,(int)r.intpos.y,
       (int)r.intpos.x+(int)(r.dx*(float)r.length),(int)r.intpos.y+(int)(r.dy*(float)r.length),GREEN);
 }
-//todo:define ray2circ from raycast.h
-void ray2circ(ray *r,Vector2 opos,Vector2 targ,int lim,int tsize){
-  r->hitcirc=false;
-  float px=targ.x-opos.x;
-  float py=targ.y-opos.y;
-  float dist=sqrtf(powf(px,2.0f)+powf(py,2.0f));
-  float vx=px/dist;float vy=py/dist;
-  r->lengthlim=(r->lengthlim==lim)?r->lengthlim:lim;
-  //just for context,i got the formula of raycast algorithm
-  //, vxpx+vypy+-sqrt(r^2+(vxpx+vypy)^2-px-py)
-  //initially px and py was supposed to be p-n_0, basically
-  //difference between target and original pos, but 
-  //it just the same as above
-  r->hitcirc=((float)tsize+powf(vx*px+vy*py,2.0f)
-      -px-py>=0)?(vx*px+vy*py-sqrtf((float)tsize+
-          powf(vx*px+vy*py,2.0f)-px-py)<=(float)r->lengthlim)?
-            true:false:false;
-  r->dx=vx;r->dy=vy;
+
+// Ray-circle intersection using quadratic formula
+// Tests if a ray from opos hits a circle at targ with radius tsize
+// Formula: (point - center)·(point - center) = r²
+// Where point = opos + t*direction
+void ray2circ(ray *r, Vector2 opos, Vector2 targ, int lim, int tsize){
+  r->hitcirc = false;
+  
+  // Vector from ray origin to circle center
+  float px = targ.x - opos.x;
+  float py = targ.y - opos.y;
+  
+  // Distance to circle center
+  float dist = sqrtf(px * px + py * py);
+  
+  // Handle case where ray origin is at circle center
+  if (dist == 0) {
+    r->hitcirc = true;
+    r->dx = 0;
+    r->dy = 1;
+    return;
+  }
+  
+  // Normalized ray direction
+  float vx = px / dist;
+  float vy = py / dist;
+  
+  r->lengthlim = lim;
+  
+  // Ray-circle intersection using quadratic formula
+  // Discriminant = (v·p)² - (p·p - r²)
+  float projLen = vx * px + vy * py;       // Projection of p onto ray direction
+  float p_dot_p = px * px + py * py;       // |p|² (squared distance to center)
+  float r_squared = (float)tsize * tsize;  // r²
+  float discriminant = projLen * projLen - (p_dot_p - r_squared);
+  
+  if (discriminant >= 0) {
+    // Distance to first intersection point
+    float t = projLen - sqrtf(discriminant);
+    r->hitcirc = (t >= 0 && t <= r->lengthlim) ? true : false;
+  }
+  
+  r->dx = vx;
+  r->dy = vy;
 }
 
   
+
