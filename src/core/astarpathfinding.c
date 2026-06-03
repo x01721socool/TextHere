@@ -140,28 +140,43 @@ pathstruct findpath(npc *n, gamemap map, Vector2 target, int ts) {
     return result;
 }
 
-int **intsoverrads(int radius,int pos[2]) {
-  int *p=malloc((size_t)(radius*2+1)*sizeof(int));
-  for (int i=0;i<=radius;i++){
-    p[i]=pos[0]-i;
+// Generate points around a circle of given radius
+// Circle equation: (x - center_x)² + (y - center_y)² = r²
+// Solving for y: y = ±sqrt(r² - (x - center_x)²)
+int **intsoverrads(int radius, int pos[2]) {
+  // Generate x-coordinates from center - radius to center + radius
+  int *xcoords = malloc((size_t)(radius * 2 + 1) * sizeof(int));
+  for (int i = 0; i <= radius * 2; i++) {
+    xcoords[i] = pos[0] - radius + i;
   }
-  for (int k=radius+1;k<=radius*2;k++){
-    p[k]=pos[0]+k-radius;
+  
+  // For each x, calculate corresponding y values (top and bottom of circle)
+  // Total points: 2 * (2*radius + 1) for top and bottom hemispheres
+  int totalPoints = 2 * (radius * 2 + 1);
+  int **z = malloc((size_t)(totalPoints + 1) * sizeof(int*));
+  
+  for (int j = 0; j < totalPoints; j++) {
+    z[j] = malloc(2 * sizeof(int));
+    int x = xcoords[j % (radius * 2 + 1)];
+    z[j][0] = x;
+    
+    // Circle equation: y = sqrt(r² - (x - center_x)²)
+    int dx = x - pos[0];
+    float discriminant = (float)(radius * radius - dx * dx);
+    
+    // Handle floating point errors
+    if (discriminant < 0) discriminant = 0;
+    
+    int y_abs = (int)sqrtf(discriminant);
+    // Top half (positive y) for first half, bottom half (negative y) for second half
+    z[j][1] = (j < radius * 2 + 1) ? y_abs + pos[1] : -y_abs + pos[1];
   }
-  int **z=malloc((size_t)(radius*4+2)*sizeof(int*));
-  for (int j=0;j<radius*4+2;j++) {
-    z[j]=malloc(2*sizeof(int));
-    z[j][0]=p[j%(radius*2+1)];
-    z[j][1]=(int)sqrt(powf((float)radius,2.0f)-powf((float)p[j%(radius*2+1)],2.0f))*((j>radius)?-1:1);
-    if (z[j][1]==-2147483648) {
-      p[j%(radius*2+1)]=0;
-      z[j][1]=(int)sqrt(powf((float)radius,2.0f)-powf((float)p[j%(radius*2+1)],2.0f))*((j>radius)?-1:1);
-    }
-  }
-  free(p);
-  z[radius*4+2]=NULL;
+  
+  free(xcoords);
+  z[totalPoints] = NULL;
   return z;
 }
+
 int countfirstp(int **p){
   int k=0;
   while (p[k]!=NULL){
