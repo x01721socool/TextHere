@@ -50,16 +50,28 @@ void npcsetpath(npc *n,gamemap map, Vector2 target,int ts) {
 }
 
 void findpathinradius(npc *n,Vector2 targetpos,gamemap map, int ts,int rad) {
-  int npos[2]={(int)(n->pos.x/ts),(int)(n->pos.y/ts)};
-  int **q=intsoverrads(rad,npos);
+  int ppos[2]={(int)(targetpos.x/ts),(int)(targetpos.y/ts)};
+  int **q=intsoverrads(rad,ppos);
   int firstk=countfirstp(q);
+  for (int i=0;i<firstk;i++){
+    TraceLog(LOG_INFO,"%d,%d\n",q[i][0],q[i][1]);
+  }
   remdupfirstp(q);
-  remblockedp(q,map);
   remnegp(q);
-  remnray2circp(q,targetpos,ts,500);
+  remblockedp(q,map);
+  remnray2circp(q,targetpos,24,500);
   int lastk=countfirstp(q);
+	if (lastk==0) {
+					TraceLog(LOG_WARNING,"no possible radius spot found. here are the corrdinates given");
+					int **k=intsoverrads(rad,ppos);
+					int firstkn=countfirstp(k);
+					for (int i=0;i<firstkn;i++){
+									TraceLog(LOG_INFO,"%d,%d\n",k[i][0],k[i][1]);
+					}
+					return;
+	}
   int bestpathc=99999;
-  pathstruct bestpath;
+  pathstruct bestpath={NULL,0};
   for (int i=0;i<lastk;i++){
     Vector2 desiredpos=(Vector2){(float)(q[i][0]*ts+ts/2),
       (float)(q[i][1]*ts+ts/2)};

@@ -17,6 +17,8 @@
 //of the game and connects all functions/modules
 //alltogether
 
+bool musicbool=false;
+
 int main(int argc, char** argv){
   InitWindow(800,600,"TextHere");gamemap level;
   bool levelselected=false;int lettercount=0;
@@ -27,7 +29,7 @@ int main(int argc, char** argv){
   float orih=deffont.baseSize;
   Music music=LoadMusicStream("assets/music/togrip.wav");
   music.looping=true;
-  PlayMusicStream(music);
+  if (musicbool) PlayMusicStream(music);
   while(!levelselected&&!WindowShouldClose()){
     UpdateMusicStream(music);
     int key=GetCharPressed();
@@ -94,13 +96,8 @@ int main(int argc, char** argv){
       levelselected=false;
     }
     if (IsKeyPressed(KEY_G)){
-      TraceLog(LOG_INFO,"ppos:%d,%d",(int)(player.pos.x)/TS,(int)(player.pos.y)/TS);
-    int ppos[2]={(int)player.pos.x/TS,(int)player.pos.y/TS};
-    int **r=intsoverrads(3,ppos);
-    for (int i=0;i<3*4+2;i++){
-      TraceLog(LOG_INFO,"%d,%d",r[i][0],r[i][1]);
-    }
-    free(r);
+						findpathinradius(&npctest,player.pos,
+														level,TS,2);
     }
     BeginDrawing();
       ClearBackground(RAYWHITE);

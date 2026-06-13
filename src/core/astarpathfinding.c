@@ -205,32 +205,34 @@ void remdupfirstp(int **p) {
 void remblockedp(int **p,gamemap map) {
   int i=0;
   while (p[i]!=NULL) {
-    if (map.walls[map.width*p[i][0]+p[i][1]]==1){
-      p[i]=NULL;
-      int c=i+1;
+    if (!(p[i][1]<0||p[i][1]>=map.height||p[i][0]<0||p[i][0]>=map.width)&&map.walls[map.width*p[i][1]+p[i][0]]==1){
+      free(p[i]);
+      int c=i;
       while(p[c+1]!=NULL){
         p[c]=p[c+1];
         c++;
       }
-    }
-  i++;
+			p[c]=NULL;
+    } else {
+        i++;
+		}
   }
-  p[countfirstp(p)]=NULL;
 }
 void remnegp(int **p){
   int i=0;
   while (p[i]!=NULL){
     if (p[i][0]<0||p[i][1]<0){
-      p[i]=NULL;
-      int c=i+1;
+      free(p[i]);
+      int c=i;
       while (p[c+1]!=NULL){
         p[c]=p[c+1];
         c++;
       }
-    }
-    i++;
+			p[c]=NULL;
+    } else {
+        i++;
+		}
   }
-  p[countfirstp(p)]=NULL;
 }
 void remnray2circp(int **p,Vector2 targ,int ts,int lim) {
   int i=0;
@@ -240,14 +242,16 @@ void remnray2circp(int **p,Vector2 targ,int ts,int lim) {
     ray r={.lengthlim=lim,.hitwall=false,.hitcirc=false};
     ray2circ(&r,opos,targ,lim,ts);
     if (!r.hitcirc) {
-      p[i]=NULL;
-      int c=i+1;
+      free(p[i]);
+      int c=i;
       while (p[c+1]!=NULL){
         p[c]=p[c+1];
         c++;
       }
-    }
-    i++;
+			p[c]=NULL;
+    } else {
+      i++;
+		}
   }
   p[countfirstp(p)]=NULL;
 }

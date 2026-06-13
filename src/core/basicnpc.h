@@ -16,4 +16,6 @@ void Drawnpc(const npc *n);
 void Updatenpc(npc *n);
 void npcgoto(npc *n, Vector2 target);
 void npcsetpath(npc *n,gamemap map, Vector2 target,int ts);
+void findpathinradius(npc *n,Vector2 targetpos,gamemap map,
+								int ts,int rad);
 #endif
