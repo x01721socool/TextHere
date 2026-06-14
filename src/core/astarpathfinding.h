@@ -24,5 +24,5 @@ int countfirstp(int **p);
 void remdupfirstp(int **p);
 void remblockedp(int **p,gamemap map);
 void remnegp(int **p);
-void remnray2circp(int **p,Vector2 targ,int ts, int lim);
+void remnray2circp(int **p,Vector2 targ,int ts, int lim,gamemap map);
 #endif
