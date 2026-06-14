@@ -7,6 +7,7 @@
 #include "astarpathfinding.h"
 #include "raycast.h"
 #include <stdlib.h>
+
 void Drawnpc(const npc *n) {
 	if (!n->active) return;
 	DrawCircle(n->pos.x,n->pos.y,16,RED);
@@ -53,42 +54,65 @@ void findpathinradius(npc *n,Vector2 targetpos,gamemap map, int ts,int rad) {
   int ppos[2]={(int)(targetpos.x/ts),(int)(targetpos.y/ts)};
   int **q=intsoverrads(rad,ppos);
   int firstk=countfirstp(q);
-  for (int i=0;i<firstk;i++){
-    TraceLog(LOG_INFO,"%d,%d\n",q[i][0],q[i][1]);
-  }
+  TraceLog(LOG_INFO,"Initial candidates: %d", firstk);
+  
   remdupfirstp(q);
   remnegp(q);
   remblockedp(q,map);
-  remnray2circp(q,targetpos,24,500);
-  int lastk=countfirstp(q);
-	if (lastk==0) {
-					TraceLog(LOG_WARNING,"no possible radius spot found. here are the corrdinates given");
-					int **k=intsoverrads(rad,ppos);
-					int firstkn=countfirstp(k);
-					for (int i=0;i<firstkn;i++){
-									TraceLog(LOG_INFO,"%d,%d\n",k[i][0],k[i][1]);
-					}
-					return;
+  int afterwalls = countfirstp(q);
+  TraceLog(LOG_INFO,"After removing walls/negatives: %d", afterwalls);
+  
+  remnray2circp(q, targetpos, ts, 500, map);
+  int afterlos = countfirstp(q);
+  TraceLog(LOG_INFO,"After line-of-sight filter: %d", afterlos);
+  
+	if (afterlos == 0) {
+		TraceLog(LOG_WARNING,"no candidates with line of sight to target found");
+		int k = firstk;
+		for (int i = 0; i < k; i++) {
+			free(q[i]);
+		}
+		free(q);
+		return;
 	}
+  
   int bestpathc=99999;
   pathstruct bestpath={NULL,0};
-  for (int i=0;i<lastk;i++){
+  int bestidx=-1;
+  
+  for (int i=0;i<afterlos;i++){
     Vector2 desiredpos=(Vector2){(float)(q[i][0]*ts+ts/2),
       (float)(q[i][1]*ts+ts/2)};
     pathstruct path=findpath(n, map, desiredpos, ts);
-    if (path.count<=bestpathc){
-      bestpathc=path.count;bestpath=path;
+    
+    TraceLog(LOG_INFO,"Candidate [%d,%d] -> path length: %d", q[i][0], q[i][1], path.count);
+    
+    if (path.count > 0 && path.count < bestpathc){
+      if (bestpath.path != NULL) free(bestpath.path);
+      bestpathc=path.count;
+      bestpath=path;
+      bestidx=i;
+    } else if (path.path != NULL) {
+      free(path.path);
     }
   }
+  
+  if (bestidx >= 0) {
+    TraceLog(LOG_INFO,"Best candidate selected: [%d,%d] with path length %d", q[bestidx][0], q[bestidx][1], bestpathc);
+  } else {
+    TraceLog(LOG_WARNING,"No valid path found to any candidate");
+  }
+  
   n->path=bestpath.path;
   n->pathcount=bestpathc;
   n->curpoint=0;
   if (n->pathcount > 0) {
       npcgoto(n, n->path[0]);
   }
+  
+  int k = firstk;
+  for (int i = 0; i < k; i++) {
+    free(q[i]);
+  }
+  free(q);
 }
-
-
-//todo:check raycast.c
-
-
