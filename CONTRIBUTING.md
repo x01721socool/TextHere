@@ -1,6 +1,6 @@
 # contributing the game
 
-this game *no longer operate on an Invite-only repo* and is **free for anyone to contribute**
+this game is **free for anyone to contribute** under the name of **Libre Software** and **GPL v3**
 
 ## How to contribute
 
@@ -14,6 +14,9 @@ this game *no longer operate on an Invite-only repo* and is **free for anyone to
 
 -follow the code style
 
+-you can add comments i'll admit that
+my coding format is crappy
+
 -test changes with make
 
 -keep commits clean and descriptive
@@ -21,4 +24,4 @@ this game *no longer operate on an Invite-only repo* and is **free for anyone to
 -update or make documentations if needed
 
 ##questions?
-feel free to open an issue and ask
+feel free to open an issue and ask, or ask me thoroughly

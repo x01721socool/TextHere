@@ -50,6 +50,7 @@ int main(int argc, char** argv){
   float orih=deffont.baseSize;
   Music music=LoadMusicStream("assets/music/togrip.wav");
   music.looping=true;
+	bool playbarsel=false;
   if (musicbool) PlayMusicStream(music);
   while(!levelselected&&!WindowShouldClose()){
     UpdateMusicStream(music);
@@ -59,7 +60,7 @@ int main(int argc, char** argv){
                 float dt=GetFrameTime();
                 tinyt=tinyt>=2*PI?0:tinyt+dt;
                 while(key>0){
-                if((key>=32&&key<=125)&&(lettercount<16))
+                if((key>=32&&key<=125)&&(lettercount<16)&&playbarsel)
                 {
                         premaplevel[lettercount]=(char)key;
                         premaplevel[lettercount+1]='\0';
@@ -72,6 +73,9 @@ int main(int argc, char** argv){
                         premaplevel[lettercount]='\0';
                 }
                 if (IsKeyPressed(KEY_ENTER)){
+												if (premaplevel[0]==0||premaplevel[0]=='\0') {
+																playbarsel=!playbarsel;
+												}
                         TraceLog(LOG_INFO,"recieved string:%s",premaplevel);
                         TraceLog(LOG_INFO,"length of that:%d",(int)strlen(premaplevel));
                         char buffer[64];
@@ -89,8 +93,10 @@ int main(int argc, char** argv){
                 }
                 BeginDrawing();
                 ClearBackground(RAYWHITE);
-                DrawText(premaplevel,200,350,40,BLACK);
-                DrawTextPro(deffont,"[TextHere]",(Vector2){390,200},(Vector2){3*oriw,3*orih},20*sin(tinyt),75.0f,1.0f,BLACK);
+								DrawRectangle(10,deffont.baseSize*4+10,40*9.75,40,DARKGRAY);
+                DrawText((playbarsel)?premaplevel:"notselected",10,deffont.baseSize*4+10,40,BLACK);
+                DrawText("[TextHere]",10,10,deffont.baseSize*4,BLACK);
+
                 EndDrawing();
 								break;
 				default:

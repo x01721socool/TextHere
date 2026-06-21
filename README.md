@@ -1,7 +1,7 @@
 # TextHere (initial game project name)
 
-Raylib-based game. initially planning to be something like Hotline Miami but there's still no npc so it's still far
-from finished
+Raylib-based game. initially planning to be something like Hotline Miami and there is npc but no shooting or basic
+mechanic yet so it's still far from finished
 
 ### requirements
 
