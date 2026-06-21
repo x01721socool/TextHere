@@ -4,6 +4,7 @@
 .vscode/
 *.swp
 .DS_Store
+.*pass.txt
 
 game.exe
 game
