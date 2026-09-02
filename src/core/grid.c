@@ -31,7 +31,7 @@ gamemap loadmap(const char *filename) {
 			if (sscanf(value,"%d,%d",&w,&h)==2&&w>0&&h>0){
 				map.width=w;
 				map.height=h;
-				map.walls=malloc((size_t)w*h*sizeof(short));
+				map.walls=malloc((size_t)w*h*sizeof(char));
 				map.render=malloc((size_t)w*h*sizeof(char));
 				for (size_t i=0; i<(size_t)(w*h);i++){
 					if (fscanf(filewall, "%d", &map.walls[i])==1){

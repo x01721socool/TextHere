@@ -2,8 +2,9 @@
 #define GRIDH
 #include "raylib.h"
 typedef struct {
-	signed short *walls,width,height;
+	signed short width,height;
 	unsigned char *render;
+	signed char *walls;
 	float ips;
 	Vector2 sp;
 	Texture2D tileset;
