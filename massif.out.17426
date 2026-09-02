@@ -1,0 +1,1732 @@
+desc: (none)
+cmd: ./game
+time_unit: i
+#-----------
+snapshot=0
+#-----------
+time=0
+mem_heap_B=0
+mem_heap_extra_B=0
+mem_stacks_B=0
+heap_tree=empty
+#-----------
+snapshot=1
+#-----------
+time=25011127
+mem_heap_B=798221
+mem_heap_extra_B=14923
+mem_stacks_B=0
+heap_tree=empty
+#-----------
+snapshot=2
+#-----------
+time=48641050
+mem_heap_B=1039277
+mem_heap_extra_B=14955
+mem_stacks_B=0
+heap_tree=empty
+#-----------
+snapshot=3
+#-----------
+time=64977042
+mem_heap_B=798277
+mem_heap_extra_B=14963
+mem_stacks_B=0
+heap_tree=empty
+#-----------
+snapshot=4
+#-----------
+time=90319796
+mem_heap_B=1039333
+mem_heap_extra_B=14995
+mem_stacks_B=0
+heap_tree=empty
+#-----------
+snapshot=5
+#-----------
+time=108105610
+mem_heap_B=832995
+mem_heap_extra_B=18709
+mem_stacks_B=0
+heap_tree=empty
+#-----------
+snapshot=6
+#-----------
+time=138600495
+mem_heap_B=839075
+mem_heap_extra_B=18709
+mem_stacks_B=0
+heap_tree=empty
+#-----------
+snapshot=7
+#-----------
+time=152498417
+mem_heap_B=843491
+mem_heap_extra_B=18709
+mem_stacks_B=0
+heap_tree=empty
+#-----------
+snapshot=8
+#-----------
+time=167174542
+mem_heap_B=1683686
+mem_heap_extra_B=42842
+mem_stacks_B=0
+heap_tree=detailed
+n14: 1683686 (heap allocation functions) malloc/new/new[], --alloc-fns, etc.
+ n1: 314928 0x4C2D97B: UnknownInlinedFun (imLcPrs.c:674)
+  n1: 314928 0x4C2D97B: parsestringfile (imLcPrs.c:739)
+   n1: 314928 0x4C2E231: UnknownInlinedFun (imLcIm.c:610)
+    n1: 314928 0x4C2E231: _XimLocalOpenIM (imLcIm.c:700)
+     n2: 314928 0x4C249B8: _XimOpenIM (imInt.c:229)
+      n1: 314928 0x4B17462: UnknownInlinedFun (x11_init.c:474)
+       n1: 314928 0x4B17462: inputMethodInstantiateCallback (x11_init.c:467)
+        n1: 314928 0x4C2B46E: _XimRegisterIMInstantiateCallback (imInsClbk.c:220)
+         n1: 314928 0x4C15EF3: XRegisterIMInstantiateCallback (IMWrap.c:177)
+          n1: 314928 0x4B1CD11: _glfwInitX11 (x11_init.c:1545)
+           n1: 314928 0x4A62C34: UnknownInlinedFun (init.c:405)
+            n1: 314928 0x4A62C34: UnknownInlinedFun (rcore_desktop_glfw.c:1456)
+             n1: 314928 0x4A62C34: InitWindow (rcore.c:681)
+              n0: 314928 0x40025B9: main (in /home/artemis/Documents/TextHere/game)
+      n0: 0 in 1 place, below massif's threshold (1.00%)
+ n1: 259264 0x4FD3BC3: UnknownInlinedFun (xcb_in.c:265)
+  n2: 259264 0x4FD3BC3: _xcb_in_read (xcb_in.c:1042)
+   n2: 259264 0x4FD43AE: _xcb_conn_wait.part.0 (xcb_conn.c:546)
+    n1: 259264 0x4FD490F: UnknownInlinedFun (xcb_conn.c:476)
+     n2: 259264 0x4FD490F: wait_for_reply (xcb_in.c:522)
+      n1: 259104 0x4FD5BA4: xcb_wait_for_reply64 (xcb_in.c:566)
+       n2: 259104 0x4C07A4D: _XReply (xcb_io.c:711)
+        n1: 259104 0x5827984: ??? (in /usr/lib/libGLX_mesa.so.0.0.0)
+         n1: 259104 0x582109C: ??? (in /usr/lib/libGLX_mesa.so.0.0.0)
+          n1: 259104 0x583412D: ??? (in /usr/lib/libGLX_mesa.so.0.0.0)
+           n1: 259104 0x5826C05: ??? (in /usr/lib/libGLX_mesa.so.0.0.0)
+            n1: 259104 0x58281BB: ??? (in /usr/lib/libGLX_mesa.so.0.0.0)
+             n1: 259104 0x5824533: ??? (in /usr/lib/libGLX_mesa.so.0.0.0)
+              n1: 259104 0x4B23EE6: extensionSupportedGLX.lto_priv.0 (glx_context.c:213)
+               n1: 259104 0x4B1FEB2: UnknownInlinedFun (glx_context.c:366)
+                n1: 259104 0x4B1FEB2: _glfwCreateWindowX11 (x11_window.c:1972)
+                 n1: 259104 0x4B0ED8A: glfwCreateWindow.constprop.0 (window.c:247)
+                  n1: 259104 0x4A62430: UnknownInlinedFun (rcore_desktop_glfw.c:1651)
+                   n1: 259104 0x4A62430: InitWindow (rcore.c:681)
+                    n0: 259104 0x40025B9: main (in /home/artemis/Documents/TextHere/game)
+        n0: 0 in 27 places, all below massif's threshold (1.00%)
+      n0: 160 in 1 place, below massif's threshold (1.00%)
+    n0: 0 in 1 place, below massif's threshold (1.00%)
+   n0: 0 in 1 place, below massif's threshold (1.00%)
+ n1: 240128 0x582628F: ??? (in /usr/lib/libGLX_mesa.so.0.0.0)
+  n2: 240128 0x58276C0: ??? (in /usr/lib/libGLX_mesa.so.0.0.0)
+   n1: 164864 0x5827A00: ??? (in /usr/lib/libGLX_mesa.so.0.0.0)
+    n1: 164864 0x582109C: ??? (in /usr/lib/libGLX_mesa.so.0.0.0)
+     n1: 164864 0x583412D: ??? (in /usr/lib/libGLX_mesa.so.0.0.0)
+      n1: 164864 0x5826C05: ??? (in /usr/lib/libGLX_mesa.so.0.0.0)
+       n1: 164864 0x58281BB: ??? (in /usr/lib/libGLX_mesa.so.0.0.0)
+        n1: 164864 0x5824533: ??? (in /usr/lib/libGLX_mesa.so.0.0.0)
+         n1: 164864 0x4B23EE6: extensionSupportedGLX.lto_priv.0 (glx_context.c:213)
+          n1: 164864 0x4B1FEB2: UnknownInlinedFun (glx_context.c:366)
+           n1: 164864 0x4B1FEB2: _glfwCreateWindowX11 (x11_window.c:1972)
+            n1: 164864 0x4B0ED8A: glfwCreateWindow.constprop.0 (window.c:247)
+             n1: 164864 0x4A62430: UnknownInlinedFun (rcore_desktop_glfw.c:1651)
+              n1: 164864 0x4A62430: InitWindow (rcore.c:681)
+               n0: 164864 0x40025B9: main (in /home/artemis/Documents/TextHere/game)
+   n1: 75264 0x58279CA: ??? (in /usr/lib/libGLX_mesa.so.0.0.0)
+    n1: 75264 0x582109C: ??? (in /usr/lib/libGLX_mesa.so.0.0.0)
+     n1: 75264 0x583412D: ??? (in /usr/lib/libGLX_mesa.so.0.0.0)
+      n1: 75264 0x5826C05: ??? (in /usr/lib/libGLX_mesa.so.0.0.0)
+       n1: 75264 0x58281BB: ??? (in /usr/lib/libGLX_mesa.so.0.0.0)
+        n1: 75264 0x5824533: ??? (in /usr/lib/libGLX_mesa.so.0.0.0)
+         n1: 75264 0x4B23EE6: extensionSupportedGLX.lto_priv.0 (glx_context.c:213)
+          n1: 75264 0x4B1FEB2: UnknownInlinedFun (glx_context.c:366)
+           n1: 75264 0x4B1FEB2: _glfwCreateWindowX11 (x11_window.c:1972)
+            n1: 75264 0x4B0ED8A: glfwCreateWindow.constprop.0 (window.c:247)
+             n1: 75264 0x4A62430: UnknownInlinedFun (rcore_desktop_glfw.c:1651)
+              n1: 75264 0x4A62430: InitWindow (rcore.c:681)
+               n0: 75264 0x40025B9: main (in /home/artemis/Documents/TextHere/game)
+ n0: 239795 in 336 places, all below massif's threshold (1.00%)
+ n1: 168805 0x4A62CC4: UnknownInlinedFun (init.c:261)
+  n1: 168805 0x4A62CC4: UnknownInlinedFun (input.c:490)
+   n1: 168805 0x4A62CC4: UnknownInlinedFun (init.c:421)
+    n1: 168805 0x4A62CC4: UnknownInlinedFun (rcore_desktop_glfw.c:1456)
+     n1: 168805 0x4A62CC4: InitWindow (rcore.c:681)
+      n0: 168805 0x40025B9: main (in /home/artemis/Documents/TextHere/game)
+ n2: 106159 0x96D72B4: llvm::allocate_buffer(unsigned long, unsigned long) (MemAlloc.cpp:16)
+  n1: 98304 0x96700A1: allocateBuckets (DenseMap.h:837)
+   n1: 98304 0x96700A1: initWithExactBucketCount (DenseMap.h:383)
+    n1: 98304 0x96700A1: initWithExactBucketCount (DenseMap.h:382)
+     n1: 98304 0x96700A1: DenseMap (DenseMap.h:760)
+      n1: 98304 0x96700A1: llvm::DenseMapBase<llvm::DenseMap<llvm::StringRef, llvm::cl::Option*, llvm::DenseMapInfo<llvm::StringRef, void>, llvm::detail::DenseMapPair<llvm::StringRef, llvm::cl::Option*> >, llvm::StringRef, llvm::cl::Option*, llvm::DenseMapInfo<llvm::StringRef, void>, llvm::detail::DenseMapPair<llvm::StringRef, llvm::cl::Option*> >::grow(unsigned int) (DenseMap.h:569)
+       n1: 98304 0x96710CD: findBucketForInsertion<llvm::StringRef> (DenseMap.h:599)
+        n1: 98304 0x96710CD: lookupOrInsertIntoBucket<llvm::StringRef, llvm::cl::Option*> (DenseMap.h:510)
+         n1: 98304 0x96710CD: try_emplace_impl<llvm::StringRef, llvm::cl::Option*> (DenseMap.h:518)
+          n1: 98304 0x96710CD: insert (DenseMap.h:249)
+           n1: 98304 0x96710CD: (anonymous namespace)::CommandLineParser::addOption(llvm::cl::Option*, llvm::cl::SubCommand*) (CommandLine.cpp:237)
+            n1: 98304 0x9671A65: addOption (CommandLine.cpp:270)
+             n2: 98304 0x9671A65: llvm::cl::Option::addArgument() (CommandLine.cpp:453)
+              n1: 98304 0x94CA216: done (CommandLine.h:1505)
+               n1: 98304 0x94CA216: opt<char [31], llvm::cl::OptionHidden, llvm::cl::initializer<int>, llvm::cl::desc> (CommandLine.h:1537)
+                n1: 98304 0x94CA216: __static_initialization_and_destruction_0() (InlineCost.cpp:88)
+                 n1: 98304 0x40111EE: call_init (dl-init.c:74)
+                  n1: 98304 0x40111EE: call_init (dl-init.c:26)
+                   n1: 98304 0x40112CC: _dl_init (dl-init.c:121)
+                    n1: 98304 0x400D526: _dl_catch_exception (dl-catch.c:215)
+                     n1: 98304 0x4018618: dl_open_worker (dl-open.c:798)
+                      n1: 98304 0x400D478: _dl_catch_exception (dl-catch.c:241)
+                       n1: 98304 0x4018AE9: _dl_open (dl-open.c:899)
+                        n1: 98304 0x4E09533: dlopen_doit (dlopen.c:56)
+                         n1: 98304 0x400D478: _dl_catch_exception (dl-catch.c:241)
+                          n1: 98304 0x400D5C8: _dl_catch_error (dl-catch.c:260)
+                           n1: 98304 0x4E09002: _dlerror_run (dlerror.c:138)
+                            n1: 98304 0x4E095EA: dlopen_implementation (dlopen.c:71)
+                             n1: 98304 0x4E095EA: dlopen@@GLIBC_2.34 (dlopen.c:81)
+                              n1: 98304 0x5084688: __glXLookupVendorByName (libglxmapping.c:428)
+                               n1: 98304 0x5085544: __glXLookupVendorByScreen (libglxmapping.c:572)
+                                n1: 98304 0x5086456: UnknownInlinedFun (libglxmapping.c:606)
+                                 n1: 98304 0x5086456: glXQueryExtensionsString (libglx.c:1473)
+                                  n1: 98304 0x4B23EE6: extensionSupportedGLX.lto_priv.0 (glx_context.c:213)
+                                   n1: 98304 0x4B1FEB2: UnknownInlinedFun (glx_context.c:366)
+                                    n1: 98304 0x4B1FEB2: _glfwCreateWindowX11 (x11_window.c:1972)
+                                     n1: 98304 0x4B0ED8A: glfwCreateWindow.constprop.0 (window.c:247)
+                                      n1: 98304 0x4A62430: UnknownInlinedFun (rcore_desktop_glfw.c:1651)
+                                       n1: 98304 0x4A62430: InitWindow (rcore.c:681)
+                                        n0: 98304 0x40025B9: main (in /home/artemis/Documents/TextHere/game)
+              n0: 0 in 6 places, all below massif's threshold (1.00%)
+  n0: 7855 in 6 places, all below massif's threshold (1.00%)
+ n1: 89440 0x4DB575D: __new_exitfn (cxa_atexit.c:112)
+  n2: 89440 0x4DB57EE: __internal_atexit (cxa_atexit.c:44)
+   n0: 67600 in 65 places, all below massif's threshold (1.00%)
+   n1: 21840 0x40111EE: call_init (dl-init.c:74)
+    n1: 21840 0x40111EE: call_init (dl-init.c:26)
+     n1: 21840 0x40112CC: _dl_init (dl-init.c:121)
+      n1: 21840 0x400D526: _dl_catch_exception (dl-catch.c:215)
+       n1: 21840 0x4018618: dl_open_worker (dl-open.c:798)
+        n1: 21840 0x400D478: _dl_catch_exception (dl-catch.c:241)
+         n1: 21840 0x4018AE9: _dl_open (dl-open.c:899)
+          n1: 21840 0x4E09533: dlopen_doit (dlopen.c:56)
+           n1: 21840 0x400D478: _dl_catch_exception (dl-catch.c:241)
+            n1: 21840 0x400D5C8: _dl_catch_error (dl-catch.c:260)
+             n1: 21840 0x4E09002: _dlerror_run (dlerror.c:138)
+              n1: 21840 0x4E095EA: dlopen_implementation (dlopen.c:71)
+               n1: 21840 0x4E095EA: dlopen@@GLIBC_2.34 (dlopen.c:81)
+                n1: 21840 0x5084688: __glXLookupVendorByName (libglxmapping.c:428)
+                 n1: 21840 0x5085544: __glXLookupVendorByScreen (libglxmapping.c:572)
+                  n1: 21840 0x5086456: UnknownInlinedFun (libglxmapping.c:606)
+                   n1: 21840 0x5086456: glXQueryExtensionsString (libglx.c:1473)
+                    n1: 21840 0x4B23EE6: extensionSupportedGLX.lto_priv.0 (glx_context.c:213)
+                     n1: 21840 0x4B1FEB2: UnknownInlinedFun (glx_context.c:366)
+                      n1: 21840 0x4B1FEB2: _glfwCreateWindowX11 (x11_window.c:1972)
+                       n1: 21840 0x4B0ED8A: glfwCreateWindow.constprop.0 (window.c:247)
+                        n1: 21840 0x4A62430: UnknownInlinedFun (rcore_desktop_glfw.c:1651)
+                         n1: 21840 0x4A62430: InitWindow (rcore.c:681)
+                          n0: 21840 0x40025B9: main (in /home/artemis/Documents/TextHere/game)
+ n1: 73728 0x1369194F: pool (eh_alloc.cc:235)
+  n1: 73728 0x1369194F: __static_initialization_and_destruction_0 (eh_alloc.cc:373)
+   n1: 73728 0x1369194F: _GLOBAL__sub_I_eh_alloc.cc (eh_alloc.cc:456)
+    n1: 73728 0x40111EE: call_init (dl-init.c:74)
+     n1: 73728 0x40111EE: call_init (dl-init.c:26)
+      n1: 73728 0x40112CC: _dl_init (dl-init.c:121)
+       n1: 73728 0x400D526: _dl_catch_exception (dl-catch.c:215)
+        n1: 73728 0x4018618: dl_open_worker (dl-open.c:798)
+         n1: 73728 0x400D478: _dl_catch_exception (dl-catch.c:241)
+          n1: 73728 0x4018AE9: _dl_open (dl-open.c:899)
+           n1: 73728 0x4E09533: dlopen_doit (dlopen.c:56)
+            n1: 73728 0x400D478: _dl_catch_exception (dl-catch.c:241)
+             n1: 73728 0x400D5C8: _dl_catch_error (dl-catch.c:260)
+              n1: 73728 0x4E09002: _dlerror_run (dlerror.c:138)
+               n1: 73728 0x4E095EA: dlopen_implementation (dlopen.c:71)
+                n1: 73728 0x4E095EA: dlopen@@GLIBC_2.34 (dlopen.c:81)
+                 n1: 73728 0x5084688: __glXLookupVendorByName (libglxmapping.c:428)
+                  n1: 73728 0x5085544: __glXLookupVendorByScreen (libglxmapping.c:572)
+                   n1: 73728 0x5086456: UnknownInlinedFun (libglxmapping.c:606)
+                    n1: 73728 0x5086456: glXQueryExtensionsString (libglx.c:1473)
+                     n1: 73728 0x4B23EE6: extensionSupportedGLX.lto_priv.0 (glx_context.c:213)
+                      n1: 73728 0x4B1FEB2: UnknownInlinedFun (glx_context.c:366)
+                       n1: 73728 0x4B1FEB2: _glfwCreateWindowX11 (x11_window.c:1972)
+                        n1: 73728 0x4B0ED8A: glfwCreateWindow.constprop.0 (window.c:247)
+                         n1: 73728 0x4A62430: UnknownInlinedFun (rcore_desktop_glfw.c:1651)
+                          n1: 73728 0x4A62430: InitWindow (rcore.c:681)
+                           n0: 73728 0x40025B9: main (in /home/artemis/Documents/TextHere/game)
+ n1: 52488 0x4C2D68E: UnknownInlinedFun (imLcPrs.c:632)
+  n1: 52488 0x4C2D68E: parsestringfile (imLcPrs.c:739)
+   n1: 52488 0x4C2E231: UnknownInlinedFun (imLcIm.c:610)
+    n1: 52488 0x4C2E231: _XimLocalOpenIM (imLcIm.c:700)
+     n2: 52488 0x4C249B8: _XimOpenIM (imInt.c:229)
+      n1: 52488 0x4B17462: UnknownInlinedFun (x11_init.c:474)
+       n1: 52488 0x4B17462: inputMethodInstantiateCallback (x11_init.c:467)
+        n1: 52488 0x4C2B46E: _XimRegisterIMInstantiateCallback (imInsClbk.c:220)
+         n1: 52488 0x4C15EF3: XRegisterIMInstantiateCallback (IMWrap.c:177)
+          n1: 52488 0x4B1CD11: _glfwInitX11 (x11_init.c:1545)
+           n1: 52488 0x4A62C34: UnknownInlinedFun (init.c:405)
+            n1: 52488 0x4A62C34: UnknownInlinedFun (rcore_desktop_glfw.c:1456)
+             n1: 52488 0x4A62C34: InitWindow (rcore.c:681)
+              n0: 52488 0x40025B9: main (in /home/artemis/Documents/TextHere/game)
+      n0: 0 in 1 place, below massif's threshold (1.00%)
+ n1: 46471 0x401806C: calloc (rtld-malloc.h:44)
+  n1: 46471 0x401806C: _dl_new_object (dl-object.c:92)
+   n1: 46471 0x40134E0: _dl_map_object_from_fd (dl-load.c:1240)
+    n2: 46471 0x40134E0: _dl_map_new_object (dl-load.c:2230)
+     n1: 37683 0x400E87C: openaux (dl-deps.c:65)
+      n1: 37683 0x400D478: _dl_catch_exception (dl-catch.c:241)
+       n1: 37683 0x400EDBC: _dl_map_object_deps (dl-deps.c:234)
+        n1: 37683 0x401900F: dl_open_worker_begin (dl-open.c:609)
+         n1: 37683 0x400D478: _dl_catch_exception (dl-catch.c:241)
+          n1: 37683 0x4018582: dl_open_worker (dl-open.c:761)
+           n1: 37683 0x400D478: _dl_catch_exception (dl-catch.c:241)
+            n1: 37683 0x4018AE9: _dl_open (dl-open.c:899)
+             n1: 37683 0x4E09533: dlopen_doit (dlopen.c:56)
+              n1: 37683 0x400D478: _dl_catch_exception (dl-catch.c:241)
+               n1: 37683 0x400D5C8: _dl_catch_error (dl-catch.c:260)
+                n1: 37683 0x4E09002: _dlerror_run (dlerror.c:138)
+                 n1: 37683 0x4E095EA: dlopen_implementation (dlopen.c:71)
+                  n2: 37683 0x4E095EA: dlopen@@GLIBC_2.34 (dlopen.c:81)
+                   n1: 33919 0x5084688: __glXLookupVendorByName (libglxmapping.c:428)
+                    n1: 33919 0x5085544: __glXLookupVendorByScreen (libglxmapping.c:572)
+                     n1: 33919 0x5086456: UnknownInlinedFun (libglxmapping.c:606)
+                      n1: 33919 0x5086456: glXQueryExtensionsString (libglx.c:1473)
+                       n1: 33919 0x4B23EE6: extensionSupportedGLX.lto_priv.0 (glx_context.c:213)
+                        n1: 33919 0x4B1FEB2: UnknownInlinedFun (glx_context.c:366)
+                         n1: 33919 0x4B1FEB2: _glfwCreateWindowX11 (x11_window.c:1972)
+                          n1: 33919 0x4B0ED8A: glfwCreateWindow.constprop.0 (window.c:247)
+                           n1: 33919 0x4A62430: UnknownInlinedFun (rcore_desktop_glfw.c:1651)
+                            n1: 33919 0x4A62430: InitWindow (rcore.c:681)
+                             n0: 33919 0x40025B9: main (in /home/artemis/Documents/TextHere/game)
+                   n0: 3764 in 3 places, all below massif's threshold (1.00%)
+     n0: 8788 in 1 place, below massif's threshold (1.00%)
+ n1: 26244 0x4C2D56A: UnknownInlinedFun (imLcPrs.c:579)
+  n1: 26244 0x4C2D56A: parsestringfile (imLcPrs.c:739)
+   n1: 26244 0x4C2E231: UnknownInlinedFun (imLcIm.c:610)
+    n1: 26244 0x4C2E231: _XimLocalOpenIM (imLcIm.c:700)
+     n2: 26244 0x4C249B8: _XimOpenIM (imInt.c:229)
+      n1: 26244 0x4B17462: UnknownInlinedFun (x11_init.c:474)
+       n1: 26244 0x4B17462: inputMethodInstantiateCallback (x11_init.c:467)
+        n1: 26244 0x4C2B46E: _XimRegisterIMInstantiateCallback (imInsClbk.c:220)
+         n1: 26244 0x4C15EF3: XRegisterIMInstantiateCallback (IMWrap.c:177)
+          n1: 26244 0x4B1CD11: _glfwInitX11 (x11_init.c:1545)
+           n1: 26244 0x4A62C34: UnknownInlinedFun (init.c:405)
+            n1: 26244 0x4A62C34: UnknownInlinedFun (rcore_desktop_glfw.c:1456)
+             n1: 26244 0x4A62C34: InitWindow (rcore.c:681)
+              n0: 26244 0x40025B9: main (in /home/artemis/Documents/TextHere/game)
+      n0: 0 in 1 place, below massif's threshold (1.00%)
+ n1: 26244 0x4C2D7A7: UnknownInlinedFun (imLcPrs.c:648)
+  n1: 26244 0x4C2D7A7: parsestringfile (imLcPrs.c:739)
+   n1: 26244 0x4C2E231: UnknownInlinedFun (imLcIm.c:610)
+    n1: 26244 0x4C2E231: _XimLocalOpenIM (imLcIm.c:700)
+     n2: 26244 0x4C249B8: _XimOpenIM (imInt.c:229)
+      n1: 26244 0x4B17462: UnknownInlinedFun (x11_init.c:474)
+       n1: 26244 0x4B17462: inputMethodInstantiateCallback (x11_init.c:467)
+        n1: 26244 0x4C2B46E: _XimRegisterIMInstantiateCallback (imInsClbk.c:220)
+         n1: 26244 0x4C15EF3: XRegisterIMInstantiateCallback (IMWrap.c:177)
+          n1: 26244 0x4B1CD11: _glfwInitX11 (x11_init.c:1545)
+           n1: 26244 0x4A62C34: UnknownInlinedFun (init.c:405)
+            n1: 26244 0x4A62C34: UnknownInlinedFun (rcore_desktop_glfw.c:1456)
+             n1: 26244 0x4A62C34: InitWindow (rcore.c:681)
+              n0: 26244 0x40025B9: main (in /home/artemis/Documents/TextHere/game)
+      n0: 0 in 1 place, below massif's threshold (1.00%)
+ n1: 21176 0x4FD6F05: xcb_connect_to_fd (xcb_conn.c:368)
+  n1: 21176 0x4FD7C58: xcb_connect_to_display_with_auth_info (xcb_util.c:563)
+   n1: 21176 0x4BFF49A: _XConnectXCB (xcb_disp.c:78)
+    n1: 21176 0x4BEF039: XOpenDisplay (OpenDis.c:129)
+     n1: 21176 0x4B19FDF: _glfwConnectX11.constprop.0 (x11_init.c:1292)
+      n1: 21176 0x4A62C20: UnknownInlinedFun (platform.c:99)
+       n1: 21176 0x4A62C20: UnknownInlinedFun (platform.c:62)
+        n1: 21176 0x4A62C20: UnknownInlinedFun (init.c:402)
+         n1: 21176 0x4A62C20: UnknownInlinedFun (rcore_desktop_glfw.c:1456)
+          n1: 21176 0x4A62C20: InitWindow (rcore.c:681)
+           n0: 21176 0x40025B9: main (in /home/artemis/Documents/TextHere/game)
+ n1: 18816 0x4BEF830: XOpenDisplay (OpenDis.c:439)
+  n1: 18816 0x4B19FDF: _glfwConnectX11.constprop.0 (x11_init.c:1292)
+   n1: 18816 0x4A62C20: UnknownInlinedFun (platform.c:99)
+    n1: 18816 0x4A62C20: UnknownInlinedFun (platform.c:62)
+     n1: 18816 0x4A62C20: UnknownInlinedFun (init.c:402)
+      n1: 18816 0x4A62C20: UnknownInlinedFun (rcore_desktop_glfw.c:1456)
+       n1: 18816 0x4A62C20: InitWindow (rcore.c:681)
+        n0: 18816 0x40025B9: main (in /home/artemis/Documents/TextHere/game)
+#-----------
+snapshot=9
+#-----------
+time=187391785
+mem_heap_B=1606861
+mem_heap_extra_B=53571
+mem_stacks_B=0
+heap_tree=empty
+#-----------
+snapshot=10
+#-----------
+time=203428529
+mem_heap_B=1665325
+mem_heap_extra_B=57619
+mem_stacks_B=0
+heap_tree=empty
+#-----------
+snapshot=11
+#-----------
+time=226185861
+mem_heap_B=1737013
+mem_heap_extra_B=62563
+mem_stacks_B=0
+heap_tree=empty
+#-----------
+snapshot=12
+#-----------
+time=244149941
+mem_heap_B=1784573
+mem_heap_extra_B=65843
+mem_stacks_B=0
+heap_tree=empty
+#-----------
+snapshot=13
+#-----------
+time=259725542
+mem_heap_B=1830741
+mem_heap_extra_B=69027
+mem_stacks_B=0
+heap_tree=detailed
+n15: 1830741 (heap allocation functions) malloc/new/new[], --alloc-fns, etc.
+ n1: 314928 0x4C2D97B: UnknownInlinedFun (imLcPrs.c:674)
+  n1: 314928 0x4C2D97B: parsestringfile (imLcPrs.c:739)
+   n1: 314928 0x4C2E231: UnknownInlinedFun (imLcIm.c:610)
+    n1: 314928 0x4C2E231: _XimLocalOpenIM (imLcIm.c:700)
+     n2: 314928 0x4C249B8: _XimOpenIM (imInt.c:229)
+      n1: 314928 0x4B17462: UnknownInlinedFun (x11_init.c:474)
+       n1: 314928 0x4B17462: inputMethodInstantiateCallback (x11_init.c:467)
+        n1: 314928 0x4C2B46E: _XimRegisterIMInstantiateCallback (imInsClbk.c:220)
+         n1: 314928 0x4C15EF3: XRegisterIMInstantiateCallback (IMWrap.c:177)
+          n1: 314928 0x4B1CD11: _glfwInitX11 (x11_init.c:1545)
+           n1: 314928 0x4A62C34: UnknownInlinedFun (init.c:405)
+            n1: 314928 0x4A62C34: UnknownInlinedFun (rcore_desktop_glfw.c:1456)
+             n1: 314928 0x4A62C34: InitWindow (rcore.c:681)
+              n0: 314928 0x40025B9: main (in /home/artemis/Documents/TextHere/game)
+      n0: 0 in 1 place, below massif's threshold (1.00%)
+ n0: 300242 in 373 places, all below massif's threshold (1.00%)
+ n1: 240128 0x582628F: ??? (in /usr/lib/libGLX_mesa.so.0.0.0)
+  n2: 240128 0x58276C0: ??? (in /usr/lib/libGLX_mesa.so.0.0.0)
+   n1: 164864 0x5827A00: ??? (in /usr/lib/libGLX_mesa.so.0.0.0)
+    n1: 164864 0x582109C: ??? (in /usr/lib/libGLX_mesa.so.0.0.0)
+     n1: 164864 0x583412D: ??? (in /usr/lib/libGLX_mesa.so.0.0.0)
+      n1: 164864 0x5826C05: ??? (in /usr/lib/libGLX_mesa.so.0.0.0)
+       n1: 164864 0x58281BB: ??? (in /usr/lib/libGLX_mesa.so.0.0.0)
+        n1: 164864 0x5824533: ??? (in /usr/lib/libGLX_mesa.so.0.0.0)
+         n1: 164864 0x4B23EE6: extensionSupportedGLX.lto_priv.0 (glx_context.c:213)
+          n1: 164864 0x4B1FEB2: UnknownInlinedFun (glx_context.c:366)
+           n1: 164864 0x4B1FEB2: _glfwCreateWindowX11 (x11_window.c:1972)
+            n1: 164864 0x4B0ED8A: glfwCreateWindow.constprop.0 (window.c:247)
+             n1: 164864 0x4A62430: UnknownInlinedFun (rcore_desktop_glfw.c:1651)
+              n1: 164864 0x4A62430: InitWindow (rcore.c:681)
+               n0: 164864 0x40025B9: main (in /home/artemis/Documents/TextHere/game)
+   n1: 75264 0x58279CA: ??? (in /usr/lib/libGLX_mesa.so.0.0.0)
+    n1: 75264 0x582109C: ??? (in /usr/lib/libGLX_mesa.so.0.0.0)
+     n1: 75264 0x583412D: ??? (in /usr/lib/libGLX_mesa.so.0.0.0)
+      n1: 75264 0x5826C05: ??? (in /usr/lib/libGLX_mesa.so.0.0.0)
+       n1: 75264 0x58281BB: ??? (in /usr/lib/libGLX_mesa.so.0.0.0)
+        n1: 75264 0x5824533: ??? (in /usr/lib/libGLX_mesa.so.0.0.0)
+         n1: 75264 0x4B23EE6: extensionSupportedGLX.lto_priv.0 (glx_context.c:213)
+          n1: 75264 0x4B1FEB2: UnknownInlinedFun (glx_context.c:366)
+           n1: 75264 0x4B1FEB2: _glfwCreateWindowX11 (x11_window.c:1972)
+            n1: 75264 0x4B0ED8A: glfwCreateWindow.constprop.0 (window.c:247)
+             n1: 75264 0x4A62430: UnknownInlinedFun (rcore_desktop_glfw.c:1651)
+              n1: 75264 0x4A62430: InitWindow (rcore.c:681)
+               n0: 75264 0x40025B9: main (in /home/artemis/Documents/TextHere/game)
+ n2: 230144 0x582023D: ??? (in /usr/lib/libGLX_mesa.so.0.0.0)
+  n1: 152192 0x58210FC: ??? (in /usr/lib/libGLX_mesa.so.0.0.0)
+   n1: 152192 0x583412D: ??? (in /usr/lib/libGLX_mesa.so.0.0.0)
+    n1: 152192 0x5826C05: ??? (in /usr/lib/libGLX_mesa.so.0.0.0)
+     n1: 152192 0x58281BB: ??? (in /usr/lib/libGLX_mesa.so.0.0.0)
+      n1: 152192 0x5824533: ??? (in /usr/lib/libGLX_mesa.so.0.0.0)
+       n1: 152192 0x4B23EE6: extensionSupportedGLX.lto_priv.0 (glx_context.c:213)
+        n1: 152192 0x4B1FEB2: UnknownInlinedFun (glx_context.c:366)
+         n1: 152192 0x4B1FEB2: _glfwCreateWindowX11 (x11_window.c:1972)
+          n1: 152192 0x4B0ED8A: glfwCreateWindow.constprop.0 (window.c:247)
+           n1: 152192 0x4A62430: UnknownInlinedFun (rcore_desktop_glfw.c:1651)
+            n1: 152192 0x4A62430: InitWindow (rcore.c:681)
+             n0: 152192 0x40025B9: main (in /home/artemis/Documents/TextHere/game)
+  n1: 77952 0x582110F: ??? (in /usr/lib/libGLX_mesa.so.0.0.0)
+   n1: 77952 0x583412D: ??? (in /usr/lib/libGLX_mesa.so.0.0.0)
+    n1: 77952 0x5826C05: ??? (in /usr/lib/libGLX_mesa.so.0.0.0)
+     n1: 77952 0x58281BB: ??? (in /usr/lib/libGLX_mesa.so.0.0.0)
+      n1: 77952 0x5824533: ??? (in /usr/lib/libGLX_mesa.so.0.0.0)
+       n1: 77952 0x4B23EE6: extensionSupportedGLX.lto_priv.0 (glx_context.c:213)
+        n1: 77952 0x4B1FEB2: UnknownInlinedFun (glx_context.c:366)
+         n1: 77952 0x4B1FEB2: _glfwCreateWindowX11 (x11_window.c:1972)
+          n1: 77952 0x4B0ED8A: glfwCreateWindow.constprop.0 (window.c:247)
+           n1: 77952 0x4A62430: UnknownInlinedFun (rcore_desktop_glfw.c:1651)
+            n1: 77952 0x4A62430: InitWindow (rcore.c:681)
+             n0: 77952 0x40025B9: main (in /home/artemis/Documents/TextHere/game)
+ n1: 168805 0x4A62CC4: UnknownInlinedFun (init.c:261)
+  n1: 168805 0x4A62CC4: UnknownInlinedFun (input.c:490)
+   n1: 168805 0x4A62CC4: UnknownInlinedFun (init.c:421)
+    n1: 168805 0x4A62CC4: UnknownInlinedFun (rcore_desktop_glfw.c:1456)
+     n1: 168805 0x4A62CC4: InitWindow (rcore.c:681)
+      n0: 168805 0x40025B9: main (in /home/artemis/Documents/TextHere/game)
+ n2: 106159 0x96D72B4: llvm::allocate_buffer(unsigned long, unsigned long) (MemAlloc.cpp:16)
+  n1: 98304 0x96700A1: allocateBuckets (DenseMap.h:837)
+   n1: 98304 0x96700A1: initWithExactBucketCount (DenseMap.h:383)
+    n1: 98304 0x96700A1: initWithExactBucketCount (DenseMap.h:382)
+     n1: 98304 0x96700A1: DenseMap (DenseMap.h:760)
+      n1: 98304 0x96700A1: llvm::DenseMapBase<llvm::DenseMap<llvm::StringRef, llvm::cl::Option*, llvm::DenseMapInfo<llvm::StringRef, void>, llvm::detail::DenseMapPair<llvm::StringRef, llvm::cl::Option*> >, llvm::StringRef, llvm::cl::Option*, llvm::DenseMapInfo<llvm::StringRef, void>, llvm::detail::DenseMapPair<llvm::StringRef, llvm::cl::Option*> >::grow(unsigned int) (DenseMap.h:569)
+       n1: 98304 0x96710CD: findBucketForInsertion<llvm::StringRef> (DenseMap.h:599)
+        n1: 98304 0x96710CD: lookupOrInsertIntoBucket<llvm::StringRef, llvm::cl::Option*> (DenseMap.h:510)
+         n1: 98304 0x96710CD: try_emplace_impl<llvm::StringRef, llvm::cl::Option*> (DenseMap.h:518)
+          n1: 98304 0x96710CD: insert (DenseMap.h:249)
+           n1: 98304 0x96710CD: (anonymous namespace)::CommandLineParser::addOption(llvm::cl::Option*, llvm::cl::SubCommand*) (CommandLine.cpp:237)
+            n1: 98304 0x9671A65: addOption (CommandLine.cpp:270)
+             n2: 98304 0x9671A65: llvm::cl::Option::addArgument() (CommandLine.cpp:453)
+              n1: 98304 0x94CA216: done (CommandLine.h:1505)
+               n1: 98304 0x94CA216: opt<char [31], llvm::cl::OptionHidden, llvm::cl::initializer<int>, llvm::cl::desc> (CommandLine.h:1537)
+                n1: 98304 0x94CA216: __static_initialization_and_destruction_0() (InlineCost.cpp:88)
+                 n1: 98304 0x40111EE: call_init (dl-init.c:74)
+                  n1: 98304 0x40111EE: call_init (dl-init.c:26)
+                   n1: 98304 0x40112CC: _dl_init (dl-init.c:121)
+                    n1: 98304 0x400D526: _dl_catch_exception (dl-catch.c:215)
+                     n1: 98304 0x4018618: dl_open_worker (dl-open.c:798)
+                      n1: 98304 0x400D478: _dl_catch_exception (dl-catch.c:241)
+                       n1: 98304 0x4018AE9: _dl_open (dl-open.c:899)
+                        n1: 98304 0x4E09533: dlopen_doit (dlopen.c:56)
+                         n1: 98304 0x400D478: _dl_catch_exception (dl-catch.c:241)
+                          n1: 98304 0x400D5C8: _dl_catch_error (dl-catch.c:260)
+                           n1: 98304 0x4E09002: _dlerror_run (dlerror.c:138)
+                            n1: 98304 0x4E095EA: dlopen_implementation (dlopen.c:71)
+                             n1: 98304 0x4E095EA: dlopen@@GLIBC_2.34 (dlopen.c:81)
+                              n1: 98304 0x5084688: __glXLookupVendorByName (libglxmapping.c:428)
+                               n1: 98304 0x5085544: __glXLookupVendorByScreen (libglxmapping.c:572)
+                                n1: 98304 0x5086456: UnknownInlinedFun (libglxmapping.c:606)
+                                 n1: 98304 0x5086456: glXQueryExtensionsString (libglx.c:1473)
+                                  n1: 98304 0x4B23EE6: extensionSupportedGLX.lto_priv.0 (glx_context.c:213)
+                                   n1: 98304 0x4B1FEB2: UnknownInlinedFun (glx_context.c:366)
+                                    n1: 98304 0x4B1FEB2: _glfwCreateWindowX11 (x11_window.c:1972)
+                                     n1: 98304 0x4B0ED8A: glfwCreateWindow.constprop.0 (window.c:247)
+                                      n1: 98304 0x4A62430: UnknownInlinedFun (rcore_desktop_glfw.c:1651)
+                                       n1: 98304 0x4A62430: InitWindow (rcore.c:681)
+                                        n0: 98304 0x40025B9: main (in /home/artemis/Documents/TextHere/game)
+              n0: 0 in 6 places, all below massif's threshold (1.00%)
+  n0: 7855 in 6 places, all below massif's threshold (1.00%)
+ n1: 89440 0x4DB575D: __new_exitfn (cxa_atexit.c:112)
+  n2: 89440 0x4DB57EE: __internal_atexit (cxa_atexit.c:44)
+   n0: 67600 in 65 places, all below massif's threshold (1.00%)
+   n1: 21840 0x40111EE: call_init (dl-init.c:74)
+    n1: 21840 0x40111EE: call_init (dl-init.c:26)
+     n1: 21840 0x40112CC: _dl_init (dl-init.c:121)
+      n1: 21840 0x400D526: _dl_catch_exception (dl-catch.c:215)
+       n1: 21840 0x4018618: dl_open_worker (dl-open.c:798)
+        n1: 21840 0x400D478: _dl_catch_exception (dl-catch.c:241)
+         n1: 21840 0x4018AE9: _dl_open (dl-open.c:899)
+          n1: 21840 0x4E09533: dlopen_doit (dlopen.c:56)
+           n1: 21840 0x400D478: _dl_catch_exception (dl-catch.c:241)
+            n1: 21840 0x400D5C8: _dl_catch_error (dl-catch.c:260)
+             n1: 21840 0x4E09002: _dlerror_run (dlerror.c:138)
+              n1: 21840 0x4E095EA: dlopen_implementation (dlopen.c:71)
+               n1: 21840 0x4E095EA: dlopen@@GLIBC_2.34 (dlopen.c:81)
+                n1: 21840 0x5084688: __glXLookupVendorByName (libglxmapping.c:428)
+                 n1: 21840 0x5085544: __glXLookupVendorByScreen (libglxmapping.c:572)
+                  n1: 21840 0x5086456: UnknownInlinedFun (libglxmapping.c:606)
+                   n1: 21840 0x5086456: glXQueryExtensionsString (libglx.c:1473)
+                    n1: 21840 0x4B23EE6: extensionSupportedGLX.lto_priv.0 (glx_context.c:213)
+                     n1: 21840 0x4B1FEB2: UnknownInlinedFun (glx_context.c:366)
+                      n1: 21840 0x4B1FEB2: _glfwCreateWindowX11 (x11_window.c:1972)
+                       n1: 21840 0x4B0ED8A: glfwCreateWindow.constprop.0 (window.c:247)
+                        n1: 21840 0x4A62430: UnknownInlinedFun (rcore_desktop_glfw.c:1651)
+                         n1: 21840 0x4A62430: InitWindow (rcore.c:681)
+                          n0: 21840 0x40025B9: main (in /home/artemis/Documents/TextHere/game)
+ n1: 73728 0x1369194F: pool (eh_alloc.cc:235)
+  n1: 73728 0x1369194F: __static_initialization_and_destruction_0 (eh_alloc.cc:373)
+   n1: 73728 0x1369194F: _GLOBAL__sub_I_eh_alloc.cc (eh_alloc.cc:456)
+    n1: 73728 0x40111EE: call_init (dl-init.c:74)
+     n1: 73728 0x40111EE: call_init (dl-init.c:26)
+      n1: 73728 0x40112CC: _dl_init (dl-init.c:121)
+       n1: 73728 0x400D526: _dl_catch_exception (dl-catch.c:215)
+        n1: 73728 0x4018618: dl_open_worker (dl-open.c:798)
+         n1: 73728 0x400D478: _dl_catch_exception (dl-catch.c:241)
+          n1: 73728 0x4018AE9: _dl_open (dl-open.c:899)
+           n1: 73728 0x4E09533: dlopen_doit (dlopen.c:56)
+            n1: 73728 0x400D478: _dl_catch_exception (dl-catch.c:241)
+             n1: 73728 0x400D5C8: _dl_catch_error (dl-catch.c:260)
+              n1: 73728 0x4E09002: _dlerror_run (dlerror.c:138)
+               n1: 73728 0x4E095EA: dlopen_implementation (dlopen.c:71)
+                n1: 73728 0x4E095EA: dlopen@@GLIBC_2.34 (dlopen.c:81)
+                 n1: 73728 0x5084688: __glXLookupVendorByName (libglxmapping.c:428)
+                  n1: 73728 0x5085544: __glXLookupVendorByScreen (libglxmapping.c:572)
+                   n1: 73728 0x5086456: UnknownInlinedFun (libglxmapping.c:606)
+                    n1: 73728 0x5086456: glXQueryExtensionsString (libglx.c:1473)
+                     n1: 73728 0x4B23EE6: extensionSupportedGLX.lto_priv.0 (glx_context.c:213)
+                      n1: 73728 0x4B1FEB2: UnknownInlinedFun (glx_context.c:366)
+                       n1: 73728 0x4B1FEB2: _glfwCreateWindowX11 (x11_window.c:1972)
+                        n1: 73728 0x4B0ED8A: glfwCreateWindow.constprop.0 (window.c:247)
+                         n1: 73728 0x4A62430: UnknownInlinedFun (rcore_desktop_glfw.c:1651)
+                          n1: 73728 0x4A62430: InitWindow (rcore.c:681)
+                           n0: 73728 0x40025B9: main (in /home/artemis/Documents/TextHere/game)
+ n2: 67392 0x5921015: ??? (in /usr/lib/libgallium-26.1.7-arch1.1.so)
+  n1: 44928 0x5921B48: ??? (in /usr/lib/libgallium-26.1.7-arch1.1.so)
+   n1: 44928 0x59225BE: driCreateNewScreen3 (in /usr/lib/libgallium-26.1.7-arch1.1.so)
+    n1: 44928 0x58210DA: ??? (in /usr/lib/libGLX_mesa.so.0.0.0)
+     n1: 44928 0x583412D: ??? (in /usr/lib/libGLX_mesa.so.0.0.0)
+      n1: 44928 0x5826C05: ??? (in /usr/lib/libGLX_mesa.so.0.0.0)
+       n1: 44928 0x58281BB: ??? (in /usr/lib/libGLX_mesa.so.0.0.0)
+        n1: 44928 0x5824533: ??? (in /usr/lib/libGLX_mesa.so.0.0.0)
+         n1: 44928 0x4B23EE6: extensionSupportedGLX.lto_priv.0 (glx_context.c:213)
+          n1: 44928 0x4B1FEB2: UnknownInlinedFun (glx_context.c:366)
+           n1: 44928 0x4B1FEB2: _glfwCreateWindowX11 (x11_window.c:1972)
+            n1: 44928 0x4B0ED8A: glfwCreateWindow.constprop.0 (window.c:247)
+             n1: 44928 0x4A62430: UnknownInlinedFun (rcore_desktop_glfw.c:1651)
+              n1: 44928 0x4A62430: InitWindow (rcore.c:681)
+               n0: 44928 0x40025B9: main (in /home/artemis/Documents/TextHere/game)
+  n1: 22464 0x5921AF4: ??? (in /usr/lib/libgallium-26.1.7-arch1.1.so)
+   n1: 22464 0x59225BE: driCreateNewScreen3 (in /usr/lib/libgallium-26.1.7-arch1.1.so)
+    n1: 22464 0x58210DA: ??? (in /usr/lib/libGLX_mesa.so.0.0.0)
+     n1: 22464 0x583412D: ??? (in /usr/lib/libGLX_mesa.so.0.0.0)
+      n1: 22464 0x5826C05: ??? (in /usr/lib/libGLX_mesa.so.0.0.0)
+       n1: 22464 0x58281BB: ??? (in /usr/lib/libGLX_mesa.so.0.0.0)
+        n1: 22464 0x5824533: ??? (in /usr/lib/libGLX_mesa.so.0.0.0)
+         n1: 22464 0x4B23EE6: extensionSupportedGLX.lto_priv.0 (glx_context.c:213)
+          n1: 22464 0x4B1FEB2: UnknownInlinedFun (glx_context.c:366)
+           n1: 22464 0x4B1FEB2: _glfwCreateWindowX11 (x11_window.c:1972)
+            n1: 22464 0x4B0ED8A: glfwCreateWindow.constprop.0 (window.c:247)
+             n1: 22464 0x4A62430: UnknownInlinedFun (rcore_desktop_glfw.c:1651)
+              n1: 22464 0x4A62430: InitWindow (rcore.c:681)
+               n0: 22464 0x40025B9: main (in /home/artemis/Documents/TextHere/game)
+ n2: 67152 0x5E3875D: ??? (in /usr/lib/libgallium-26.1.7-arch1.1.so)
+  n1: 48416 0x5E3894E: ??? (in /usr/lib/libgallium-26.1.7-arch1.1.so)
+   n0: 48416 in 8 places, all below massif's threshold (1.00%)
+  n0: 18736 in 10 places, all below massif's threshold (1.00%)
+ n1: 52488 0x4C2D68E: UnknownInlinedFun (imLcPrs.c:632)
+  n1: 52488 0x4C2D68E: parsestringfile (imLcPrs.c:739)
+   n1: 52488 0x4C2E231: UnknownInlinedFun (imLcIm.c:610)
+    n1: 52488 0x4C2E231: _XimLocalOpenIM (imLcIm.c:700)
+     n2: 52488 0x4C249B8: _XimOpenIM (imInt.c:229)
+      n1: 52488 0x4B17462: UnknownInlinedFun (x11_init.c:474)
+       n1: 52488 0x4B17462: inputMethodInstantiateCallback (x11_init.c:467)
+        n1: 52488 0x4C2B46E: _XimRegisterIMInstantiateCallback (imInsClbk.c:220)
+         n1: 52488 0x4C15EF3: XRegisterIMInstantiateCallback (IMWrap.c:177)
+          n1: 52488 0x4B1CD11: _glfwInitX11 (x11_init.c:1545)
+           n1: 52488 0x4A62C34: UnknownInlinedFun (init.c:405)
+            n1: 52488 0x4A62C34: UnknownInlinedFun (rcore_desktop_glfw.c:1456)
+             n1: 52488 0x4A62C34: InitWindow (rcore.c:681)
+              n0: 52488 0x40025B9: main (in /home/artemis/Documents/TextHere/game)
+      n0: 0 in 1 place, below massif's threshold (1.00%)
+ n1: 46471 0x401806C: calloc (rtld-malloc.h:44)
+  n1: 46471 0x401806C: _dl_new_object (dl-object.c:92)
+   n1: 46471 0x40134E0: _dl_map_object_from_fd (dl-load.c:1240)
+    n2: 46471 0x40134E0: _dl_map_new_object (dl-load.c:2230)
+     n1: 37683 0x400E87C: openaux (dl-deps.c:65)
+      n1: 37683 0x400D478: _dl_catch_exception (dl-catch.c:241)
+       n1: 37683 0x400EDBC: _dl_map_object_deps (dl-deps.c:234)
+        n1: 37683 0x401900F: dl_open_worker_begin (dl-open.c:609)
+         n1: 37683 0x400D478: _dl_catch_exception (dl-catch.c:241)
+          n1: 37683 0x4018582: dl_open_worker (dl-open.c:761)
+           n1: 37683 0x400D478: _dl_catch_exception (dl-catch.c:241)
+            n1: 37683 0x4018AE9: _dl_open (dl-open.c:899)
+             n1: 37683 0x4E09533: dlopen_doit (dlopen.c:56)
+              n1: 37683 0x400D478: _dl_catch_exception (dl-catch.c:241)
+               n1: 37683 0x400D5C8: _dl_catch_error (dl-catch.c:260)
+                n1: 37683 0x4E09002: _dlerror_run (dlerror.c:138)
+                 n1: 37683 0x4E095EA: dlopen_implementation (dlopen.c:71)
+                  n2: 37683 0x4E095EA: dlopen@@GLIBC_2.34 (dlopen.c:81)
+                   n1: 33919 0x5084688: __glXLookupVendorByName (libglxmapping.c:428)
+                    n1: 33919 0x5085544: __glXLookupVendorByScreen (libglxmapping.c:572)
+                     n1: 33919 0x5086456: UnknownInlinedFun (libglxmapping.c:606)
+                      n1: 33919 0x5086456: glXQueryExtensionsString (libglx.c:1473)
+                       n1: 33919 0x4B23EE6: extensionSupportedGLX.lto_priv.0 (glx_context.c:213)
+                        n1: 33919 0x4B1FEB2: UnknownInlinedFun (glx_context.c:366)
+                         n1: 33919 0x4B1FEB2: _glfwCreateWindowX11 (x11_window.c:1972)
+                          n1: 33919 0x4B0ED8A: glfwCreateWindow.constprop.0 (window.c:247)
+                           n1: 33919 0x4A62430: UnknownInlinedFun (rcore_desktop_glfw.c:1651)
+                            n1: 33919 0x4A62430: InitWindow (rcore.c:681)
+                             n0: 33919 0x40025B9: main (in /home/artemis/Documents/TextHere/game)
+                   n0: 3764 in 3 places, all below massif's threshold (1.00%)
+     n0: 8788 in 1 place, below massif's threshold (1.00%)
+ n1: 26244 0x4C2D56A: UnknownInlinedFun (imLcPrs.c:579)
+  n1: 26244 0x4C2D56A: parsestringfile (imLcPrs.c:739)
+   n1: 26244 0x4C2E231: UnknownInlinedFun (imLcIm.c:610)
+    n1: 26244 0x4C2E231: _XimLocalOpenIM (imLcIm.c:700)
+     n2: 26244 0x4C249B8: _XimOpenIM (imInt.c:229)
+      n1: 26244 0x4B17462: UnknownInlinedFun (x11_init.c:474)
+       n1: 26244 0x4B17462: inputMethodInstantiateCallback (x11_init.c:467)
+        n1: 26244 0x4C2B46E: _XimRegisterIMInstantiateCallback (imInsClbk.c:220)
+         n1: 26244 0x4C15EF3: XRegisterIMInstantiateCallback (IMWrap.c:177)
+          n1: 26244 0x4B1CD11: _glfwInitX11 (x11_init.c:1545)
+           n1: 26244 0x4A62C34: UnknownInlinedFun (init.c:405)
+            n1: 26244 0x4A62C34: UnknownInlinedFun (rcore_desktop_glfw.c:1456)
+             n1: 26244 0x4A62C34: InitWindow (rcore.c:681)
+              n0: 26244 0x40025B9: main (in /home/artemis/Documents/TextHere/game)
+      n0: 0 in 1 place, below massif's threshold (1.00%)
+ n1: 26244 0x4C2D7A7: UnknownInlinedFun (imLcPrs.c:648)
+  n1: 26244 0x4C2D7A7: parsestringfile (imLcPrs.c:739)
+   n1: 26244 0x4C2E231: UnknownInlinedFun (imLcIm.c:610)
+    n1: 26244 0x4C2E231: _XimLocalOpenIM (imLcIm.c:700)
+     n2: 26244 0x4C249B8: _XimOpenIM (imInt.c:229)
+      n1: 26244 0x4B17462: UnknownInlinedFun (x11_init.c:474)
+       n1: 26244 0x4B17462: inputMethodInstantiateCallback (x11_init.c:467)
+        n1: 26244 0x4C2B46E: _XimRegisterIMInstantiateCallback (imInsClbk.c:220)
+         n1: 26244 0x4C15EF3: XRegisterIMInstantiateCallback (IMWrap.c:177)
+          n1: 26244 0x4B1CD11: _glfwInitX11 (x11_init.c:1545)
+           n1: 26244 0x4A62C34: UnknownInlinedFun (init.c:405)
+            n1: 26244 0x4A62C34: UnknownInlinedFun (rcore_desktop_glfw.c:1456)
+             n1: 26244 0x4A62C34: InitWindow (rcore.c:681)
+              n0: 26244 0x40025B9: main (in /home/artemis/Documents/TextHere/game)
+      n0: 0 in 1 place, below massif's threshold (1.00%)
+ n1: 21176 0x4FD6F05: xcb_connect_to_fd (xcb_conn.c:368)
+  n1: 21176 0x4FD7C58: xcb_connect_to_display_with_auth_info (xcb_util.c:563)
+   n1: 21176 0x4BFF49A: _XConnectXCB (xcb_disp.c:78)
+    n1: 21176 0x4BEF039: XOpenDisplay (OpenDis.c:129)
+     n1: 21176 0x4B19FDF: _glfwConnectX11.constprop.0 (x11_init.c:1292)
+      n1: 21176 0x4A62C20: UnknownInlinedFun (platform.c:99)
+       n1: 21176 0x4A62C20: UnknownInlinedFun (platform.c:62)
+        n1: 21176 0x4A62C20: UnknownInlinedFun (init.c:402)
+         n1: 21176 0x4A62C20: UnknownInlinedFun (rcore_desktop_glfw.c:1456)
+          n1: 21176 0x4A62C20: InitWindow (rcore.c:681)
+           n0: 21176 0x40025B9: main (in /home/artemis/Documents/TextHere/game)
+#-----------
+snapshot=14
+#-----------
+time=279727458
+mem_heap_B=1696201
+mem_heap_extra_B=71383
+mem_stacks_B=0
+heap_tree=empty
+#-----------
+snapshot=15
+#-----------
+time=303228342
+mem_heap_B=11076304
+mem_heap_extra_B=459016
+mem_stacks_B=0
+heap_tree=empty
+#-----------
+snapshot=16
+#-----------
+time=319817172
+mem_heap_B=11603489
+mem_heap_extra_B=470199
+mem_stacks_B=0
+heap_tree=empty
+#-----------
+snapshot=17
+#-----------
+time=333999815
+mem_heap_B=11368413
+mem_heap_extra_B=468331
+mem_stacks_B=0
+heap_tree=empty
+#-----------
+snapshot=18
+#-----------
+time=353891086
+mem_heap_B=11380589
+mem_heap_extra_B=469147
+mem_stacks_B=0
+heap_tree=empty
+#-----------
+snapshot=19
+#-----------
+time=373754364
+mem_heap_B=11380509
+mem_heap_extra_B=469123
+mem_stacks_B=0
+heap_tree=detailed
+n13: 11380509 (heap allocation functions) malloc/new/new[], --alloc-fns, etc.
+ n3: 6353536 0x5E3875D: ??? (in /usr/lib/libgallium-26.1.7-arch1.1.so)
+  n6: 5780768 0x5E399A1: ??? (in /usr/lib/libgallium-26.1.7-arch1.1.so)
+   n0: 4604912 in 371 places, all below massif's threshold (1.00%)
+   n1: 402432 0x5CBEAE2: ??? (in /usr/lib/libgallium-26.1.7-arch1.1.so)
+    n0: 402432 in 29 places, all below massif's threshold (1.00%)
+   n1: 238944 0x5CBE8BE: ??? (in /usr/lib/libgallium-26.1.7-arch1.1.so)
+    n0: 238944 in 38 places, all below massif's threshold (1.00%)
+   n1: 203312 0x5D2065C: ??? (in /usr/lib/libgallium-26.1.7-arch1.1.so)
+    n0: 203312 in 25 places, all below massif's threshold (1.00%)
+   n1: 171872 0x5CC3157: ??? (in /usr/lib/libgallium-26.1.7-arch1.1.so)
+    n0: 171872 in 52 places, all below massif's threshold (1.00%)
+   n1: 159296 0x5D2DDE9: ??? (in /usr/lib/libgallium-26.1.7-arch1.1.so)
+    n0: 159296 in 6 places, all below massif's threshold (1.00%)
+  n2: 294576 0x5E39362: ??? (in /usr/lib/libgallium-26.1.7-arch1.1.so)
+   n2: 294576 0x5E39474: ??? (in /usr/lib/libgallium-26.1.7-arch1.1.so)
+    n1: 196320 0x5E99C42: ??? (in /usr/lib/libgallium-26.1.7-arch1.1.so)
+     n0: 196320 in 3 places, all below massif's threshold (1.00%)
+    n0: 98256 in 4 places, all below massif's threshold (1.00%)
+   n0: 0 in 1 place, below massif's threshold (1.00%)
+  n0: 278192 in 49 places, all below massif's threshold (1.00%)
+ n0: 1605600 in 633 places, all below massif's threshold (1.00%)
+ n1: 843456 0x59B1A20: ??? (in /usr/lib/libgallium-26.1.7-arch1.1.so)
+  n1: 843456 0x59C3592: ??? (in /usr/lib/libgallium-26.1.7-arch1.1.so)
+   n1: 843456 0x591E668: ??? (in /usr/lib/libgallium-26.1.7-arch1.1.so)
+    n1: 843456 0x5922ADA: driCreateContextAttribs (in /usr/lib/libgallium-26.1.7-arch1.1.so)
+     n1: 843456 0x5820B39: ??? (in /usr/lib/libGLX_mesa.so.0.0.0)
+      n1: 843456 0x581F9AD: ??? (in /usr/lib/libGLX_mesa.so.0.0.0)
+       n1: 843456 0x50857AA: glXCreateContextAttribsARB (libglx.c:301)
+        n1: 843456 0x4B27CBF: _glfwCreateContextGLX (glx_context.c:585)
+         n1: 843456 0x4B1F6A5: _glfwCreateWindowX11 (x11_window.c:2004)
+          n1: 843456 0x4B0ED8A: glfwCreateWindow.constprop.0 (window.c:247)
+           n1: 843456 0x4A62430: UnknownInlinedFun (rcore_desktop_glfw.c:1651)
+            n1: 843456 0x4A62430: InitWindow (rcore.c:681)
+             n0: 843456 0x40025B9: main (in /home/artemis/Documents/TextHere/game)
+ n1: 393216 0x4A492D9: UnknownInlinedFun (rlgl.h:2816)
+  n1: 393216 0x4A492D9: rlLoadRenderBatch (rlgl.h:2802)
+   n1: 393216 0x4A4BEAF: rlglInit (rlgl.h:2320)
+    n1: 393216 0x4A630E5: InitWindow (rcore.c:702)
+     n0: 393216 0x40025B9: main (in /home/artemis/Documents/TextHere/game)
+ n1: 393216 0x4A49303: UnknownInlinedFun (rlgl.h:2818)
+  n1: 393216 0x4A49303: rlLoadRenderBatch (rlgl.h:2802)
+   n1: 393216 0x4A4BEAF: rlglInit (rlgl.h:2320)
+    n1: 393216 0x4A630E5: InitWindow (rcore.c:702)
+     n0: 393216 0x40025B9: main (in /home/artemis/Documents/TextHere/game)
+ n1: 314928 0x4C2D97B: UnknownInlinedFun (imLcPrs.c:674)
+  n1: 314928 0x4C2D97B: parsestringfile (imLcPrs.c:739)
+   n1: 314928 0x4C2E231: UnknownInlinedFun (imLcIm.c:610)
+    n1: 314928 0x4C2E231: _XimLocalOpenIM (imLcIm.c:700)
+     n2: 314928 0x4C249B8: _XimOpenIM (imInt.c:229)
+      n1: 314928 0x4B17462: UnknownInlinedFun (x11_init.c:474)
+       n1: 314928 0x4B17462: inputMethodInstantiateCallback (x11_init.c:467)
+        n1: 314928 0x4C2B46E: _XimRegisterIMInstantiateCallback (imInsClbk.c:220)
+         n1: 314928 0x4C15EF3: XRegisterIMInstantiateCallback (IMWrap.c:177)
+          n1: 314928 0x4B1CD11: _glfwInitX11 (x11_init.c:1545)
+           n1: 314928 0x4A62C34: UnknownInlinedFun (init.c:405)
+            n1: 314928 0x4A62C34: UnknownInlinedFun (rcore_desktop_glfw.c:1456)
+             n1: 314928 0x4A62C34: InitWindow (rcore.c:681)
+              n0: 314928 0x40025B9: main (in /home/artemis/Documents/TextHere/game)
+      n0: 0 in 1 place, below massif's threshold (1.00%)
+ n1: 271576 0x5C40A36: ??? (in /usr/lib/libgallium-26.1.7-arch1.1.so)
+  n1: 271576 0x5B2660C: ??? (in /usr/lib/libgallium-26.1.7-arch1.1.so)
+   n1: 271576 0x59B1A82: ??? (in /usr/lib/libgallium-26.1.7-arch1.1.so)
+    n1: 271576 0x59C3592: ??? (in /usr/lib/libgallium-26.1.7-arch1.1.so)
+     n1: 271576 0x591E668: ??? (in /usr/lib/libgallium-26.1.7-arch1.1.so)
+      n1: 271576 0x5922ADA: driCreateContextAttribs (in /usr/lib/libgallium-26.1.7-arch1.1.so)
+       n1: 271576 0x5820B39: ??? (in /usr/lib/libGLX_mesa.so.0.0.0)
+        n1: 271576 0x581F9AD: ??? (in /usr/lib/libGLX_mesa.so.0.0.0)
+         n1: 271576 0x50857AA: glXCreateContextAttribsARB (libglx.c:301)
+          n1: 271576 0x4B27CBF: _glfwCreateContextGLX (glx_context.c:585)
+           n1: 271576 0x4B1F6A5: _glfwCreateWindowX11 (x11_window.c:2004)
+            n1: 271576 0x4B0ED8A: glfwCreateWindow.constprop.0 (window.c:247)
+             n1: 271576 0x4A62430: UnknownInlinedFun (rcore_desktop_glfw.c:1651)
+              n1: 271576 0x4A62430: InitWindow (rcore.c:681)
+               n0: 271576 0x40025B9: main (in /home/artemis/Documents/TextHere/game)
+ n1: 262144 0x4A492F0: UnknownInlinedFun (rlgl.h:2817)
+  n1: 262144 0x4A492F0: rlLoadRenderBatch (rlgl.h:2802)
+   n1: 262144 0x4A4BEAF: rlglInit (rlgl.h:2320)
+    n1: 262144 0x4A630E5: InitWindow (rcore.c:702)
+     n0: 262144 0x40025B9: main (in /home/artemis/Documents/TextHere/game)
+ n2: 230144 0x582023D: ??? (in /usr/lib/libGLX_mesa.so.0.0.0)
+  n1: 152192 0x58210FC: ??? (in /usr/lib/libGLX_mesa.so.0.0.0)
+   n1: 152192 0x583412D: ??? (in /usr/lib/libGLX_mesa.so.0.0.0)
+    n1: 152192 0x5826C05: ??? (in /usr/lib/libGLX_mesa.so.0.0.0)
+     n1: 152192 0x58281BB: ??? (in /usr/lib/libGLX_mesa.so.0.0.0)
+      n1: 152192 0x5824533: ??? (in /usr/lib/libGLX_mesa.so.0.0.0)
+       n1: 152192 0x4B23EE6: extensionSupportedGLX.lto_priv.0 (glx_context.c:213)
+        n1: 152192 0x4B1FEB2: UnknownInlinedFun (glx_context.c:366)
+         n1: 152192 0x4B1FEB2: _glfwCreateWindowX11 (x11_window.c:1972)
+          n1: 152192 0x4B0ED8A: glfwCreateWindow.constprop.0 (window.c:247)
+           n1: 152192 0x4A62430: UnknownInlinedFun (rcore_desktop_glfw.c:1651)
+            n1: 152192 0x4A62430: InitWindow (rcore.c:681)
+             n0: 152192 0x40025B9: main (in /home/artemis/Documents/TextHere/game)
+  n0: 77952 in 1 place, below massif's threshold (1.00%)
+ n1: 216208 0x60D8723: ??? (in /usr/lib/libgallium-26.1.7-arch1.1.so)
+  n1: 216208 0x6FFCD80: ??? (in /usr/lib/libgallium-26.1.7-arch1.1.so)
+   n1: 216208 0x59C352E: ??? (in /usr/lib/libgallium-26.1.7-arch1.1.so)
+    n1: 216208 0x591E668: ??? (in /usr/lib/libgallium-26.1.7-arch1.1.so)
+     n1: 216208 0x5922ADA: driCreateContextAttribs (in /usr/lib/libgallium-26.1.7-arch1.1.so)
+      n1: 216208 0x5820B39: ??? (in /usr/lib/libGLX_mesa.so.0.0.0)
+       n1: 216208 0x581F9AD: ??? (in /usr/lib/libGLX_mesa.so.0.0.0)
+        n1: 216208 0x50857AA: glXCreateContextAttribsARB (libglx.c:301)
+         n1: 216208 0x4B27CBF: _glfwCreateContextGLX (glx_context.c:585)
+          n1: 216208 0x4B1F6A5: _glfwCreateWindowX11 (x11_window.c:2004)
+           n1: 216208 0x4B0ED8A: glfwCreateWindow.constprop.0 (window.c:247)
+            n1: 216208 0x4A62430: UnknownInlinedFun (rcore_desktop_glfw.c:1651)
+             n1: 216208 0x4A62430: InitWindow (rcore.c:681)
+              n0: 216208 0x40025B9: main (in /home/artemis/Documents/TextHere/game)
+ n1: 196608 0x4A49329: UnknownInlinedFun (rlgl.h:2821)
+  n1: 196608 0x4A49329: rlLoadRenderBatch (rlgl.h:2802)
+   n1: 196608 0x4A4BEAF: rlglInit (rlgl.h:2320)
+    n1: 196608 0x4A630E5: InitWindow (rcore.c:702)
+     n0: 196608 0x40025B9: main (in /home/artemis/Documents/TextHere/game)
+ n1: 168805 0x4A62CC4: UnknownInlinedFun (init.c:261)
+  n1: 168805 0x4A62CC4: UnknownInlinedFun (input.c:490)
+   n1: 168805 0x4A62CC4: UnknownInlinedFun (init.c:421)
+    n1: 168805 0x4A62CC4: UnknownInlinedFun (rcore_desktop_glfw.c:1456)
+     n1: 168805 0x4A62CC4: InitWindow (rcore.c:681)
+      n0: 168805 0x40025B9: main (in /home/artemis/Documents/TextHere/game)
+ n1: 131072 0x4A49316: UnknownInlinedFun (rlgl.h:2819)
+  n1: 131072 0x4A49316: rlLoadRenderBatch (rlgl.h:2802)
+   n1: 131072 0x4A4BEAF: rlglInit (rlgl.h:2320)
+    n1: 131072 0x4A630E5: InitWindow (rcore.c:702)
+     n0: 131072 0x40025B9: main (in /home/artemis/Documents/TextHere/game)
+#-----------
+snapshot=20
+#-----------
+time=393587040
+mem_heap_B=11380685
+mem_heap_extra_B=469155
+mem_stacks_B=0
+heap_tree=empty
+#-----------
+snapshot=21
+#-----------
+time=420125536
+mem_heap_B=11429577
+mem_heap_extra_B=469639
+mem_stacks_B=0
+heap_tree=empty
+#-----------
+snapshot=22
+#-----------
+time=432361243
+mem_heap_B=11429601
+mem_heap_extra_B=469615
+mem_stacks_B=0
+heap_tree=empty
+#-----------
+snapshot=23
+#-----------
+time=448658282
+mem_heap_B=11430633
+mem_heap_extra_B=469743
+mem_stacks_B=0
+heap_tree=empty
+#-----------
+snapshot=24
+#-----------
+time=473330186
+mem_heap_B=11430977
+mem_heap_extra_B=469783
+mem_stacks_B=0
+heap_tree=empty
+#-----------
+snapshot=25
+#-----------
+time=489708644
+mem_heap_B=11430937
+mem_heap_extra_B=469871
+mem_stacks_B=0
+heap_tree=empty
+#-----------
+snapshot=26
+#-----------
+time=501919414
+mem_heap_B=11281657
+mem_heap_extra_B=469647
+mem_stacks_B=0
+heap_tree=empty
+#-----------
+snapshot=27
+#-----------
+time=519671264
+mem_heap_B=11429804
+mem_heap_extra_B=469844
+mem_stacks_B=0
+heap_tree=empty
+#-----------
+snapshot=28
+#-----------
+time=535900826
+mem_heap_B=11430812
+mem_heap_extra_B=469892
+mem_stacks_B=0
+heap_tree=empty
+#-----------
+snapshot=29
+#-----------
+time=552575743
+mem_heap_B=11429868
+mem_heap_extra_B=469852
+mem_stacks_B=0
+heap_tree=empty
+#-----------
+snapshot=30
+#-----------
+time=577262708
+mem_heap_B=11430508
+mem_heap_extra_B=469868
+mem_stacks_B=0
+heap_tree=empty
+#-----------
+snapshot=31
+#-----------
+time=597661423
+mem_heap_B=11431332
+mem_heap_extra_B=469908
+mem_stacks_B=0
+heap_tree=empty
+#-----------
+snapshot=32
+#-----------
+time=610397435
+mem_heap_B=14321531
+mem_heap_extra_B=469941
+mem_stacks_B=0
+heap_tree=peak
+n14: 14321531 (heap allocation functions) malloc/new/new[], --alloc-fns, etc.
+ n3: 6353536 0x5E3875D: ??? (in /usr/lib/libgallium-26.1.7-arch1.1.so)
+  n6: 5780768 0x5E399A1: ??? (in /usr/lib/libgallium-26.1.7-arch1.1.so)
+   n0: 4604912 in 371 places, all below massif's threshold (1.00%)
+   n1: 402432 0x5CBEAE2: ??? (in /usr/lib/libgallium-26.1.7-arch1.1.so)
+    n0: 402432 in 29 places, all below massif's threshold (1.00%)
+   n1: 238944 0x5CBE8BE: ??? (in /usr/lib/libgallium-26.1.7-arch1.1.so)
+    n0: 238944 in 38 places, all below massif's threshold (1.00%)
+   n1: 203312 0x5D2065C: ??? (in /usr/lib/libgallium-26.1.7-arch1.1.so)
+    n0: 203312 in 25 places, all below massif's threshold (1.00%)
+   n1: 171872 0x5CC3157: ??? (in /usr/lib/libgallium-26.1.7-arch1.1.so)
+    n0: 171872 in 52 places, all below massif's threshold (1.00%)
+   n1: 159296 0x5D2DDE9: ??? (in /usr/lib/libgallium-26.1.7-arch1.1.so)
+    n0: 159296 in 6 places, all below massif's threshold (1.00%)
+  n2: 294576 0x5E39362: ??? (in /usr/lib/libgallium-26.1.7-arch1.1.so)
+   n2: 294576 0x5E39474: ??? (in /usr/lib/libgallium-26.1.7-arch1.1.so)
+    n1: 196320 0x5E99C42: ??? (in /usr/lib/libgallium-26.1.7-arch1.1.so)
+     n0: 196320 in 3 places, all below massif's threshold (1.00%)
+    n0: 98256 in 4 places, all below massif's threshold (1.00%)
+   n0: 0 in 1 place, below massif's threshold (1.00%)
+  n0: 278192 in 49 places, all below massif's threshold (1.00%)
+ n0: 1797094 in 644 places, all below massif's threshold (1.00%)
+ n1: 1440600 0x4AD1483: UnknownInlinedFun (stb_image.h:987)
+  n1: 1440600 0x4AD1483: UnknownInlinedFun (stb_image.h:4544)
+   n1: 1440600 0x4AD1483: stbi__parse_png_file.constprop.0 (stb_image.h:5207)
+    n1: 1440600 0x4AFC303: UnknownInlinedFun (stb_image.h:5267)
+     n1: 1440600 0x4AFC303: UnknownInlinedFun (stb_image.h:5299)
+      n1: 1440600 0x4AFC303: UnknownInlinedFun (stb_image.h:1147)
+       n1: 1440600 0x4AFC303: UnknownInlinedFun (stb_image.h:1263)
+        n1: 1440600 0x4AFC303: UnknownInlinedFun (stb_image.h:1433)
+         n1: 1440600 0x4AFC303: LoadImageFromMemory (rtextures.c:462)
+          n2: 1440600 0x4B007A1: LoadImage (rtextures.c:287)
+           n2: 1440600 0x4B14FC5: LoadTexture (rtextures.c:4113)
+            n1: 1440600 0x4005298: ParseDialogueLine (in /home/artemis/Documents/TextHere/game)
+             n1: 1440600 0x4004F22: UpdateDialogue (in /home/artemis/Documents/TextHere/game)
+              n1: 1440600 0x4006094: UpdateAndDrawActiveDialogue (in /home/artemis/Documents/TextHere/game)
+               n0: 1440600 0x4003085: main (in /home/artemis/Documents/TextHere/game)
+            n0: 0 in 1 place, below massif's threshold (1.00%)
+           n0: 0 in 1 place, below massif's threshold (1.00%)
+ n1: 1440000 0x4ACB091: UnknownInlinedFun (m3d.h:796)
+  n1: 1440000 0x4ACB091: UnknownInlinedFun (m3d.h:832)
+   n1: 1440000 0x4ACB091: stbi__create_png_image_raw (stb_image.h:4712)
+    n1: 1440000 0x4AD53C5: UnknownInlinedFun (stb_image.h:4868)
+     n1: 1440000 0x4AD53C5: stbi__parse_png_file.constprop.0 (stb_image.h:5214)
+      n1: 1440000 0x4AFC303: UnknownInlinedFun (stb_image.h:5267)
+       n1: 1440000 0x4AFC303: UnknownInlinedFun (stb_image.h:5299)
+        n1: 1440000 0x4AFC303: UnknownInlinedFun (stb_image.h:1147)
+         n1: 1440000 0x4AFC303: UnknownInlinedFun (stb_image.h:1263)
+          n1: 1440000 0x4AFC303: UnknownInlinedFun (stb_image.h:1433)
+           n1: 1440000 0x4AFC303: LoadImageFromMemory (rtextures.c:462)
+            n2: 1440000 0x4B007A1: LoadImage (rtextures.c:287)
+             n2: 1440000 0x4B14FC5: LoadTexture (rtextures.c:4113)
+              n1: 1440000 0x4005298: ParseDialogueLine (in /home/artemis/Documents/TextHere/game)
+               n1: 1440000 0x4004F22: UpdateDialogue (in /home/artemis/Documents/TextHere/game)
+                n1: 1440000 0x4006094: UpdateAndDrawActiveDialogue (in /home/artemis/Documents/TextHere/game)
+                 n0: 1440000 0x4003085: main (in /home/artemis/Documents/TextHere/game)
+              n0: 0 in 1 place, below massif's threshold (1.00%)
+             n0: 0 in 1 place, below massif's threshold (1.00%)
+ n1: 843456 0x59B1A20: ??? (in /usr/lib/libgallium-26.1.7-arch1.1.so)
+  n1: 843456 0x59C3592: ??? (in /usr/lib/libgallium-26.1.7-arch1.1.so)
+   n1: 843456 0x591E668: ??? (in /usr/lib/libgallium-26.1.7-arch1.1.so)
+    n1: 843456 0x5922ADA: driCreateContextAttribs (in /usr/lib/libgallium-26.1.7-arch1.1.so)
+     n1: 843456 0x5820B39: ??? (in /usr/lib/libGLX_mesa.so.0.0.0)
+      n1: 843456 0x581F9AD: ??? (in /usr/lib/libGLX_mesa.so.0.0.0)
+       n1: 843456 0x50857AA: glXCreateContextAttribsARB (libglx.c:301)
+        n1: 843456 0x4B27CBF: _glfwCreateContextGLX (glx_context.c:585)
+         n1: 843456 0x4B1F6A5: _glfwCreateWindowX11 (x11_window.c:2004)
+          n1: 843456 0x4B0ED8A: glfwCreateWindow.constprop.0 (window.c:247)
+           n1: 843456 0x4A62430: UnknownInlinedFun (rcore_desktop_glfw.c:1651)
+            n1: 843456 0x4A62430: InitWindow (rcore.c:681)
+             n0: 843456 0x40025B9: main (in /home/artemis/Documents/TextHere/game)
+ n1: 393216 0x4A492D9: UnknownInlinedFun (rlgl.h:2816)
+  n1: 393216 0x4A492D9: rlLoadRenderBatch (rlgl.h:2802)
+   n1: 393216 0x4A4BEAF: rlglInit (rlgl.h:2320)
+    n1: 393216 0x4A630E5: InitWindow (rcore.c:702)
+     n0: 393216 0x40025B9: main (in /home/artemis/Documents/TextHere/game)
+ n1: 393216 0x4A49303: UnknownInlinedFun (rlgl.h:2818)
+  n1: 393216 0x4A49303: rlLoadRenderBatch (rlgl.h:2802)
+   n1: 393216 0x4A4BEAF: rlglInit (rlgl.h:2320)
+    n1: 393216 0x4A630E5: InitWindow (rcore.c:702)
+     n0: 393216 0x40025B9: main (in /home/artemis/Documents/TextHere/game)
+ n1: 314928 0x4C2D97B: UnknownInlinedFun (imLcPrs.c:674)
+  n1: 314928 0x4C2D97B: parsestringfile (imLcPrs.c:739)
+   n1: 314928 0x4C2E231: UnknownInlinedFun (imLcIm.c:610)
+    n1: 314928 0x4C2E231: _XimLocalOpenIM (imLcIm.c:700)
+     n2: 314928 0x4C249B8: _XimOpenIM (imInt.c:229)
+      n1: 314928 0x4B17462: UnknownInlinedFun (x11_init.c:474)
+       n1: 314928 0x4B17462: inputMethodInstantiateCallback (x11_init.c:467)
+        n1: 314928 0x4C2B46E: _XimRegisterIMInstantiateCallback (imInsClbk.c:220)
+         n1: 314928 0x4C15EF3: XRegisterIMInstantiateCallback (IMWrap.c:177)
+          n1: 314928 0x4B1CD11: _glfwInitX11 (x11_init.c:1545)
+           n1: 314928 0x4A62C34: UnknownInlinedFun (init.c:405)
+            n1: 314928 0x4A62C34: UnknownInlinedFun (rcore_desktop_glfw.c:1456)
+             n1: 314928 0x4A62C34: InitWindow (rcore.c:681)
+              n0: 314928 0x40025B9: main (in /home/artemis/Documents/TextHere/game)
+      n0: 0 in 1 place, below massif's threshold (1.00%)
+ n1: 271576 0x5C40A36: ??? (in /usr/lib/libgallium-26.1.7-arch1.1.so)
+  n1: 271576 0x5B2660C: ??? (in /usr/lib/libgallium-26.1.7-arch1.1.so)
+   n1: 271576 0x59B1A82: ??? (in /usr/lib/libgallium-26.1.7-arch1.1.so)
+    n1: 271576 0x59C3592: ??? (in /usr/lib/libgallium-26.1.7-arch1.1.so)
+     n1: 271576 0x591E668: ??? (in /usr/lib/libgallium-26.1.7-arch1.1.so)
+      n1: 271576 0x5922ADA: driCreateContextAttribs (in /usr/lib/libgallium-26.1.7-arch1.1.so)
+       n1: 271576 0x5820B39: ??? (in /usr/lib/libGLX_mesa.so.0.0.0)
+        n1: 271576 0x581F9AD: ??? (in /usr/lib/libGLX_mesa.so.0.0.0)
+         n1: 271576 0x50857AA: glXCreateContextAttribsARB (libglx.c:301)
+          n1: 271576 0x4B27CBF: _glfwCreateContextGLX (glx_context.c:585)
+           n1: 271576 0x4B1F6A5: _glfwCreateWindowX11 (x11_window.c:2004)
+            n1: 271576 0x4B0ED8A: glfwCreateWindow.constprop.0 (window.c:247)
+             n1: 271576 0x4A62430: UnknownInlinedFun (rcore_desktop_glfw.c:1651)
+              n1: 271576 0x4A62430: InitWindow (rcore.c:681)
+               n0: 271576 0x40025B9: main (in /home/artemis/Documents/TextHere/game)
+ n1: 262144 0x4A492F0: UnknownInlinedFun (rlgl.h:2817)
+  n1: 262144 0x4A492F0: rlLoadRenderBatch (rlgl.h:2802)
+   n1: 262144 0x4A4BEAF: rlglInit (rlgl.h:2320)
+    n1: 262144 0x4A630E5: InitWindow (rcore.c:702)
+     n0: 262144 0x40025B9: main (in /home/artemis/Documents/TextHere/game)
+ n2: 230144 0x582023D: ??? (in /usr/lib/libGLX_mesa.so.0.0.0)
+  n1: 152192 0x58210FC: ??? (in /usr/lib/libGLX_mesa.so.0.0.0)
+   n1: 152192 0x583412D: ??? (in /usr/lib/libGLX_mesa.so.0.0.0)
+    n1: 152192 0x5826C05: ??? (in /usr/lib/libGLX_mesa.so.0.0.0)
+     n1: 152192 0x58281BB: ??? (in /usr/lib/libGLX_mesa.so.0.0.0)
+      n1: 152192 0x5824533: ??? (in /usr/lib/libGLX_mesa.so.0.0.0)
+       n1: 152192 0x4B23EE6: extensionSupportedGLX.lto_priv.0 (glx_context.c:213)
+        n1: 152192 0x4B1FEB2: UnknownInlinedFun (glx_context.c:366)
+         n1: 152192 0x4B1FEB2: _glfwCreateWindowX11 (x11_window.c:1972)
+          n1: 152192 0x4B0ED8A: glfwCreateWindow.constprop.0 (window.c:247)
+           n1: 152192 0x4A62430: UnknownInlinedFun (rcore_desktop_glfw.c:1651)
+            n1: 152192 0x4A62430: InitWindow (rcore.c:681)
+             n0: 152192 0x40025B9: main (in /home/artemis/Documents/TextHere/game)
+  n0: 77952 in 1 place, below massif's threshold (1.00%)
+ n1: 216208 0x60D8723: ??? (in /usr/lib/libgallium-26.1.7-arch1.1.so)
+  n1: 216208 0x6FFCD80: ??? (in /usr/lib/libgallium-26.1.7-arch1.1.so)
+   n1: 216208 0x59C352E: ??? (in /usr/lib/libgallium-26.1.7-arch1.1.so)
+    n1: 216208 0x591E668: ??? (in /usr/lib/libgallium-26.1.7-arch1.1.so)
+     n1: 216208 0x5922ADA: driCreateContextAttribs (in /usr/lib/libgallium-26.1.7-arch1.1.so)
+      n1: 216208 0x5820B39: ??? (in /usr/lib/libGLX_mesa.so.0.0.0)
+       n1: 216208 0x581F9AD: ??? (in /usr/lib/libGLX_mesa.so.0.0.0)
+        n1: 216208 0x50857AA: glXCreateContextAttribsARB (libglx.c:301)
+         n1: 216208 0x4B27CBF: _glfwCreateContextGLX (glx_context.c:585)
+          n1: 216208 0x4B1F6A5: _glfwCreateWindowX11 (x11_window.c:2004)
+           n1: 216208 0x4B0ED8A: glfwCreateWindow.constprop.0 (window.c:247)
+            n1: 216208 0x4A62430: UnknownInlinedFun (rcore_desktop_glfw.c:1651)
+             n1: 216208 0x4A62430: InitWindow (rcore.c:681)
+              n0: 216208 0x40025B9: main (in /home/artemis/Documents/TextHere/game)
+ n1: 196608 0x4A49329: UnknownInlinedFun (rlgl.h:2821)
+  n1: 196608 0x4A49329: rlLoadRenderBatch (rlgl.h:2802)
+   n1: 196608 0x4A4BEAF: rlglInit (rlgl.h:2320)
+    n1: 196608 0x4A630E5: InitWindow (rcore.c:702)
+     n0: 196608 0x40025B9: main (in /home/artemis/Documents/TextHere/game)
+ n1: 168805 0x4A62CC4: UnknownInlinedFun (init.c:261)
+  n1: 168805 0x4A62CC4: UnknownInlinedFun (input.c:490)
+   n1: 168805 0x4A62CC4: UnknownInlinedFun (init.c:421)
+    n1: 168805 0x4A62CC4: UnknownInlinedFun (rcore_desktop_glfw.c:1456)
+     n1: 168805 0x4A62CC4: InitWindow (rcore.c:681)
+      n0: 168805 0x40025B9: main (in /home/artemis/Documents/TextHere/game)
+#-----------
+snapshot=33
+#-----------
+time=630201059
+mem_heap_B=11433728
+mem_heap_extra_B=470016
+mem_stacks_B=0
+heap_tree=empty
+#-----------
+snapshot=34
+#-----------
+time=642151147
+mem_heap_B=11284517
+mem_heap_extra_B=469747
+mem_stacks_B=0
+heap_tree=empty
+#-----------
+snapshot=35
+#-----------
+time=666000036
+mem_heap_B=11283029
+mem_heap_extra_B=469619
+mem_stacks_B=0
+heap_tree=empty
+#-----------
+snapshot=36
+#-----------
+time=677988818
+mem_heap_B=11282965
+mem_heap_extra_B=469595
+mem_stacks_B=0
+heap_tree=empty
+#-----------
+snapshot=37
+#-----------
+time=701850019
+mem_heap_B=11281981
+mem_heap_extra_B=469523
+mem_stacks_B=0
+heap_tree=empty
+#-----------
+snapshot=38
+#-----------
+time=713731660
+mem_heap_B=11282133
+mem_heap_extra_B=469539
+mem_stacks_B=0
+heap_tree=empty
+#-----------
+snapshot=39
+#-----------
+time=731551443
+mem_heap_B=11282037
+mem_heap_extra_B=469571
+mem_stacks_B=0
+heap_tree=detailed
+n13: 11282037 (heap allocation functions) malloc/new/new[], --alloc-fns, etc.
+ n3: 6353616 0x5E3875D: ??? (in /usr/lib/libgallium-26.1.7-arch1.1.so)
+  n6: 5780768 0x5E399A1: ??? (in /usr/lib/libgallium-26.1.7-arch1.1.so)
+   n0: 4604912 in 371 places, all below massif's threshold (1.00%)
+   n1: 402432 0x5CBEAE2: ??? (in /usr/lib/libgallium-26.1.7-arch1.1.so)
+    n0: 402432 in 29 places, all below massif's threshold (1.00%)
+   n1: 238944 0x5CBE8BE: ??? (in /usr/lib/libgallium-26.1.7-arch1.1.so)
+    n0: 238944 in 38 places, all below massif's threshold (1.00%)
+   n1: 203312 0x5D2065C: ??? (in /usr/lib/libgallium-26.1.7-arch1.1.so)
+    n0: 203312 in 25 places, all below massif's threshold (1.00%)
+   n1: 171872 0x5CC3157: ??? (in /usr/lib/libgallium-26.1.7-arch1.1.so)
+    n0: 171872 in 52 places, all below massif's threshold (1.00%)
+   n1: 159296 0x5D2DDE9: ??? (in /usr/lib/libgallium-26.1.7-arch1.1.so)
+    n0: 159296 in 6 places, all below massif's threshold (1.00%)
+  n2: 294576 0x5E39362: ??? (in /usr/lib/libgallium-26.1.7-arch1.1.so)
+   n2: 294576 0x5E39474: ??? (in /usr/lib/libgallium-26.1.7-arch1.1.so)
+    n1: 196320 0x5E99C42: ??? (in /usr/lib/libgallium-26.1.7-arch1.1.so)
+     n0: 196320 in 3 places, all below massif's threshold (1.00%)
+    n0: 98256 in 4 places, all below massif's threshold (1.00%)
+   n0: 0 in 1 place, below massif's threshold (1.00%)
+  n0: 278272 in 49 places, all below massif's threshold (1.00%)
+ n0: 1507048 in 651 places, all below massif's threshold (1.00%)
+ n1: 843456 0x59B1A20: ??? (in /usr/lib/libgallium-26.1.7-arch1.1.so)
+  n1: 843456 0x59C3592: ??? (in /usr/lib/libgallium-26.1.7-arch1.1.so)
+   n1: 843456 0x591E668: ??? (in /usr/lib/libgallium-26.1.7-arch1.1.so)
+    n1: 843456 0x5922ADA: driCreateContextAttribs (in /usr/lib/libgallium-26.1.7-arch1.1.so)
+     n1: 843456 0x5820B39: ??? (in /usr/lib/libGLX_mesa.so.0.0.0)
+      n1: 843456 0x581F9AD: ??? (in /usr/lib/libGLX_mesa.so.0.0.0)
+       n1: 843456 0x50857AA: glXCreateContextAttribsARB (libglx.c:301)
+        n1: 843456 0x4B27CBF: _glfwCreateContextGLX (glx_context.c:585)
+         n1: 843456 0x4B1F6A5: _glfwCreateWindowX11 (x11_window.c:2004)
+          n1: 843456 0x4B0ED8A: glfwCreateWindow.constprop.0 (window.c:247)
+           n1: 843456 0x4A62430: UnknownInlinedFun (rcore_desktop_glfw.c:1651)
+            n1: 843456 0x4A62430: InitWindow (rcore.c:681)
+             n0: 843456 0x40025B9: main (in /home/artemis/Documents/TextHere/game)
+ n1: 393216 0x4A492D9: UnknownInlinedFun (rlgl.h:2816)
+  n1: 393216 0x4A492D9: rlLoadRenderBatch (rlgl.h:2802)
+   n1: 393216 0x4A4BEAF: rlglInit (rlgl.h:2320)
+    n1: 393216 0x4A630E5: InitWindow (rcore.c:702)
+     n0: 393216 0x40025B9: main (in /home/artemis/Documents/TextHere/game)
+ n1: 393216 0x4A49303: UnknownInlinedFun (rlgl.h:2818)
+  n1: 393216 0x4A49303: rlLoadRenderBatch (rlgl.h:2802)
+   n1: 393216 0x4A4BEAF: rlglInit (rlgl.h:2320)
+    n1: 393216 0x4A630E5: InitWindow (rcore.c:702)
+     n0: 393216 0x40025B9: main (in /home/artemis/Documents/TextHere/game)
+ n1: 314928 0x4C2D97B: UnknownInlinedFun (imLcPrs.c:674)
+  n1: 314928 0x4C2D97B: parsestringfile (imLcPrs.c:739)
+   n1: 314928 0x4C2E231: UnknownInlinedFun (imLcIm.c:610)
+    n1: 314928 0x4C2E231: _XimLocalOpenIM (imLcIm.c:700)
+     n2: 314928 0x4C249B8: _XimOpenIM (imInt.c:229)
+      n1: 314928 0x4B17462: UnknownInlinedFun (x11_init.c:474)
+       n1: 314928 0x4B17462: inputMethodInstantiateCallback (x11_init.c:467)
+        n1: 314928 0x4C2B46E: _XimRegisterIMInstantiateCallback (imInsClbk.c:220)
+         n1: 314928 0x4C15EF3: XRegisterIMInstantiateCallback (IMWrap.c:177)
+          n1: 314928 0x4B1CD11: _glfwInitX11 (x11_init.c:1545)
+           n1: 314928 0x4A62C34: UnknownInlinedFun (init.c:405)
+            n1: 314928 0x4A62C34: UnknownInlinedFun (rcore_desktop_glfw.c:1456)
+             n1: 314928 0x4A62C34: InitWindow (rcore.c:681)
+              n0: 314928 0x40025B9: main (in /home/artemis/Documents/TextHere/game)
+      n0: 0 in 1 place, below massif's threshold (1.00%)
+ n1: 271576 0x5C40A36: ??? (in /usr/lib/libgallium-26.1.7-arch1.1.so)
+  n1: 271576 0x5B2660C: ??? (in /usr/lib/libgallium-26.1.7-arch1.1.so)
+   n1: 271576 0x59B1A82: ??? (in /usr/lib/libgallium-26.1.7-arch1.1.so)
+    n1: 271576 0x59C3592: ??? (in /usr/lib/libgallium-26.1.7-arch1.1.so)
+     n1: 271576 0x591E668: ??? (in /usr/lib/libgallium-26.1.7-arch1.1.so)
+      n1: 271576 0x5922ADA: driCreateContextAttribs (in /usr/lib/libgallium-26.1.7-arch1.1.so)
+       n1: 271576 0x5820B39: ??? (in /usr/lib/libGLX_mesa.so.0.0.0)
+        n1: 271576 0x581F9AD: ??? (in /usr/lib/libGLX_mesa.so.0.0.0)
+         n1: 271576 0x50857AA: glXCreateContextAttribsARB (libglx.c:301)
+          n1: 271576 0x4B27CBF: _glfwCreateContextGLX (glx_context.c:585)
+           n1: 271576 0x4B1F6A5: _glfwCreateWindowX11 (x11_window.c:2004)
+            n1: 271576 0x4B0ED8A: glfwCreateWindow.constprop.0 (window.c:247)
+             n1: 271576 0x4A62430: UnknownInlinedFun (rcore_desktop_glfw.c:1651)
+              n1: 271576 0x4A62430: InitWindow (rcore.c:681)
+               n0: 271576 0x40025B9: main (in /home/artemis/Documents/TextHere/game)
+ n1: 262144 0x4A492F0: UnknownInlinedFun (rlgl.h:2817)
+  n1: 262144 0x4A492F0: rlLoadRenderBatch (rlgl.h:2802)
+   n1: 262144 0x4A4BEAF: rlglInit (rlgl.h:2320)
+    n1: 262144 0x4A630E5: InitWindow (rcore.c:702)
+     n0: 262144 0x40025B9: main (in /home/artemis/Documents/TextHere/game)
+ n2: 230144 0x582023D: ??? (in /usr/lib/libGLX_mesa.so.0.0.0)
+  n1: 152192 0x58210FC: ??? (in /usr/lib/libGLX_mesa.so.0.0.0)
+   n1: 152192 0x583412D: ??? (in /usr/lib/libGLX_mesa.so.0.0.0)
+    n1: 152192 0x5826C05: ??? (in /usr/lib/libGLX_mesa.so.0.0.0)
+     n1: 152192 0x58281BB: ??? (in /usr/lib/libGLX_mesa.so.0.0.0)
+      n1: 152192 0x5824533: ??? (in /usr/lib/libGLX_mesa.so.0.0.0)
+       n1: 152192 0x4B23EE6: extensionSupportedGLX.lto_priv.0 (glx_context.c:213)
+        n1: 152192 0x4B1FEB2: UnknownInlinedFun (glx_context.c:366)
+         n1: 152192 0x4B1FEB2: _glfwCreateWindowX11 (x11_window.c:1972)
+          n1: 152192 0x4B0ED8A: glfwCreateWindow.constprop.0 (window.c:247)
+           n1: 152192 0x4A62430: UnknownInlinedFun (rcore_desktop_glfw.c:1651)
+            n1: 152192 0x4A62430: InitWindow (rcore.c:681)
+             n0: 152192 0x40025B9: main (in /home/artemis/Documents/TextHere/game)
+  n0: 77952 in 1 place, below massif's threshold (1.00%)
+ n1: 216208 0x60D8723: ??? (in /usr/lib/libgallium-26.1.7-arch1.1.so)
+  n1: 216208 0x6FFCD80: ??? (in /usr/lib/libgallium-26.1.7-arch1.1.so)
+   n1: 216208 0x59C352E: ??? (in /usr/lib/libgallium-26.1.7-arch1.1.so)
+    n1: 216208 0x591E668: ??? (in /usr/lib/libgallium-26.1.7-arch1.1.so)
+     n1: 216208 0x5922ADA: driCreateContextAttribs (in /usr/lib/libgallium-26.1.7-arch1.1.so)
+      n1: 216208 0x5820B39: ??? (in /usr/lib/libGLX_mesa.so.0.0.0)
+       n1: 216208 0x581F9AD: ??? (in /usr/lib/libGLX_mesa.so.0.0.0)
+        n1: 216208 0x50857AA: glXCreateContextAttribsARB (libglx.c:301)
+         n1: 216208 0x4B27CBF: _glfwCreateContextGLX (glx_context.c:585)
+          n1: 216208 0x4B1F6A5: _glfwCreateWindowX11 (x11_window.c:2004)
+           n1: 216208 0x4B0ED8A: glfwCreateWindow.constprop.0 (window.c:247)
+            n1: 216208 0x4A62430: UnknownInlinedFun (rcore_desktop_glfw.c:1651)
+             n1: 216208 0x4A62430: InitWindow (rcore.c:681)
+              n0: 216208 0x40025B9: main (in /home/artemis/Documents/TextHere/game)
+ n1: 196608 0x4A49329: UnknownInlinedFun (rlgl.h:2821)
+  n1: 196608 0x4A49329: rlLoadRenderBatch (rlgl.h:2802)
+   n1: 196608 0x4A4BEAF: rlglInit (rlgl.h:2320)
+    n1: 196608 0x4A630E5: InitWindow (rcore.c:702)
+     n0: 196608 0x40025B9: main (in /home/artemis/Documents/TextHere/game)
+ n1: 168805 0x4A62CC4: UnknownInlinedFun (init.c:261)
+  n1: 168805 0x4A62CC4: UnknownInlinedFun (input.c:490)
+   n1: 168805 0x4A62CC4: UnknownInlinedFun (init.c:421)
+    n1: 168805 0x4A62CC4: UnknownInlinedFun (rcore_desktop_glfw.c:1456)
+     n1: 168805 0x4A62CC4: InitWindow (rcore.c:681)
+      n0: 168805 0x40025B9: main (in /home/artemis/Documents/TextHere/game)
+ n1: 131072 0x4A49316: UnknownInlinedFun (rlgl.h:2819)
+  n1: 131072 0x4A49316: rlLoadRenderBatch (rlgl.h:2802)
+   n1: 131072 0x4A4BEAF: rlglInit (rlgl.h:2320)
+    n1: 131072 0x4A630E5: InitWindow (rcore.c:702)
+     n0: 131072 0x40025B9: main (in /home/artemis/Documents/TextHere/game)
+#-----------
+snapshot=40
+#-----------
+time=749432551
+mem_heap_B=11282037
+mem_heap_extra_B=469571
+mem_stacks_B=0
+heap_tree=empty
+#-----------
+snapshot=41
+#-----------
+time=773604445
+mem_heap_B=11282597
+mem_heap_extra_B=469635
+mem_stacks_B=0
+heap_tree=empty
+#-----------
+snapshot=42
+#-----------
+time=797545864
+mem_heap_B=11282861
+mem_heap_extra_B=469667
+mem_stacks_B=0
+heap_tree=empty
+#-----------
+snapshot=43
+#-----------
+time=821454766
+mem_heap_B=11282925
+mem_heap_extra_B=469643
+mem_stacks_B=0
+heap_tree=empty
+#-----------
+snapshot=44
+#-----------
+time=839496671
+mem_heap_B=11282829
+mem_heap_extra_B=469627
+mem_stacks_B=0
+heap_tree=empty
+#-----------
+snapshot=45
+#-----------
+time=851489309
+mem_heap_B=11282869
+mem_heap_extra_B=469667
+mem_stacks_B=0
+heap_tree=detailed
+n13: 11282869 (heap allocation functions) malloc/new/new[], --alloc-fns, etc.
+ n3: 6353616 0x5E3875D: ??? (in /usr/lib/libgallium-26.1.7-arch1.1.so)
+  n6: 5780768 0x5E399A1: ??? (in /usr/lib/libgallium-26.1.7-arch1.1.so)
+   n0: 4604912 in 371 places, all below massif's threshold (1.00%)
+   n1: 402432 0x5CBEAE2: ??? (in /usr/lib/libgallium-26.1.7-arch1.1.so)
+    n0: 402432 in 29 places, all below massif's threshold (1.00%)
+   n1: 238944 0x5CBE8BE: ??? (in /usr/lib/libgallium-26.1.7-arch1.1.so)
+    n0: 238944 in 38 places, all below massif's threshold (1.00%)
+   n1: 203312 0x5D2065C: ??? (in /usr/lib/libgallium-26.1.7-arch1.1.so)
+    n0: 203312 in 25 places, all below massif's threshold (1.00%)
+   n1: 171872 0x5CC3157: ??? (in /usr/lib/libgallium-26.1.7-arch1.1.so)
+    n0: 171872 in 52 places, all below massif's threshold (1.00%)
+   n1: 159296 0x5D2DDE9: ??? (in /usr/lib/libgallium-26.1.7-arch1.1.so)
+    n0: 159296 in 6 places, all below massif's threshold (1.00%)
+  n2: 294576 0x5E39362: ??? (in /usr/lib/libgallium-26.1.7-arch1.1.so)
+   n2: 294576 0x5E39474: ??? (in /usr/lib/libgallium-26.1.7-arch1.1.so)
+    n1: 196320 0x5E99C42: ??? (in /usr/lib/libgallium-26.1.7-arch1.1.so)
+     n0: 196320 in 3 places, all below massif's threshold (1.00%)
+    n0: 98256 in 4 places, all below massif's threshold (1.00%)
+   n0: 0 in 1 place, below massif's threshold (1.00%)
+  n0: 278272 in 49 places, all below massif's threshold (1.00%)
+ n0: 1507880 in 651 places, all below massif's threshold (1.00%)
+ n1: 843456 0x59B1A20: ??? (in /usr/lib/libgallium-26.1.7-arch1.1.so)
+  n1: 843456 0x59C3592: ??? (in /usr/lib/libgallium-26.1.7-arch1.1.so)
+   n1: 843456 0x591E668: ??? (in /usr/lib/libgallium-26.1.7-arch1.1.so)
+    n1: 843456 0x5922ADA: driCreateContextAttribs (in /usr/lib/libgallium-26.1.7-arch1.1.so)
+     n1: 843456 0x5820B39: ??? (in /usr/lib/libGLX_mesa.so.0.0.0)
+      n1: 843456 0x581F9AD: ??? (in /usr/lib/libGLX_mesa.so.0.0.0)
+       n1: 843456 0x50857AA: glXCreateContextAttribsARB (libglx.c:301)
+        n1: 843456 0x4B27CBF: _glfwCreateContextGLX (glx_context.c:585)
+         n1: 843456 0x4B1F6A5: _glfwCreateWindowX11 (x11_window.c:2004)
+          n1: 843456 0x4B0ED8A: glfwCreateWindow.constprop.0 (window.c:247)
+           n1: 843456 0x4A62430: UnknownInlinedFun (rcore_desktop_glfw.c:1651)
+            n1: 843456 0x4A62430: InitWindow (rcore.c:681)
+             n0: 843456 0x40025B9: main (in /home/artemis/Documents/TextHere/game)
+ n1: 393216 0x4A492D9: UnknownInlinedFun (rlgl.h:2816)
+  n1: 393216 0x4A492D9: rlLoadRenderBatch (rlgl.h:2802)
+   n1: 393216 0x4A4BEAF: rlglInit (rlgl.h:2320)
+    n1: 393216 0x4A630E5: InitWindow (rcore.c:702)
+     n0: 393216 0x40025B9: main (in /home/artemis/Documents/TextHere/game)
+ n1: 393216 0x4A49303: UnknownInlinedFun (rlgl.h:2818)
+  n1: 393216 0x4A49303: rlLoadRenderBatch (rlgl.h:2802)
+   n1: 393216 0x4A4BEAF: rlglInit (rlgl.h:2320)
+    n1: 393216 0x4A630E5: InitWindow (rcore.c:702)
+     n0: 393216 0x40025B9: main (in /home/artemis/Documents/TextHere/game)
+ n1: 314928 0x4C2D97B: UnknownInlinedFun (imLcPrs.c:674)
+  n1: 314928 0x4C2D97B: parsestringfile (imLcPrs.c:739)
+   n1: 314928 0x4C2E231: UnknownInlinedFun (imLcIm.c:610)
+    n1: 314928 0x4C2E231: _XimLocalOpenIM (imLcIm.c:700)
+     n2: 314928 0x4C249B8: _XimOpenIM (imInt.c:229)
+      n1: 314928 0x4B17462: UnknownInlinedFun (x11_init.c:474)
+       n1: 314928 0x4B17462: inputMethodInstantiateCallback (x11_init.c:467)
+        n1: 314928 0x4C2B46E: _XimRegisterIMInstantiateCallback (imInsClbk.c:220)
+         n1: 314928 0x4C15EF3: XRegisterIMInstantiateCallback (IMWrap.c:177)
+          n1: 314928 0x4B1CD11: _glfwInitX11 (x11_init.c:1545)
+           n1: 314928 0x4A62C34: UnknownInlinedFun (init.c:405)
+            n1: 314928 0x4A62C34: UnknownInlinedFun (rcore_desktop_glfw.c:1456)
+             n1: 314928 0x4A62C34: InitWindow (rcore.c:681)
+              n0: 314928 0x40025B9: main (in /home/artemis/Documents/TextHere/game)
+      n0: 0 in 1 place, below massif's threshold (1.00%)
+ n1: 271576 0x5C40A36: ??? (in /usr/lib/libgallium-26.1.7-arch1.1.so)
+  n1: 271576 0x5B2660C: ??? (in /usr/lib/libgallium-26.1.7-arch1.1.so)
+   n1: 271576 0x59B1A82: ??? (in /usr/lib/libgallium-26.1.7-arch1.1.so)
+    n1: 271576 0x59C3592: ??? (in /usr/lib/libgallium-26.1.7-arch1.1.so)
+     n1: 271576 0x591E668: ??? (in /usr/lib/libgallium-26.1.7-arch1.1.so)
+      n1: 271576 0x5922ADA: driCreateContextAttribs (in /usr/lib/libgallium-26.1.7-arch1.1.so)
+       n1: 271576 0x5820B39: ??? (in /usr/lib/libGLX_mesa.so.0.0.0)
+        n1: 271576 0x581F9AD: ??? (in /usr/lib/libGLX_mesa.so.0.0.0)
+         n1: 271576 0x50857AA: glXCreateContextAttribsARB (libglx.c:301)
+          n1: 271576 0x4B27CBF: _glfwCreateContextGLX (glx_context.c:585)
+           n1: 271576 0x4B1F6A5: _glfwCreateWindowX11 (x11_window.c:2004)
+            n1: 271576 0x4B0ED8A: glfwCreateWindow.constprop.0 (window.c:247)
+             n1: 271576 0x4A62430: UnknownInlinedFun (rcore_desktop_glfw.c:1651)
+              n1: 271576 0x4A62430: InitWindow (rcore.c:681)
+               n0: 271576 0x40025B9: main (in /home/artemis/Documents/TextHere/game)
+ n1: 262144 0x4A492F0: UnknownInlinedFun (rlgl.h:2817)
+  n1: 262144 0x4A492F0: rlLoadRenderBatch (rlgl.h:2802)
+   n1: 262144 0x4A4BEAF: rlglInit (rlgl.h:2320)
+    n1: 262144 0x4A630E5: InitWindow (rcore.c:702)
+     n0: 262144 0x40025B9: main (in /home/artemis/Documents/TextHere/game)
+ n2: 230144 0x582023D: ??? (in /usr/lib/libGLX_mesa.so.0.0.0)
+  n1: 152192 0x58210FC: ??? (in /usr/lib/libGLX_mesa.so.0.0.0)
+   n1: 152192 0x583412D: ??? (in /usr/lib/libGLX_mesa.so.0.0.0)
+    n1: 152192 0x5826C05: ??? (in /usr/lib/libGLX_mesa.so.0.0.0)
+     n1: 152192 0x58281BB: ??? (in /usr/lib/libGLX_mesa.so.0.0.0)
+      n1: 152192 0x5824533: ??? (in /usr/lib/libGLX_mesa.so.0.0.0)
+       n1: 152192 0x4B23EE6: extensionSupportedGLX.lto_priv.0 (glx_context.c:213)
+        n1: 152192 0x4B1FEB2: UnknownInlinedFun (glx_context.c:366)
+         n1: 152192 0x4B1FEB2: _glfwCreateWindowX11 (x11_window.c:1972)
+          n1: 152192 0x4B0ED8A: glfwCreateWindow.constprop.0 (window.c:247)
+           n1: 152192 0x4A62430: UnknownInlinedFun (rcore_desktop_glfw.c:1651)
+            n1: 152192 0x4A62430: InitWindow (rcore.c:681)
+             n0: 152192 0x40025B9: main (in /home/artemis/Documents/TextHere/game)
+  n0: 77952 in 1 place, below massif's threshold (1.00%)
+ n1: 216208 0x60D8723: ??? (in /usr/lib/libgallium-26.1.7-arch1.1.so)
+  n1: 216208 0x6FFCD80: ??? (in /usr/lib/libgallium-26.1.7-arch1.1.so)
+   n1: 216208 0x59C352E: ??? (in /usr/lib/libgallium-26.1.7-arch1.1.so)
+    n1: 216208 0x591E668: ??? (in /usr/lib/libgallium-26.1.7-arch1.1.so)
+     n1: 216208 0x5922ADA: driCreateContextAttribs (in /usr/lib/libgallium-26.1.7-arch1.1.so)
+      n1: 216208 0x5820B39: ??? (in /usr/lib/libGLX_mesa.so.0.0.0)
+       n1: 216208 0x581F9AD: ??? (in /usr/lib/libGLX_mesa.so.0.0.0)
+        n1: 216208 0x50857AA: glXCreateContextAttribsARB (libglx.c:301)
+         n1: 216208 0x4B27CBF: _glfwCreateContextGLX (glx_context.c:585)
+          n1: 216208 0x4B1F6A5: _glfwCreateWindowX11 (x11_window.c:2004)
+           n1: 216208 0x4B0ED8A: glfwCreateWindow.constprop.0 (window.c:247)
+            n1: 216208 0x4A62430: UnknownInlinedFun (rcore_desktop_glfw.c:1651)
+             n1: 216208 0x4A62430: InitWindow (rcore.c:681)
+              n0: 216208 0x40025B9: main (in /home/artemis/Documents/TextHere/game)
+ n1: 196608 0x4A49329: UnknownInlinedFun (rlgl.h:2821)
+  n1: 196608 0x4A49329: rlLoadRenderBatch (rlgl.h:2802)
+   n1: 196608 0x4A4BEAF: rlglInit (rlgl.h:2320)
+    n1: 196608 0x4A630E5: InitWindow (rcore.c:702)
+     n0: 196608 0x40025B9: main (in /home/artemis/Documents/TextHere/game)
+ n1: 168805 0x4A62CC4: UnknownInlinedFun (init.c:261)
+  n1: 168805 0x4A62CC4: UnknownInlinedFun (input.c:490)
+   n1: 168805 0x4A62CC4: UnknownInlinedFun (init.c:421)
+    n1: 168805 0x4A62CC4: UnknownInlinedFun (rcore_desktop_glfw.c:1456)
+     n1: 168805 0x4A62CC4: InitWindow (rcore.c:681)
+      n0: 168805 0x40025B9: main (in /home/artemis/Documents/TextHere/game)
+ n1: 131072 0x4A49316: UnknownInlinedFun (rlgl.h:2819)
+  n1: 131072 0x4A49316: rlLoadRenderBatch (rlgl.h:2802)
+   n1: 131072 0x4A4BEAF: rlglInit (rlgl.h:2320)
+    n1: 131072 0x4A630E5: InitWindow (rcore.c:702)
+     n0: 131072 0x40025B9: main (in /home/artemis/Documents/TextHere/game)
+#-----------
+snapshot=46
+#-----------
+time=869368363
+mem_heap_B=11282557
+mem_heap_extra_B=469619
+mem_stacks_B=0
+heap_tree=empty
+#-----------
+snapshot=47
+#-----------
+time=881284253
+mem_heap_B=11282821
+mem_heap_extra_B=469651
+mem_stacks_B=0
+heap_tree=empty
+#-----------
+snapshot=48
+#-----------
+time=899158795
+mem_heap_B=11282701
+mem_heap_extra_B=469675
+mem_stacks_B=0
+heap_tree=empty
+#-----------
+snapshot=49
+#-----------
+time=917004469
+mem_heap_B=11282853
+mem_heap_extra_B=469659
+mem_stacks_B=0
+heap_tree=empty
+#-----------
+snapshot=50
+#-----------
+time=928911971
+mem_heap_B=11282933
+mem_heap_extra_B=469683
+mem_stacks_B=0
+heap_tree=empty
+#-----------
+snapshot=51
+#-----------
+time=940799902
+mem_heap_B=11282765
+mem_heap_extra_B=469635
+mem_stacks_B=0
+heap_tree=empty
+#-----------
+snapshot=52
+#-----------
+time=952743537
+mem_heap_B=11282901
+mem_heap_extra_B=469691
+mem_stacks_B=0
+heap_tree=empty
+#-----------
+snapshot=53
+#-----------
+time=964628296
+mem_heap_B=11282901
+mem_heap_extra_B=469683
+mem_stacks_B=0
+heap_tree=empty
+#-----------
+snapshot=54
+#-----------
+time=976525055
+mem_heap_B=11282661
+mem_heap_extra_B=469643
+mem_stacks_B=0
+heap_tree=empty
+#-----------
+snapshot=55
+#-----------
+time=988423815
+mem_heap_B=11283221
+mem_heap_extra_B=469635
+mem_stacks_B=0
+heap_tree=empty
+#-----------
+snapshot=56
+#-----------
+time=1000305959
+mem_heap_B=11282893
+mem_heap_extra_B=469667
+mem_stacks_B=0
+heap_tree=empty
+#-----------
+snapshot=57
+#-----------
+time=1012218428
+mem_heap_B=11282709
+mem_heap_extra_B=469627
+mem_stacks_B=0
+heap_tree=empty
+#-----------
+snapshot=58
+#-----------
+time=1024121007
+mem_heap_B=11282749
+mem_heap_extra_B=469659
+mem_stacks_B=0
+heap_tree=detailed
+n13: 11282749 (heap allocation functions) malloc/new/new[], --alloc-fns, etc.
+ n3: 6353536 0x5E3875D: ??? (in /usr/lib/libgallium-26.1.7-arch1.1.so)
+  n6: 5780768 0x5E399A1: ??? (in /usr/lib/libgallium-26.1.7-arch1.1.so)
+   n0: 4604912 in 371 places, all below massif's threshold (1.00%)
+   n1: 402432 0x5CBEAE2: ??? (in /usr/lib/libgallium-26.1.7-arch1.1.so)
+    n0: 402432 in 29 places, all below massif's threshold (1.00%)
+   n1: 238944 0x5CBE8BE: ??? (in /usr/lib/libgallium-26.1.7-arch1.1.so)
+    n0: 238944 in 38 places, all below massif's threshold (1.00%)
+   n1: 203312 0x5D2065C: ??? (in /usr/lib/libgallium-26.1.7-arch1.1.so)
+    n0: 203312 in 25 places, all below massif's threshold (1.00%)
+   n1: 171872 0x5CC3157: ??? (in /usr/lib/libgallium-26.1.7-arch1.1.so)
+    n0: 171872 in 52 places, all below massif's threshold (1.00%)
+   n1: 159296 0x5D2DDE9: ??? (in /usr/lib/libgallium-26.1.7-arch1.1.so)
+    n0: 159296 in 6 places, all below massif's threshold (1.00%)
+  n2: 294576 0x5E39362: ??? (in /usr/lib/libgallium-26.1.7-arch1.1.so)
+   n2: 294576 0x5E39474: ??? (in /usr/lib/libgallium-26.1.7-arch1.1.so)
+    n1: 196320 0x5E99C42: ??? (in /usr/lib/libgallium-26.1.7-arch1.1.so)
+     n0: 196320 in 3 places, all below massif's threshold (1.00%)
+    n0: 98256 in 4 places, all below massif's threshold (1.00%)
+   n0: 0 in 1 place, below massif's threshold (1.00%)
+  n0: 278192 in 49 places, all below massif's threshold (1.00%)
+ n0: 1507840 in 651 places, all below massif's threshold (1.00%)
+ n1: 843456 0x59B1A20: ??? (in /usr/lib/libgallium-26.1.7-arch1.1.so)
+  n1: 843456 0x59C3592: ??? (in /usr/lib/libgallium-26.1.7-arch1.1.so)
+   n1: 843456 0x591E668: ??? (in /usr/lib/libgallium-26.1.7-arch1.1.so)
+    n1: 843456 0x5922ADA: driCreateContextAttribs (in /usr/lib/libgallium-26.1.7-arch1.1.so)
+     n1: 843456 0x5820B39: ??? (in /usr/lib/libGLX_mesa.so.0.0.0)
+      n1: 843456 0x581F9AD: ??? (in /usr/lib/libGLX_mesa.so.0.0.0)
+       n1: 843456 0x50857AA: glXCreateContextAttribsARB (libglx.c:301)
+        n1: 843456 0x4B27CBF: _glfwCreateContextGLX (glx_context.c:585)
+         n1: 843456 0x4B1F6A5: _glfwCreateWindowX11 (x11_window.c:2004)
+          n1: 843456 0x4B0ED8A: glfwCreateWindow.constprop.0 (window.c:247)
+           n1: 843456 0x4A62430: UnknownInlinedFun (rcore_desktop_glfw.c:1651)
+            n1: 843456 0x4A62430: InitWindow (rcore.c:681)
+             n0: 843456 0x40025B9: main (in /home/artemis/Documents/TextHere/game)
+ n1: 393216 0x4A492D9: UnknownInlinedFun (rlgl.h:2816)
+  n1: 393216 0x4A492D9: rlLoadRenderBatch (rlgl.h:2802)
+   n1: 393216 0x4A4BEAF: rlglInit (rlgl.h:2320)
+    n1: 393216 0x4A630E5: InitWindow (rcore.c:702)
+     n0: 393216 0x40025B9: main (in /home/artemis/Documents/TextHere/game)
+ n1: 393216 0x4A49303: UnknownInlinedFun (rlgl.h:2818)
+  n1: 393216 0x4A49303: rlLoadRenderBatch (rlgl.h:2802)
+   n1: 393216 0x4A4BEAF: rlglInit (rlgl.h:2320)
+    n1: 393216 0x4A630E5: InitWindow (rcore.c:702)
+     n0: 393216 0x40025B9: main (in /home/artemis/Documents/TextHere/game)
+ n1: 314928 0x4C2D97B: UnknownInlinedFun (imLcPrs.c:674)
+  n1: 314928 0x4C2D97B: parsestringfile (imLcPrs.c:739)
+   n1: 314928 0x4C2E231: UnknownInlinedFun (imLcIm.c:610)
+    n1: 314928 0x4C2E231: _XimLocalOpenIM (imLcIm.c:700)
+     n2: 314928 0x4C249B8: _XimOpenIM (imInt.c:229)
+      n1: 314928 0x4B17462: UnknownInlinedFun (x11_init.c:474)
+       n1: 314928 0x4B17462: inputMethodInstantiateCallback (x11_init.c:467)
+        n1: 314928 0x4C2B46E: _XimRegisterIMInstantiateCallback (imInsClbk.c:220)
+         n1: 314928 0x4C15EF3: XRegisterIMInstantiateCallback (IMWrap.c:177)
+          n1: 314928 0x4B1CD11: _glfwInitX11 (x11_init.c:1545)
+           n1: 314928 0x4A62C34: UnknownInlinedFun (init.c:405)
+            n1: 314928 0x4A62C34: UnknownInlinedFun (rcore_desktop_glfw.c:1456)
+             n1: 314928 0x4A62C34: InitWindow (rcore.c:681)
+              n0: 314928 0x40025B9: main (in /home/artemis/Documents/TextHere/game)
+      n0: 0 in 1 place, below massif's threshold (1.00%)
+ n1: 271576 0x5C40A36: ??? (in /usr/lib/libgallium-26.1.7-arch1.1.so)
+  n1: 271576 0x5B2660C: ??? (in /usr/lib/libgallium-26.1.7-arch1.1.so)
+   n1: 271576 0x59B1A82: ??? (in /usr/lib/libgallium-26.1.7-arch1.1.so)
+    n1: 271576 0x59C3592: ??? (in /usr/lib/libgallium-26.1.7-arch1.1.so)
+     n1: 271576 0x591E668: ??? (in /usr/lib/libgallium-26.1.7-arch1.1.so)
+      n1: 271576 0x5922ADA: driCreateContextAttribs (in /usr/lib/libgallium-26.1.7-arch1.1.so)
+       n1: 271576 0x5820B39: ??? (in /usr/lib/libGLX_mesa.so.0.0.0)
+        n1: 271576 0x581F9AD: ??? (in /usr/lib/libGLX_mesa.so.0.0.0)
+         n1: 271576 0x50857AA: glXCreateContextAttribsARB (libglx.c:301)
+          n1: 271576 0x4B27CBF: _glfwCreateContextGLX (glx_context.c:585)
+           n1: 271576 0x4B1F6A5: _glfwCreateWindowX11 (x11_window.c:2004)
+            n1: 271576 0x4B0ED8A: glfwCreateWindow.constprop.0 (window.c:247)
+             n1: 271576 0x4A62430: UnknownInlinedFun (rcore_desktop_glfw.c:1651)
+              n1: 271576 0x4A62430: InitWindow (rcore.c:681)
+               n0: 271576 0x40025B9: main (in /home/artemis/Documents/TextHere/game)
+ n1: 262144 0x4A492F0: UnknownInlinedFun (rlgl.h:2817)
+  n1: 262144 0x4A492F0: rlLoadRenderBatch (rlgl.h:2802)
+   n1: 262144 0x4A4BEAF: rlglInit (rlgl.h:2320)
+    n1: 262144 0x4A630E5: InitWindow (rcore.c:702)
+     n0: 262144 0x40025B9: main (in /home/artemis/Documents/TextHere/game)
+ n2: 230144 0x582023D: ??? (in /usr/lib/libGLX_mesa.so.0.0.0)
+  n1: 152192 0x58210FC: ??? (in /usr/lib/libGLX_mesa.so.0.0.0)
+   n1: 152192 0x583412D: ??? (in /usr/lib/libGLX_mesa.so.0.0.0)
+    n1: 152192 0x5826C05: ??? (in /usr/lib/libGLX_mesa.so.0.0.0)
+     n1: 152192 0x58281BB: ??? (in /usr/lib/libGLX_mesa.so.0.0.0)
+      n1: 152192 0x5824533: ??? (in /usr/lib/libGLX_mesa.so.0.0.0)
+       n1: 152192 0x4B23EE6: extensionSupportedGLX.lto_priv.0 (glx_context.c:213)
+        n1: 152192 0x4B1FEB2: UnknownInlinedFun (glx_context.c:366)
+         n1: 152192 0x4B1FEB2: _glfwCreateWindowX11 (x11_window.c:1972)
+          n1: 152192 0x4B0ED8A: glfwCreateWindow.constprop.0 (window.c:247)
+           n1: 152192 0x4A62430: UnknownInlinedFun (rcore_desktop_glfw.c:1651)
+            n1: 152192 0x4A62430: InitWindow (rcore.c:681)
+             n0: 152192 0x40025B9: main (in /home/artemis/Documents/TextHere/game)
+  n0: 77952 in 1 place, below massif's threshold (1.00%)
+ n1: 216208 0x60D8723: ??? (in /usr/lib/libgallium-26.1.7-arch1.1.so)
+  n1: 216208 0x6FFCD80: ??? (in /usr/lib/libgallium-26.1.7-arch1.1.so)
+   n1: 216208 0x59C352E: ??? (in /usr/lib/libgallium-26.1.7-arch1.1.so)
+    n1: 216208 0x591E668: ??? (in /usr/lib/libgallium-26.1.7-arch1.1.so)
+     n1: 216208 0x5922ADA: driCreateContextAttribs (in /usr/lib/libgallium-26.1.7-arch1.1.so)
+      n1: 216208 0x5820B39: ??? (in /usr/lib/libGLX_mesa.so.0.0.0)
+       n1: 216208 0x581F9AD: ??? (in /usr/lib/libGLX_mesa.so.0.0.0)
+        n1: 216208 0x50857AA: glXCreateContextAttribsARB (libglx.c:301)
+         n1: 216208 0x4B27CBF: _glfwCreateContextGLX (glx_context.c:585)
+          n1: 216208 0x4B1F6A5: _glfwCreateWindowX11 (x11_window.c:2004)
+           n1: 216208 0x4B0ED8A: glfwCreateWindow.constprop.0 (window.c:247)
+            n1: 216208 0x4A62430: UnknownInlinedFun (rcore_desktop_glfw.c:1651)
+             n1: 216208 0x4A62430: InitWindow (rcore.c:681)
+              n0: 216208 0x40025B9: main (in /home/artemis/Documents/TextHere/game)
+ n1: 196608 0x4A49329: UnknownInlinedFun (rlgl.h:2821)
+  n1: 196608 0x4A49329: rlLoadRenderBatch (rlgl.h:2802)
+   n1: 196608 0x4A4BEAF: rlglInit (rlgl.h:2320)
+    n1: 196608 0x4A630E5: InitWindow (rcore.c:702)
+     n0: 196608 0x40025B9: main (in /home/artemis/Documents/TextHere/game)
+ n1: 168805 0x4A62CC4: UnknownInlinedFun (init.c:261)
+  n1: 168805 0x4A62CC4: UnknownInlinedFun (input.c:490)
+   n1: 168805 0x4A62CC4: UnknownInlinedFun (init.c:421)
+    n1: 168805 0x4A62CC4: UnknownInlinedFun (rcore_desktop_glfw.c:1456)
+     n1: 168805 0x4A62CC4: InitWindow (rcore.c:681)
+      n0: 168805 0x40025B9: main (in /home/artemis/Documents/TextHere/game)
+ n1: 131072 0x4A49316: UnknownInlinedFun (rlgl.h:2819)
+  n1: 131072 0x4A49316: rlLoadRenderBatch (rlgl.h:2802)
+   n1: 131072 0x4A4BEAF: rlglInit (rlgl.h:2320)
+    n1: 131072 0x4A630E5: InitWindow (rcore.c:702)
+     n0: 131072 0x40025B9: main (in /home/artemis/Documents/TextHere/game)
+#-----------
+snapshot=59
+#-----------
+time=1036031106
+mem_heap_B=11282973
+mem_heap_extra_B=469659
+mem_stacks_B=0
+heap_tree=empty
+#-----------
+snapshot=60
+#-----------
+time=1047998618
+mem_heap_B=11282741
+mem_heap_extra_B=469651
+mem_stacks_B=0
+heap_tree=empty
+#-----------
+snapshot=61
+#-----------
+time=1059953956
+mem_heap_B=11282741
+mem_heap_extra_B=469651
+mem_stacks_B=0
+heap_tree=empty
+#-----------
+snapshot=62
+#-----------
+time=1071936862
+mem_heap_B=11282973
+mem_heap_extra_B=469659
+mem_stacks_B=0
+heap_tree=empty
+#-----------
+snapshot=63
+#-----------
+time=1083925716
+mem_heap_B=11282941
+mem_heap_extra_B=469651
+mem_stacks_B=0
+heap_tree=empty
+#-----------
+snapshot=64
+#-----------
+time=1095915223
+mem_heap_B=11282709
+mem_heap_extra_B=469627
+mem_stacks_B=0
+heap_tree=empty

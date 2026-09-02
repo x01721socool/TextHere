@@ -12,7 +12,7 @@
 //| |   | '|||' |     '|||' | | The game, and also menu purposes |
 //*-------------------------* |                                 "|
 //                            *----------------------------------*
-//How's my ascii art skills? cool right =D
+//cool :)
 //
 //basic headers
 #include "raylib.h"
@@ -45,20 +45,17 @@ int main(int argc, char** argv){
 	int lettercount=0;
   char premaplevel[15]={0};InitAudioDevice();
   Font deffont=GetFontDefault();
-  float tinyt=0.0f;
-  float oriw=MeasureText("[TextHere]",deffont.baseSize);
-  float orih=deffont.baseSize;
   Music music=LoadMusicStream("assets/music/togrip.wav");
   music.looping=true;
 	bool playbarsel=false;
   if (musicbool) PlayMusicStream(music);
+  SetTargetFPS(16);
   while(!levelselected&&!WindowShouldClose()){
     UpdateMusicStream(music);
     switch (optionz) {
             case mainm:
                 int key=GetCharPressed();
                 float dt=GetFrameTime();
-                tinyt=tinyt>=2*PI?0:tinyt+dt;
                 while(key>0){
                 if((key>=32&&key<=125)&&(lettercount<16)&&playbarsel)
                 {
@@ -94,7 +91,7 @@ int main(int argc, char** argv){
                 BeginDrawing();
                 ClearBackground(RAYWHITE);
 								DrawRectangle(10,deffont.baseSize*4+10,40*9.75,40,DARKGRAY);
-                DrawText((playbarsel)?premaplevel:"notselected",10,deffont.baseSize*4+10,40,BLACK);
+                DrawText((playbarsel)?premaplevel:"start searching with ENTER!",10,deffont.baseSize*4+10,25,BLACK);
                 DrawText("[TextHere]",10,10,deffont.baseSize*4,BLACK);
 
                 EndDrawing();
@@ -162,9 +159,9 @@ int main(int argc, char** argv){
       }
     EndDrawing();
   }
-  unloadmap(&level);
+  if (&level) unloadmap(&level);
   CloseAudioDevice();
-  FreeDialogueMap(&dlgmap);
+  if (&dlgmap) FreeDialogueMap(&dlgmap);
   CloseWindow();
   return 0;
 
