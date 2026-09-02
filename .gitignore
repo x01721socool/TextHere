@@ -5,8 +5,9 @@
 *.swp
 .DS_Store
 .*pass.txt
-
+*.log
 game.exe
 game
 output.txt
 todos/
+
