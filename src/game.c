@@ -41,13 +41,13 @@ int main(int argc, char** argv){
   InitWindow(800,600,"TextHere");
 	gamemap level;
   enum menuoptions optionz=0;
-  bool levelselected=false;
+  bool levelselected=false; 
+	bool playbarsel=false;
 	int lettercount=0;
   char premaplevel[15]={0};InitAudioDevice();
   Font deffont=GetFontDefault();
   Music music=LoadMusicStream("assets/music/togrip.wav");
   music.looping=true;
-	bool playbarsel=false;
   if (musicbool) PlayMusicStream(music);
   SetTargetFPS(16);
   while(!levelselected&&!WindowShouldClose()){
@@ -159,10 +159,9 @@ int main(int argc, char** argv){
       }
     EndDrawing();
   }
-  if (&level) unloadmap(&level);
+  unloadmap(&level);
   CloseAudioDevice();
-  if (&dlgmap) FreeDialogueMap(&dlgmap);
+  FreeDialogueMap(&dlgmap);
   CloseWindow();
   return 0;
-
 }
