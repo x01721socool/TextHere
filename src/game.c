@@ -32,15 +32,12 @@
 #define TS 64 /*short for tile size*/
 
 bool musicbool=false;
-enum menuoptions {
- mainm,settings,credits
-};
 //not complete will finish later
 
 int main(int argc, char** argv){
  InitWindow(800,600,"TextHere");
  gamemap level;
- enum menuoptions optionz=0;
+ char optionz=0;
  bool levelselected=false; 
  bool playbarsel=false;
  int lettercount=0;
@@ -53,7 +50,7 @@ int main(int argc, char** argv){
  while(!levelselected&&!WindowShouldClose()){
 	UpdateMusicStream(music);
 	switch (optionz) {
-	 case mainm:
+	 case 0:
 		int key=GetCharPressed();
 		float dt=GetFrameTime();
 		while(key>0){
@@ -100,12 +97,26 @@ int main(int argc, char** argv){
 		DrawText("M -> \nsettings",600,590-deffont.baseSize*8,deffont.baseSize*4,DARKGRAY);
 		EndDrawing();
 		break;
-	 default:
+	 case 2:
+		BeginDrawing();
+		ClearBackground(DARKGRAY);
+		DrawText("Credits! :D\n\nArtemis Grotosky (me): Software owner,\n                       Software Dev,\n                      basically anything\nelse at the momentlol\n\nShardul Hirolikar: A* Pathfinding\n\nRamon Santamaria: Raylib engine\n\nif u contributed u can write ur name \nhere.jus figure out how to fit ur \nown on ts screen lol",10,10,deffont.baseSize*4,BLACK);
+		EndDrawing();
+		break;
+	 case 1:
 		BeginDrawing();
 		ClearBackground(RAYWHITE);
-		DrawText("hi ts is other",200,350,40,BLACK);
+		DrawText("Settings:",10,10,deffont.baseSize*4,BLACK);
+		DrawText("theres so not many things you can\n make settings out of here rn.. :P",10,10+deffont.baseSize*8,deffont.baseSize*4,
+			DARKGRAY);
 		EndDrawing();
-
+		break;
+	}
+	if (IsKeyPressed(KEY_M)&&!playbarsel){
+	 optionz=(optionz>=2)?0:optionz+1;
+	}
+	if (IsKeyPressed(KEY_N)&&!playbarsel){
+	 optionz=(optionz<=0)?2:optionz-1;
 	}
  }
  UnloadMusicStream(music);
