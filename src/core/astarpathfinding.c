@@ -13,6 +13,7 @@
 #include <stdlib.h>
 #include <float.h>
 #include <math.h>
+#include "../game.h"
 
 static int dx[4] = { 1, 0, -1, 0 };
 static int dy[4]= { 0, 1, 0, -1 };
@@ -21,31 +22,31 @@ static float GetHeuristic(int x1, int y1, int x2, int y2) {
     return (float)(abs(x1 - x2) + abs(y1 - y2));
 }
 
-pathstruct findpath(npc *n, gamemap map, Vector2 target, int ts) {
+pathstruct findpath(npc *n, Vector2 target,game games) {
     pathstruct result = { NULL, 0 };
 
-    int startX = (int)(n->pos.x / ts);
-    int startY = (int)(n->pos.y / ts);
-    int endX = (int)(target.x / ts);
-    int endY = (int)(target.y / ts);
+    int startX = (int)(n->pos.x /games.ts);
+    int startY = (int)(n->pos.y /games.ts);
+    int endX = (int)(target.x /games.ts);
+    int endY = (int)(target.y /games.ts);
 
-    if (endX < 0 || endX >= map.width || endY < 0 || endY >= map.height) return result;
-    if (map.walls[endY * map.width + endX] == 1) return result;
+    if (endX < 0 || endX >= games.level.width || endY < 0 || endY >= games.level.height) return result;
+    if (games.level.walls[endY * games.level.width + endX] == 1) return result;
 
-    node* grid = (node*)malloc(sizeof(node) * map.width * map.height);
-    for (int y = 0; y < map.height; y++) {
-        for (int x = 0; x < map.width; x++) {
-            grid[y * map.width + x].x = x;
-            grid[y * map.width + x].y = y;
-            grid[y * map.width + x].isopen = false;
-            grid[y * map.width + x].isclosed = false;
-            grid[y * map.width + x].g = FLT_MAX;
-            grid[y * map.width + x].parentx = -1;
-            grid[y * map.width + x].parenty = -1;
+    node* grid = (node*)malloc(sizeof(node) * games.level.width * games.level.height);
+    for (int y = 0; y < games.level.height; y++) {
+        for (int x = 0; x < games.level.width; x++) {
+            grid[y * games.level.width + x].x = x;
+            grid[y * games.level.width + x].y = y;
+            grid[y * games.level.width + x].isopen = false;
+            grid[y * games.level.width + x].isclosed = false;
+            grid[y * games.level.width + x].g = FLT_MAX;
+            grid[y * games.level.width + x].parentx = -1;
+            grid[y * games.level.width + x].parenty = -1;
         }
     }
 
-    node* startNode = &grid[startY * map.width + startX];
+    node* startNode = &grid[startY * games.level.width + startX];
     startNode->g = 0;
     startNode->h = GetHeuristic(startX, startY, endX, endY);
     startNode->isopen = true;
@@ -56,7 +57,7 @@ pathstruct findpath(npc *n, gamemap map, Vector2 target, int ts) {
         node* current = NULL;
         float lowestF = FLT_MAX;
 
-        for (int i = 0; i < map.width * map.height; i++) {
+        for (int i = 0; i < games.level.width * games.level.height; i++) {
             if (grid[i].isopen) {
                 float f = grid[i].g + grid[i].h;
                 if (f < lowestF) {
@@ -80,11 +81,11 @@ pathstruct findpath(npc *n, gamemap map, Vector2 target, int ts) {
             int nx = current->x + dx[i];
             int ny = current->y + dy[i];
 
-            if (nx >= 0 && nx < map.width && ny >= 0 && ny < map.height) {
-                if (map.walls[ny * map.width + nx] == 1 || grid[ny * map.width + nx].isclosed) continue;
+            if (nx >= 0 && nx < games.level.width && ny >= 0 && ny < games.level.height) {
+                if (games.level.walls[ny * games.level.width + nx] == 1 || grid[ny * games.level.width + nx].isclosed) continue;
 
                 float newG = current->g + 1.0f;
-                node* neighbor = &grid[ny * map.width + nx];
+                node* neighbor = &grid[ny * games.level.width + nx];
 
                 if (newG < neighbor->g) {
                     neighbor->parentx = current->x;
@@ -103,8 +104,8 @@ pathstruct findpath(npc *n, gamemap map, Vector2 target, int ts) {
         int currY = endY;
         while (currX != -1 && currY != -1) {
             count++;
-            int nextX = grid[currY * map.width + currX].parentx;
-            int nextY = grid[currY * map.width + currX].parenty;
+            int nextX = grid[currY * games.level.width + currX].parentx;
+            int nextY = grid[currY * games.level.width + currX].parenty;
             currX = nextX;
             currY = nextY;
         }
@@ -115,9 +116,9 @@ pathstruct findpath(npc *n, gamemap map, Vector2 target, int ts) {
         currX = endX;
         currY = endY;
         for (int i = count - 1; i >= 0; i--) {
-            result.path[i] = (Vector2){ (float)currX * ts + ts / 2.0f, (float)currY * ts + ts / 2.0f };
-            int nextX = grid[currY * map.width + currX].parentx;
-            int nextY = grid[currY * map.width + currX].parenty;
+            result.path[i] = (Vector2){ (float)currX *games.ts + games.ts / 2.0f, (float)currY *games.ts +games.ts / 2.0f };
+            int nextX = grid[currY * games.level.width + currX].parentx;
+            int nextY = grid[currY * games.level.width + currX].parenty;
             currX = nextX;
             currY = nextY;
         }
@@ -215,7 +216,7 @@ void remnegp(int **p){
   }
 }
 
-bool hasLineOfSight(Vector2 fromPos, Vector2 toPos, gamemap map, int ts) {
+bool hasLineOfSight(Vector2 fromPos, Vector2 toPos, game games) {
   float dx = toPos.x - fromPos.x;
   float dy = toPos.y - fromPos.y;
   float dist = sqrtf(dx * dx + dy * dy);
@@ -230,14 +231,14 @@ bool hasLineOfSight(Vector2 fromPos, Vector2 toPos, gamemap map, int ts) {
     float checkX = fromPos.x + stepX * step;
     float checkY = fromPos.y + stepY * step;
     
-    int mapx = (int)(checkX / ts);
-    int mapy = (int)(checkY / ts);
+    int mapx = (int)(checkX / games.ts);
+    int mapy = (int)(checkY / games.ts);
     
-    if (mapx < 0 || mapx >= map.width || mapy < 0 || mapy >= map.height) {
+    if (mapx < 0 || mapx >= games.level.width || mapy < 0 || mapy >= games.level.height) {
       return false;
     }
     
-    if (map.walls[mapy * map.width + mapx] == 1) {
+    if (games.level.walls[mapy * games.level.width + mapx] == 1) {
       return false;
     }
   }
@@ -245,15 +246,15 @@ bool hasLineOfSight(Vector2 fromPos, Vector2 toPos, gamemap map, int ts) {
   return true;
 }
 
-void remnray2circp(int **p, Vector2 targ, int ts, int lim, gamemap map) {
+void remnray2circp(int **p, Vector2 targ, int lim,game games) {
   int i = 0;
   while (p[i] != NULL) {
     Vector2 candidatePos = (Vector2){
-      (float)(p[i][0] * ts + ts / 2),
-      (float)(p[i][1] * ts + ts / 2)
+      (float)(p[i][0] * games.ts +games.ts / 2),
+      (float)(p[i][1] * games.ts + games.ts / 2)
     };
     
-    if (!hasLineOfSight(candidatePos, targ, map, ts)) {
+    if (!hasLineOfSight(candidatePos, targ, games)) {
       free(p[i]);
       int c = i;
       while (p[c + 1] != NULL) {

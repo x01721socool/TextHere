@@ -3,19 +3,18 @@
 #include "raylib.h"
 #include "player.h"
 #include "stdbool.h"
+#include "../game.h"
 typedef struct {
 	bool active,ismoving;
 	Vector2 pos,startpos,endpos,*path;
 	float Frametime,duration,speed;
   int pathcount,curpoint;
-	 
 } npc;
 
 
 void Drawnpc(const npc *n);
 void Updatenpc(npc *n);
 void npcgoto(npc *n, Vector2 target);
-void npcsetpath(npc *n,gamemap map, Vector2 target,int ts);
-void findpathinradius(npc *n,Vector2 targetpos,gamemap map,
-								int ts,int rad);
+void npcsetpath(npc *n, Vector2 target,game games);
+void findpathinradius(npc *n,Vector2 targetpos,game games,char rad);
 #endif

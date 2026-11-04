@@ -7,6 +7,7 @@
 #include "astarpathfinding.h"
 #include "raycast.h"
 #include <stdlib.h>
+#include "../game.h"
 
 void Drawnpc(const npc *n) {
 	if (!n->active) return;
@@ -36,12 +37,12 @@ void Updatenpc (npc *n) {
   }
 }
 
-void npcsetpath(npc *n,gamemap map, Vector2 target,int ts) {
+void npcsetpath(npc *n,Vector2 target,game games) {
   if (n->path!=NULL){
     free(n->path);
     n->path=NULL;
   }
-  pathstruct b=findpath(n,map,target,ts);
+  pathstruct b=findpath(n,target,games);
   n->path=b.path;
   n->pathcount=b.count;
   n->curpoint=0;
@@ -50,19 +51,19 @@ void npcsetpath(npc *n,gamemap map, Vector2 target,int ts) {
   }
 }
 
-void findpathinradius(npc *n,Vector2 targetpos,gamemap map, int ts,int rad) {
-  int ppos[2]={(int)(targetpos.x/ts),(int)(targetpos.y/ts)};
+void findpathinradius(npc *n,Vector2 targetpos,game games,char rad) {
+  int ppos[2]={(int)(targetpos.x/games.ts),(int)(targetpos.y/games.ts)};
   int **q=intsoverrads(rad,ppos);
   int firstk=countfirstp(q);
   TraceLog(LOG_INFO,"Initial candidates: %d", firstk);
   
   remdupfirstp(q);
   remnegp(q);
-  remblockedp(q,map);
+  remblockedp(q,games.level);
   int afterwalls = countfirstp(q);
   TraceLog(LOG_INFO,"After removing walls/negatives: %d", afterwalls);
   
-  remnray2circp(q, targetpos, ts, 500, map);
+  remnray2circp(q, targetpos, 500, games);
   int afterlos = countfirstp(q);
   TraceLog(LOG_INFO,"After line-of-sight filter: %d", afterlos);
   
@@ -81,9 +82,9 @@ void findpathinradius(npc *n,Vector2 targetpos,gamemap map, int ts,int rad) {
   int bestidx=-1;
   
   for (int i=0;i<afterlos;i++){
-    Vector2 desiredpos=(Vector2){(float)(q[i][0]*ts+ts/2),
-      (float)(q[i][1]*ts+ts/2)};
-    pathstruct path=findpath(n, map, desiredpos, ts);
+    Vector2 desiredpos=(Vector2){(float)(q[i][0]*games.ts+games.ts/2),
+      (float)(q[i][1]*games.ts+games.ts/2)};
+    pathstruct path=findpath(n, desiredpos, games);
     
     TraceLog(LOG_INFO,"Candidate [%d,%d] -> path length: %d", q[i][0], q[i][1], path.count);
     
@@ -104,7 +105,7 @@ void findpathinradius(npc *n,Vector2 targetpos,gamemap map, int ts,int rad) {
   }
   
   n->path=bestpath.path;
-  n->pathcount=bestpathc;
+  n->pathcount=(bestpathc<99999)?bestpathc:0;
   n->curpoint=0;
   if (n->pathcount > 0) {
       npcgoto(n, n->path[0]);

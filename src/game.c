@@ -1,20 +1,3 @@
-//*-------------------------* |Game.c           |
-//| ||||| ,|||  |   |   |   | |-----------------|
-//|   |   |   |  \ /  ==|== | |Original Author: |
-//|   |   ||||'   X     |"  | | Artemis Grotosky|
-//|   |   |      / \    |   | |-----------------|
-//|   |   '|||' |   |   |   | |License:         |
-//|/\=/\=/\=/\=/\=/\=/\=/\=/| | GPL v3.0 License|
-//| |   | ,|||  ,/--' ,|||  | *-----------------*
-//| |___| |   | |/    |   | | *----------------------------------*
-//| ||||| ||||' |'    ||||' | |"                                 |
-//| |"""| |     |     |     | | This file acts as the core of    |
-//| |   | '|||' |     '|||' | | The game, and also menu purposes |
-//*-------------------------* |                                 "|
-//                            *----------------------------------*
-//cool :)
-//
-//basic headers
 #include "raylib.h"
 #include <stddef.h>
 #include <stdbool.h>
@@ -36,8 +19,9 @@ bool musicbool=false;
 
 int main(int argc, char** argv){
  InitWindow(800,600,"TextHere");
- gamemap level;
- char optionz=0;
+ //gamemap level;
+ //char maingame.options=0;
+ game maingame;
  bool levelselected=false; 
  bool playbarsel=false;
  int lettercount=0;
@@ -49,7 +33,7 @@ int main(int argc, char** argv){
  SetTargetFPS(16);
  while(!levelselected&&!WindowShouldClose()){
 	UpdateMusicStream(music);
-	switch (optionz) {
+	switch (maingame.options) {
 	 case 0:
 		int key=GetCharPressed();
 		float dt=GetFrameTime();
@@ -78,7 +62,7 @@ int main(int argc, char** argv){
 			filey=fopen(checkbuffer,"r");
 			if (filey){
 			 fclose(filey);
-			 level=loadmap(buffer);
+			 maingame.level=loadmap(buffer);
 			 levelselected=true;
 			} else TraceLog(LOG_WARNING,"failure to open/detect %s!",buffer);}
 		 if (premaplevel[0]==0||premaplevel[0]=='\0') {
@@ -113,10 +97,10 @@ int main(int argc, char** argv){
 		break;
 	}
 	if (IsKeyPressed(KEY_M)&&!playbarsel){
-	 optionz=(optionz>=2)?0:optionz+1;
+	 maingame.options=(maingame.options>=2)?0:maingame.options+1;
 	}
 	if (IsKeyPressed(KEY_N)&&!playbarsel){
-	 optionz=(optionz<=0)?2:optionz-1;
+	 maingame.options=(maingame.options<=0)?2:maingame.options-1;
 	}
  }
  UnloadMusicStream(music);
@@ -124,8 +108,8 @@ int main(int argc, char** argv){
  snprintf(levelfolder,sizeof(levelfolder),"assets/maps/%s",premaplevel);
  DialogueMap dlgmap=LoadDialogueMap(levelfolder);
  Player player={
-	.pos={level.sp.x*TS+32,level.sp.y*TS+32},
-	.speed=level.ips,
+	.pos={maingame.level.sp.x*TS+32,maingame.level.sp.y*TS+32},
+	.speed=maingame.level.ips,
 	.size=24.0f};
  SetTargetFPS(64);
  Camera2D camera={0};
@@ -139,7 +123,7 @@ int main(int argc, char** argv){
  };
  while (!WindowShouldClose()) {
 	if (activedialogueblock==NULL){
-	 Pupdate(&player,TS,level);
+	 Pupdate(&player,TS,maingame.level);
 	 camera.target=player.pos;
 	}
 	CheckAndStartDialogue(&player.pos,TS,&dlgmap,
@@ -152,13 +136,12 @@ int main(int argc, char** argv){
 	 levelselected=false;
 	}
 	if (IsKeyPressed(KEY_G)){
-	 findpathinradius(&npctest,player.pos,
-		 level,TS,2);
+	 findpathinradius(&npctest,player.pos,maingame,2);
 	}
 	BeginDrawing();
 	ClearBackground(RAYWHITE);
 	BeginMode2D(camera);
-	drawmap(level, TS, camera);
+	drawmap(maingame.level, TS, camera);
 	Pdraw(&player);
 	Drawnpc(&npctest);
 	EndMode2D();
@@ -174,7 +157,7 @@ int main(int argc, char** argv){
 	}
 	EndDrawing();
  }
- unloadmap(&level);
+ unloadmap(&maingame.level);
  CloseAudioDevice();
  FreeDialogueMap(&dlgmap);
  CloseWindow();
