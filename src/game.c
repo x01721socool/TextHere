@@ -22,6 +22,7 @@ int main(int argc, char** argv){
  //gamemap level;
  //char maingame.options=0;
  game maingame;
+ maingame.ts=64;
  bool levelselected=false; 
  bool playbarsel=false;
  int lettercount=0;
