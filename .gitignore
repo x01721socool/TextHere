@@ -9,5 +9,6 @@
 game.exe
 game
 output.txt
+./*.txt
 todos/
 
