@@ -3,7 +3,9 @@
 #include "core/grid.h"
 
 typedef struct {
-  char options; //bit of unorthodox to not use enum, but WILL add later
+  enum {
+   GMENU,GSETTINGS,GCREDS
+  } options;
   gamemap level;
   int ts;
 } game;
