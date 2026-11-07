@@ -5,16 +5,16 @@
 #include "grid.h"
 #include "../game.h"
 typedef struct {
-  int x,y,nodetype,parentx,parenty;
-  bool isopen,isclosed;
-  float g,h;
+ int x,y,nodetype,parentx,parenty;
+ bool isopen,isclosed;
+ float g,h;
 } node;
 // isopen defines if a node can be further explored
 // isclosed defines if a node has already been explored
 // g is the cost required to get this cell
 typedef struct {
-  Vector2 *path;
-  int count;
+ Vector2 *path;
+ int count;
 } pathstruct;
 
 int **intsoverrads(int radius,int pos[2]);

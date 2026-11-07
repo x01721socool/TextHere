@@ -1,6 +1,14 @@
 # contributing the game
 
-this game is **free for anyone to contribute** under the name of **Libre Software** and **GPL v3**
+this game is **free (as in freedom)** for anyone to:
+
+- **run this game as you wish**, for any purpose at all
+
+-study the game internals and **change (modify)** it so it can do what you wish for it to do
+
+-**redistribute the copies**
+
+-**redistribute the copies of your MODIFIED version**
 
 ## How to contribute
 
@@ -13,6 +21,8 @@ this game is **free for anyone to contribute** under the name of **Libre Softwar
 ## code standards
 
 -follow the code style
+
+-a tab (or shift) width **must** be 1 as a standard format. you can do this in nvim or vim-like environment with '''shiftwidth=1'''
 
 -you can add comments i'll admit that
 my coding format is crappy

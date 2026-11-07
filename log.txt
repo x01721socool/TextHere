@@ -1,1 +1,0 @@
-cc src/game.c src/core/*.c -lm -lraylib -lX11 -Wformat=0 -lGL -o game
