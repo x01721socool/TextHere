@@ -22,11 +22,7 @@ this game is **free (as in freedom)** for anyone to:
 
 - follow the code style
 
-<<<<<<< HEAD
-- a tab (or shift) width **must** be 1 as a standard format. you can do this in nvim or vim-like environment with '''shiftwidth=1'''
-=======
--a shift width **must** be 2 as a standard format. you can do this in nvim or vim-like environment with '''shiftwidth=2 (also optional for tabstop=4)'''
->>>>>>> 598fc32 (actually two spaces is better atleast i can read. also its brocken as of rn i u want to run use different commit)
+- a shift width **must** be 2 as a standard format. you can do this in nvim or vim-like environment with '''shiftwidth=2 (also optional for tabstop=4)'''
 
 - you can add comments i'll admit that
 my coding format is crappy
