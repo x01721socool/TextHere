@@ -4,13 +4,13 @@
 #include <raylib.h>
 #include "grid.h"
 typedef struct {
- int length;
- int lengthlim;
- Vector2 intpos;
- bool hitwall;
- bool hitcirc;
- bool drawoption;
- float dx,dy;
+  int length;
+  int lengthlim;
+  Vector2 intpos;
+  bool hitwall;
+  bool hitcirc;
+  bool drawoption;
+  float dx,dy;
 } ray;
 
 void raywall(ray r,Vector2 pos, float rad,gamemap map,int ts,int lim);

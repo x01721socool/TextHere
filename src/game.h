@@ -3,10 +3,10 @@
 #include "core/grid.h"
 
 typedef struct {
- enum {
-  GMENU,GSETTINGS,GCREDS
- } options;
- gamemap level;
- int ts;
+  enum {
+    GMENU,GSETTINGS,GCREDS
+  } options;
+  gamemap level;
+  int ts;
 } game;
 #endif

@@ -5,10 +5,10 @@
 #include "stdbool.h"
 #include "../game.h"
 typedef struct {
- bool active,ismoving;
- Vector2 pos,startpos,endpos,*path;
- float Frametime,duration,speed;
- int pathcount,curpoint;
+  bool active,ismoving;
+  Vector2 pos,startpos,endpos,*path;
+  float Frametime,duration,speed;
+  int pathcount,curpoint;
 } npc;
 
 
