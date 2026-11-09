@@ -33,7 +33,7 @@ int main(int argc, char** argv){
   music.looping=true;
   if (musicbool) PlayMusicStream(music);
   SetTargetFPS(16);
-  while(!levelselected&&!WindowShouldClose()){
+  while(!WindowShouldClose()){
     UpdateMusicStream(music);
     switch (maingame.options) {
       case 0:
@@ -65,7 +65,7 @@ int main(int argc, char** argv){
             if (filey){
               fclose(filey);
               maingame.level=loadmap(buffer);
-              levelselected=true;
+              maingame.options=3;
             } else TraceLog(LOG_WARNING,"failure to open/detect %s!",buffer);}
           if (premaplevel[0]==0||premaplevel[0]=='\0') {
             playbarsel=!playbarsel;
