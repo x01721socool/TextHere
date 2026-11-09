@@ -22,7 +22,7 @@ int main(int argc, char** argv){
   InitWindow(800,600,"TextHere");
   //gamemap level;
   //char maingame.options=0;
-  game maingame;
+  game maingame={0};
   maingame.ts=64;
   bool levelselected=false; 
   bool playbarsel=false;
