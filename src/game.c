@@ -14,6 +14,7 @@
 #include "core/raycast.h"
 #define TS 64 /*short for tile size*/
 
+DialogueMap dlgmap={0};
 bool musicbool=false;
 //not complete will finish later
 
@@ -100,7 +101,7 @@ int main(int argc, char** argv){
         UnloadMusicStream(music);
         char levelfolder[64];
         snprintf(levelfolder,sizeof(levelfolder),"assets/maps/%s",premaplevel);
-        DialogueMap dlgmap=LoadDialogueMap(levelfolder);
+        dlgmap=LoadDialogueMap(levelfolder);
         Player player={
           .pos={maingame.level.sp.x*TS+32,maingame.level.sp.y*TS+32},
           .speed=maingame.level.ips,
