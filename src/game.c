@@ -12,18 +12,12 @@
 #include "core/basicnpc.h"
 #include "core/astarpathfinding.h"
 #include "core/raycast.h"
-#define TS 64 /*short for tile size*/
 
 DialogueMap dlgmap={0};
-game maingame={0};
+game maingame={ .ts=64, .options=0,.cam=(Camera2D){.zoom=1.0f,.rotation=0.0f} };
 bool musicbool=false;
-//not complete will finish later
-
 int main(int argc, char** argv){
   InitWindow(800,600,"TextHere");
-  //gamemap level;
-  //char maingame.options=0;
-  maingame.ts=64;
   bool levelselected=false; 
   bool playbarsel=false;
   int lettercount=0;
@@ -103,24 +97,21 @@ int main(int argc, char** argv){
         snprintf(levelfolder,sizeof(levelfolder),"assets/maps/%s",premaplevel);
         dlgmap=LoadDialogueMap(levelfolder);
         maingame.plyr=(Player){
-          .pos={maingame.level.sp.x*TS+32,maingame.level.sp.y*TS+32},
+          .pos={maingame.level.sp.x*maingame.ts+32,maingame.level.sp.y*maingame.ts+32},
           .speed=maingame.level.ips,
           .size=24.0f};
         SetTargetFPS(64);
-        maingame.cam=(Camera2D){0};
-        maingame.cam.zoom=1.0f;
-        maingame.cam.rotation=0.0f;
         DialogueBlock *activedialogueblock=NULL;
         npc npctest = {
-          .pos={5*TS+32,7*TS+32},
+          .pos={5*maingame.ts+32,7*maingame.ts+32},
           .active=true,
           .speed=200.0f};
         while (maingame.options==3) {
           if (activedialogueblock==NULL){
-            Pupdate(&maingame.plyr,TS,maingame.level);
+            Pupdate(&maingame.plyr,maingame.ts,maingame.level);
             maingame.cam.target=maingame.plyr.pos;
           }
-          CheckAndStartDialogue(&maingame.plyr.pos,TS,&dlgmap,
+          CheckAndStartDialogue(&maingame.plyr.pos,maingame.ts,&dlgmap,
               &activedialogueblock,
               &maingame.cam,
               levelfolder);
@@ -135,7 +126,7 @@ int main(int argc, char** argv){
           BeginDrawing();
           ClearBackground(RAYWHITE);
           BeginMode2D(maingame.cam);
-          drawmap(maingame.level, TS, maingame.cam);
+          drawmap(maingame.level, maingame.ts, maingame.cam);
           Pdraw(&maingame.plyr);
           Drawnpc(&npctest);
           EndMode2D();
