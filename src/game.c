@@ -15,6 +15,7 @@
 #define TS 64 /*short for tile size*/
 
 DialogueMap dlgmap={0};
+game maingame={0};
 bool musicbool=false;
 //not complete will finish later
 
@@ -22,7 +23,6 @@ int main(int argc, char** argv){
   InitWindow(800,600,"TextHere");
   //gamemap level;
   //char maingame.options=0;
-  game maingame={0};
   maingame.ts=64;
   bool levelselected=false; 
   bool playbarsel=false;
@@ -102,14 +102,14 @@ int main(int argc, char** argv){
         char levelfolder[64];
         snprintf(levelfolder,sizeof(levelfolder),"assets/maps/%s",premaplevel);
         dlgmap=LoadDialogueMap(levelfolder);
-        Player player={
+        maingame.plyr=(Player){
           .pos={maingame.level.sp.x*TS+32,maingame.level.sp.y*TS+32},
           .speed=maingame.level.ips,
           .size=24.0f};
         SetTargetFPS(64);
-        Camera2D camera={0};
-        camera.zoom=1.0f;
-        camera.rotation=0.0f;
+        maingame.cam=(Camera2D){0};
+        maingame.cam.zoom=1.0f;
+        maingame.cam.rotation=0.0f;
         DialogueBlock *activedialogueblock=NULL;
         npc npctest = {
           .pos={5*TS+32,7*TS+32},
@@ -117,31 +117,31 @@ int main(int argc, char** argv){
           .speed=200.0f};
         while (maingame.options==3) {
           if (activedialogueblock==NULL){
-            Pupdate(&player,TS,maingame.level);
-            camera.target=player.pos;
+            Pupdate(&maingame.plyr,TS,maingame.level);
+            maingame.cam.target=maingame.plyr.pos;
           }
-          CheckAndStartDialogue(&player.pos,TS,&dlgmap,
+          CheckAndStartDialogue(&maingame.plyr.pos,TS,&dlgmap,
               &activedialogueblock,
-              &camera,
+              &maingame.cam,
               levelfolder);
           Updatenpc(&npctest);
-          camera.offset=(Vector2){400.0f,300.0f};
+          maingame.cam.offset=(Vector2){400.0f,300.0f};
           if (IsKeyPressed(KEY_O)){
             levelselected=false;
           }
           if (IsKeyPressed(KEY_G)){
-            findpathinradius(&npctest,player.pos,maingame,2);
+            findpathinradius(&npctest,maingame.plyr.pos,maingame,2);
           }
           BeginDrawing();
           ClearBackground(RAYWHITE);
-          BeginMode2D(camera);
-          drawmap(maingame.level, TS, camera);
-          Pdraw(&player);
+          BeginMode2D(maingame.cam);
+          drawmap(maingame.level, TS, maingame.cam);
+          Pdraw(&maingame.plyr);
           Drawnpc(&npctest);
           EndMode2D();
           UpdateAndDrawActiveDialogue(activedialogueblock,
-              player.pos,
-              &camera,
+              maingame.plyr.pos,
+              &maingame.cam,
               levelfolder);
           if (activedialogueblock
               &&!activedialogueblock->ds.active){
