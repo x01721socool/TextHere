@@ -1,5 +1,0 @@
-ny:norm:hello this is a test
-ny:suprise:on a dialogue type where it doesn't happen
-ny:norm2: at every start
-ny:norm:now its more broad
-ny:suprise:yay
