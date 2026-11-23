@@ -126,7 +126,7 @@ int main(int argc, char** argv){
           BeginDrawing();
           ClearBackground(RAYWHITE);
           BeginMode2D(maingame.cam);
-          drawmap(maingame.level, maingame.ts, maingame.cam);
+          drawmap(&maingame);
           Pdraw(&maingame.plyr);
           Drawnpc(&npctest);
           EndMode2D();

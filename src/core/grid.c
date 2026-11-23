@@ -4,6 +4,7 @@
 #include <stdlib.h>
 #include <string.h>
 #include <math.h>
+#include "../game.h"
 
 gamemap loadmap(const char *filename) {
   gamemap map={0};
@@ -78,44 +79,44 @@ void unloadmap(gamemap *map){
   if (map->render!=NULL){free(map->render);map->render=NULL;}
   UnloadTexture(map->tileset);
 }
-void drawmap(gamemap map,int ts,Camera2D camera){
-  if(map.width<=0||map.width<=0)return;
-  if(!map.tileset.id)return;
-  const float lcx=camera.target.x-camera.offset.x;
-  const float tcy=camera.target.y-camera.offset.y;
-  const float rcx=lcx+2*camera.offset.x,bcy=tcy+2*camera.offset.y;
-  const int xsg=(int)(floorf(lcx/(float)ts))<0?0
-    :(int)floorf(lcx/(float)ts)>map.width?map.width
-    :(int)floorf(lcx/(float)ts);
-  const int ysg=(int)floorf(tcy/(float)ts)<0?0
-    :(int)floorf(tcy/(float)ts)>map.height?map.height
-    :(int)floorf(tcy/(float)ts);
-  const int xeg=(int)ceilf(rcx/(float)ts)<0?0
-    :(int)ceilf(rcx/(float)ts)>map.width?map.width
-    :(int)ceilf(rcx/(float)ts);
-  const int yeg=(int)ceilf(bcy/(float)ts)<0?0
-    :(int)ceilf(bcy/(float)ts)>map.height?map.height
-    :(int)ceilf(bcy/(float)ts);
+void drawmap(game *g){
+  if(g->level.width<=0||g->level.width<=0)return;
+  if(!g->level.tileset.id)return;
+  const float lcx=g->cam.target.x-g->cam.offset.x;
+  const float tcy=g->cam.target.y-g->cam.offset.y;
+  const float rcx=lcx+2*g->cam.offset.x,bcy=tcy+2*g->cam.offset.y;
+  const int xsg=(int)(floorf(lcx/(float)g->ts))<0?0
+    :(int)floorf(lcx/(float)g->ts)>g->level.width?g->level.width
+    :(int)floorf(lcx/(float)g->ts);
+  const int ysg=(int)floorf(tcy/(float)g->ts)<0?0
+    :(int)floorf(tcy/(float)g->ts)>g->level.height?g->level.height
+    :(int)floorf(tcy/(float)g->ts);
+  const int xeg=(int)ceilf(rcx/(float)g->ts)<0?0
+    :(int)ceilf(rcx/(float)g->ts)>g->level.width?g->level.width
+    :(int)ceilf(rcx/(float)g->ts);
+  const int yeg=(int)ceilf(bcy/(float)g->ts)<0?0
+    :(int)ceilf(bcy/(float)g->ts)>g->level.height?g->level.height
+    :(int)ceilf(bcy/(float)g->ts);
   for (int y=ysg;y<yeg;y++){
     for(int x=xsg;x<xeg;x++){
-      const int renid=map.render[y*map.width+x];
+      const int renid=g->level.render[y*g->level.width+x];
       DrawTexturePro(
-          map.tileset,
+          g->level.tileset,
           (Rectangle){
-          (float)((renid%(map.tileset.width/16))*16),
-          (float)(renid/(map.tileset.width/16)*16),
+          (float)((renid%(g->level.tileset.width/16))*16),
+          (float)(renid/(g->level.tileset.width/16)*16),
           (float)(16.0f),
           (float)(16.0f)
           },
           (Rectangle){
-          (float)(x*ts+ts),
-          (float)(y*ts+ts),
-          (float)(ts),
-          (float)(ts)
+          (float)(x*g->ts+g->ts),
+          (float)(y*g->ts+g->ts),
+          (float)(g->ts),
+          (float)(g->ts)
           },
           (Vector2){
-          (float)(ts),
-          (float)(ts)
+          (float)(g->ts),
+          (float)(g->ts)
           },
           0.0f,
           WHITE);

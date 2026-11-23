@@ -1,0 +1,290 @@
+In file included from src/core/grid.h:4,
+                 from src/core/player.h:4,
+                 from src/game.c:9:
+src/core/../game.h:11:3: error: unknown type name ‘gamemap’
+   11 |   gamemap level;
+      |   ^~~~~~~
+src/core/../game.h:13:3: error: unknown type name ‘Player’
+   13 |   Player plyr;
+      |   ^~~~~~
+src/game.c: In function ‘main’:
+src/game.c:61:30: error: incompatible types when assigning to type ‘int’ from type ‘gamemap’
+   61 |               maingame.level=loadmap(buffer);
+      |                              ^~~~~~~
+src/game.c:100:31: error: request for member ‘sp’ in something not a structure or union
+  100 |           .pos={maingame.level.sp.x*maingame.ts+32,maingame.level.sp.y*maingame.ts+32},
+      |                               ^
+src/game.c:100:66: error: request for member ‘sp’ in something not a structure or union
+  100 |           .pos={maingame.level.sp.x*maingame.ts+32,maingame.level.sp.y*maingame.ts+32},
+      |                                                                  ^
+src/game.c:101:32: error: request for member ‘ips’ in something not a structure or union
+  101 |           .speed=maingame.level.ips,
+      |                                ^
+src/game.c:111:21: error: passing argument 1 of ‘Pupdate’ from incompatible pointer type [-Wincompatible-pointer-types]
+  111 |             Pupdate(&maingame.plyr,maingame.ts,maingame.level);
+      |                     ^~~~~~~~~~~~~~
+      |                     |
+      |                     int *
+src/core/player.h:9:22: note: expected ‘Player *’ but argument is of type ‘int *’
+    9 | void Pupdate(Player *p,const int ts, gamemap map);
+      |              ~~~~~~~~^
+src/game.c:111:56: error: incompatible type for argument 3 of ‘Pupdate’
+  111 |             Pupdate(&maingame.plyr,maingame.ts,maingame.level);
+      |                                                ~~~~~~~~^~~~~~
+      |                                                        |
+      |                                                        int
+src/core/player.h:9:46: note: expected ‘gamemap’ but argument is of type ‘int’
+    9 | void Pupdate(Player *p,const int ts, gamemap map);
+      |                                      ~~~~~~~~^~~
+src/game.c:112:46: error: request for member ‘pos’ in something not a structure or union
+  112 |             maingame.cam.target=maingame.plyr.pos;
+      |                                              ^
+src/game.c:114:47: error: request for member ‘pos’ in something not a structure or union
+  114 |           CheckAndStartDialogue(&maingame.plyr.pos,maingame.ts,&dlgmap,
+      |                                               ^
+src/game.c:124:52: error: request for member ‘pos’ in something not a structure or union
+  124 |             findpathinradius(&npctest,maingame.plyr.pos,maingame,2);
+      |                                                    ^
+src/game.c:130:17: error: passing argument 1 of ‘Pdraw’ from incompatible pointer type [-Wincompatible-pointer-types]
+  130 |           Pdraw(&maingame.plyr);
+      |                 ^~~~~~~~~~~~~~
+      |                 |
+      |                 int *
+src/core/player.h:10:26: note: expected ‘const Player *’ but argument is of type ‘int *’
+   10 | void Pdraw(const Player *p);
+      |            ~~~~~~~~~~~~~~^
+src/game.c:134:28: error: request for member ‘pos’ in something not a structure or union
+  134 |               maingame.plyr.pos,
+      |                            ^
+src/game.c:153:13: error: passing argument 1 of ‘unloadmap’ from incompatible pointer type [-Wincompatible-pointer-types]
+  153 |   unloadmap(&maingame.level);
+      |             ^~~~~~~~~~~~~~~
+      |             |
+      |             int *
+src/core/grid.h:15:25: note: expected ‘gamemap *’ but argument is of type ‘int *’
+   15 | void unloadmap(gamemap *map);
+      |                ~~~~~~~~~^~~
+In file included from src/core/grid.h:4,
+                 from src/core/player.h:4,
+                 from src/core/basicnpc.h:4,
+                 from src/core/astarpathfinding.c:9:
+src/core/../game.h:11:3: error: unknown type name ‘gamemap’
+   11 |   gamemap level;
+      |   ^~~~~~~
+src/core/../game.h:13:3: error: unknown type name ‘Player’
+   13 |   Player plyr;
+      |   ^~~~~~
+src/core/astarpathfinding.c: In function ‘findpath’:
+src/core/astarpathfinding.c:33:38: error: request for member ‘width’ in something not a structure or union
+   33 |   if (endX < 0 || endX >= games.level.width || endY < 0 || endY >= games.level.height) return result;
+      |                                      ^
+src/core/astarpathfinding.c:33:79: error: request for member ‘height’ in something not a structure or union
+   33 |   if (endX < 0 || endX >= games.level.width || endY < 0 || endY >= games.level.height) return result;
+      |                                                                               ^
+src/core/astarpathfinding.c:34:18: error: request for member ‘walls’ in something not a structure or union
+   34 |   if (games.level.walls[endY * games.level.width + endX] == 1) return result;
+      |                  ^
+src/core/astarpathfinding.c:34:43: error: request for member ‘width’ in something not a structure or union
+   34 |   if (games.level.walls[endY * games.level.width + endX] == 1) return result;
+      |                                           ^
+src/core/astarpathfinding.c:36:56: error: request for member ‘width’ in something not a structure or union
+   36 |   node* grid = (node*)malloc(sizeof(node) * games.level.width * games.level.height);
+      |                                                        ^
+src/core/astarpathfinding.c:36:76: error: request for member ‘height’ in something not a structure or union
+   36 |   node* grid = (node*)malloc(sizeof(node) * games.level.width * games.level.height);
+      |                                                                            ^
+src/core/astarpathfinding.c:37:34: error: request for member ‘height’ in something not a structure or union
+   37 |   for (int y = 0; y < games.level.height; y++) {
+      |                                  ^
+src/core/astarpathfinding.c:38:36: error: request for member ‘width’ in something not a structure or union
+   38 |     for (int x = 0; x < games.level.width; x++) {
+      |                                    ^
+src/core/astarpathfinding.c:39:27: error: request for member ‘width’ in something not a structure or union
+   39 |       grid[y * games.level.width + x].x = x;
+      |                           ^
+src/core/astarpathfinding.c:40:27: error: request for member ‘width’ in something not a structure or union
+   40 |       grid[y * games.level.width + x].y = y;
+      |                           ^
+src/core/astarpathfinding.c:41:27: error: request for member ‘width’ in something not a structure or union
+   41 |       grid[y * games.level.width + x].isopen = false;
+      |                           ^
+src/core/astarpathfinding.c:42:27: error: request for member ‘width’ in something not a structure or union
+   42 |       grid[y * games.level.width + x].isclosed = false;
+      |                           ^
+src/core/astarpathfinding.c:43:27: error: request for member ‘width’ in something not a structure or union
+   43 |       grid[y * games.level.width + x].g = FLT_MAX;
+      |                           ^
+src/core/astarpathfinding.c:44:27: error: request for member ‘width’ in something not a structure or union
+   44 |       grid[y * games.level.width + x].parentx = -1;
+      |                           ^
+src/core/astarpathfinding.c:45:27: error: request for member ‘width’ in something not a structure or union
+   45 |       grid[y * games.level.width + x].parenty = -1;
+      |                           ^
+src/core/astarpathfinding.c:49:47: error: request for member ‘width’ in something not a structure or union
+   49 |   node* startNode = &grid[startY * games.level.width + startX];
+      |                                               ^
+src/core/astarpathfinding.c:60:36: error: request for member ‘width’ in something not a structure or union
+   60 |     for (int i = 0; i < games.level.width * games.level.height; i++) {
+      |                                    ^
+src/core/astarpathfinding.c:60:56: error: request for member ‘height’ in something not a structure or union
+   60 |     for (int i = 0; i < games.level.width * games.level.height; i++) {
+      |                                                        ^
+src/core/astarpathfinding.c:84:38: error: request for member ‘width’ in something not a structure or union
+   84 |       if (nx >= 0 && nx < games.level.width && ny >= 0 && ny < games.level.height) {
+      |                                      ^
+src/core/astarpathfinding.c:84:75: error: request for member ‘height’ in something not a structure or union
+   84 |       if (nx >= 0 && nx < games.level.width && ny >= 0 && ny < games.level.height) {
+      |                                                                           ^
+src/core/astarpathfinding.c:85:24: error: request for member ‘walls’ in something not a structure or union
+   85 |         if (games.level.walls[ny * games.level.width + nx] == 1 || grid[ny * games.level.width + nx].isclosed) continue;
+      |                        ^
+src/core/astarpathfinding.c:85:47: error: request for member ‘width’ in something not a structure or union
+   85 |         if (games.level.walls[ny * games.level.width + nx] == 1 || grid[ny * games.level.width + nx].isclosed) continue;
+      |                                               ^
+src/core/astarpathfinding.c:85:89: error: request for member ‘width’ in something not a structure or union
+   85 |         if (games.level.walls[ny * games.level.width + nx] == 1 || grid[ny * games.level.width + nx].isclosed) continue;
+      |                                                                                         ^
+src/core/astarpathfinding.c:88:48: error: request for member ‘width’ in something not a structure or union
+   88 |         node* neighbor = &grid[ny * games.level.width + nx];
+      |                                                ^
+src/core/astarpathfinding.c:107:43: error: request for member ‘width’ in something not a structure or union
+  107 |       int nextX = grid[currY * games.level.width + currX].parentx;
+      |                                           ^
+src/core/astarpathfinding.c:108:43: error: request for member ‘width’ in something not a structure or union
+  108 |       int nextY = grid[currY * games.level.width + currX].parenty;
+      |                                           ^
+src/core/astarpathfinding.c:120:43: error: request for member ‘width’ in something not a structure or union
+  120 |       int nextX = grid[currY * games.level.width + currX].parentx;
+      |                                           ^
+src/core/astarpathfinding.c:121:43: error: request for member ‘width’ in something not a structure or union
+  121 |       int nextY = grid[currY * games.level.width + currX].parenty;
+      |                                           ^
+src/core/astarpathfinding.c: In function ‘hasLineOfSight’:
+src/core/astarpathfinding.c:237:40: error: request for member ‘width’ in something not a structure or union
+  237 |     if (mapx < 0 || mapx >= games.level.width || mapy < 0 || mapy >= games.level.height) {
+      |                                        ^
+src/core/astarpathfinding.c:237:81: error: request for member ‘height’ in something not a structure or union
+  237 |     if (mapx < 0 || mapx >= games.level.width || mapy < 0 || mapy >= games.level.height) {
+      |                                                                                 ^
+src/core/astarpathfinding.c:241:20: error: request for member ‘walls’ in something not a structure or union
+  241 |     if (games.level.walls[mapy * games.level.width + mapx] == 1) {
+      |                    ^
+src/core/astarpathfinding.c:241:45: error: request for member ‘width’ in something not a structure or union
+  241 |     if (games.level.walls[mapy * games.level.width + mapx] == 1) {
+      |                                             ^
+In file included from src/core/grid.h:4,
+                 from src/core/player.h:4,
+                 from src/core/basicnpc.h:4,
+                 from src/core/basicnpc.c:1:
+src/core/../game.h:11:3: error: unknown type name ‘gamemap’
+   11 |   gamemap level;
+      |   ^~~~~~~
+src/core/../game.h:13:3: error: unknown type name ‘Player’
+   13 |   Player plyr;
+      |   ^~~~~~
+src/core/basicnpc.c: In function ‘findpathinradius’:
+src/core/basicnpc.c:62:22: error: incompatible type for argument 2 of ‘remblockedp’
+   62 |   remblockedp(q,games.level);
+      |                 ~~~~~^~~~~~
+      |                      |
+      |                      int
+In file included from src/core/basicnpc.c:7:
+src/core/astarpathfinding.h:26:34: note: expected ‘gamemap’ but argument is of type ‘int’
+   26 | void remblockedp(int **p,gamemap map);
+      |                          ~~~~~~~~^~~
+In file included from src/core/../game.h:4,
+                 from src/core/grid.h:4,
+                 from src/core/grid.c:2:
+src/core/../core/player.h:9:38: error: unknown type name ‘gamemap’
+    9 | void Pupdate(Player *p,const int ts, gamemap map);
+      |                                      ^~~~~~~
+src/core/../game.h:11:3: error: unknown type name ‘gamemap’
+   11 |   gamemap level;
+      |   ^~~~~~~
+src/core/grid.c: In function ‘loadmap’:
+src/core/grid.c:37:34: warning: format ‘%d’ expects argument of type ‘int *’, but argument 3 has type ‘signed char *’ [-Wformat=]
+   37 |           if (fscanf(filewall, "%d", &map.walls[i])==1){
+      |                                 ~^   ~~~~~~~~~~~~~
+      |                                  |   |
+      |                                  |   signed char *
+      |                                  int *
+      |                                 %hhd
+src/core/grid.c:40:35: warning: format ‘%d’ expects argument of type ‘int *’, but argument 3 has type ‘unsigned char *’ [-Wformat=]
+   40 |           if (fscanf(filerender,"%d",&map.render[i])==1){
+      |                                  ~^  ~~~~~~~~~~~~~~
+      |                                   |  |
+      |                                   |  unsigned char *
+      |                                   int *
+      |                                  %hhd
+src/core/grid.c: In function ‘drawmap’:
+src/core/grid.c:82:17: error: request for member ‘width’ in something not a structure or union
+   82 |   if(games.level.width<=0||games.level.width<=0)return;
+      |                 ^
+src/core/grid.c:82:39: error: request for member ‘width’ in something not a structure or union
+   82 |   if(games.level.width<=0||games.level.width<=0)return;
+      |                                       ^
+src/core/grid.c:83:18: error: request for member ‘tileset’ in something not a structure or union
+   83 |   if(!games.level.tileset.id)return;
+      |                  ^
+src/core/grid.c:87:41: error: ‘ts’ undeclared (first use in this function)
+   87 |   const int xsg=(int)(floorf(lcx/(float)ts))<0?0
+      |                                         ^~
+src/core/grid.c:87:41: note: each undeclared identifier is reported only once for each function it appears in
+src/core/grid.c:88:44: error: request for member ‘width’ in something not a structure or union
+   88 |     :(int)floorf(lcx/(float)ts)>games.level.width?games.level.width
+      |                                            ^
+src/core/grid.c:88:62: error: request for member ‘width’ in something not a structure or union
+   88 |     :(int)floorf(lcx/(float)ts)>games.level.width?games.level.width
+      |                                                              ^
+src/core/grid.c:91:44: error: request for member ‘height’ in something not a structure or union
+   91 |     :(int)floorf(tcy/(float)ts)>games.level.height?games.level.height
+      |                                            ^
+src/core/grid.c:91:63: error: request for member ‘height’ in something not a structure or union
+   91 |     :(int)floorf(tcy/(float)ts)>games.level.height?games.level.height
+      |                                                               ^
+src/core/grid.c:94:43: error: request for member ‘width’ in something not a structure or union
+   94 |     :(int)ceilf(rcx/(float)ts)>games.level.width?games.level.width
+      |                                           ^
+src/core/grid.c:94:61: error: request for member ‘width’ in something not a structure or union
+   94 |     :(int)ceilf(rcx/(float)ts)>games.level.width?games.level.width
+      |                                                             ^
+src/core/grid.c:97:43: error: request for member ‘height’ in something not a structure or union
+   97 |     :(int)ceilf(bcy/(float)ts)>games.level.height?games.level.height
+      |                                           ^
+src/core/grid.c:97:62: error: request for member ‘height’ in something not a structure or union
+   97 |     :(int)ceilf(bcy/(float)ts)>games.level.height?games.level.height
+      |                                                              ^
+src/core/grid.c:101:34: error: request for member ‘render’ in something not a structure or union
+  101 |       const int renid=games.level.render[y*games.level.width+x];
+      |                                  ^
+src/core/grid.c:101:55: error: request for member ‘width’ in something not a structure or union
+  101 |       const int renid=games.level.render[y*games.level.width+x];
+      |                                                       ^
+src/core/grid.c:103:22: error: request for member ‘tileset’ in something not a structure or union
+  103 |           games.level.tileset,
+      |                      ^
+src/core/grid.c:105:38: error: request for member ‘tileset’ in something not a structure or union
+  105 |           (float)((renid%(games.level.tileset.width/16))*16),
+      |                                      ^
+src/core/grid.c:106:37: error: request for member ‘tileset’ in something not a structure or union
+  106 |           (float)(renid/(games.level.tileset.width/16)*16),
+      |                                     ^
+In file included from src/core/grid.h:4,
+                 from src/core/player.h:4,
+                 from src/core/player.c:1:
+src/core/../game.h:11:3: error: unknown type name ‘gamemap’
+   11 |   gamemap level;
+      |   ^~~~~~~
+src/core/../game.h:13:3: error: unknown type name ‘Player’
+   13 |   Player plyr;
+      |   ^~~~~~
+In file included from src/core/../game.h:4,
+                 from src/core/grid.h:4,
+                 from src/core/raycast.h:5,
+                 from src/core/raycast.c:1:
+src/core/../core/player.h:9:38: error: unknown type name ‘gamemap’
+    9 | void Pupdate(Player *p,const int ts, gamemap map);
+      |                                      ^~~~~~~
+src/core/../game.h:11:3: error: unknown type name ‘gamemap’
+   11 |   gamemap level;
+      |   ^~~~~~~

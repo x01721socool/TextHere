@@ -4,7 +4,7 @@
 #include "core/player.h"
 #include "raylib.h"
 
-typedef struct {
+typedef struct game {
   enum {
     GMENU,GSETTINGS,GCREDS
   } options;
