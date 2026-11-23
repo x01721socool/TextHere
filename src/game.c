@@ -111,10 +111,7 @@ int main(int argc, char** argv){
             Pupdate(&maingame.plyr,maingame.ts,maingame.level);
             maingame.cam.target=maingame.plyr.pos;
           }
-          CheckAndStartDialogue(&maingame.plyr.pos,maingame.ts,&dlgmap,
-              &activedialogueblock,
-              &maingame.cam,
-              levelfolder);
+          CheckAndStartDialogue(&maingame,levelfolder);
           Updatenpc(&npctest);
           maingame.cam.offset=(Vector2){400.0f,300.0f};
           if (IsKeyPressed(KEY_O)){

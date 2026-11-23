@@ -3,7 +3,8 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
-DialogueSystem LoadDialogue(const char *filename,Vector2 plypos,Camera2D *cam, const char *levelfolder){
+#include "../game.h"
+DialogueSystem LoadDialogue(const char *filename,game *g, const char *levelfolder){
   DialogueSystem ds={.lines =NULL,
     .count=0, .lettercount=0,
     .current=0, .texttimer=0.0f,
@@ -20,7 +21,7 @@ DialogueSystem LoadDialogue(const char *filename,Vector2 plypos,Camera2D *cam, c
     ds.lines[ds.count -1]=strdup(buffer);
   }
   fclose(file);
-  if(ds.count>0)ParseDialogueLine(&ds,cam,plypos,levelfolder);
+  if(ds.count>0)ParseDialogueLine(&ds,&g->cam,g->plyr.pos,levelfolder);
   return ds;
 }
 
@@ -229,26 +230,20 @@ void FreeDialogueMap(DialogueMap *dm){
   dm->blocks=NULL;
   dm->count=0;
 }
-void CheckAndStartDialogue(const Vector2 *playerpos,
-    int tilesize,
-    DialogueMap *dm,
-    DialogueBlock **activeblock,
-    Camera2D *cam,
-    const char *levelfolder){
-  if (!dm||dm->count==0)return;
-  if (*activeblock) return;
-  int ptilex=(int)(playerpos->x/tilesize);
-  int ptiley=(int)(playerpos->y/tilesize);
-  for (int i=0;i<dm->count;++i){
-    DialogueBlock *b = &dm->blocks[i];
+void CheckAndStartDialogue(game *g,const char *levelfolder){
+  if (!&g->dm||&g->dm.count==0)return;
+  if (g->curactblock) return;
+  int ptilex=(int)(g->plyr.pos.x/g->ts);
+  int ptiley=(int)(g->plyr.pos.y/g->ts);
+  for (int i=0;i<g->dm.count;++i){
+    DialogueBlock *b = &g->dm.blocks[i];
     if (b->alreadyseen) continue;
     if (b->tilex==ptilex&&b->tiley==ptiley){
       b->ds=LoadDialogue(b->txtpath,
-          (Vector2){playerpos->x,playerpos->y},
-          cam,levelfolder);
+          g,levelfolder);
       b->hasds=true;
       b->alreadyseen=true;
-      *activeblock=b;
+      g->curactblock=b;
       break;
     }
   }

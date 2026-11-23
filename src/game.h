@@ -2,6 +2,7 @@
 #define GAMEH
 #include "core/grid.h"
 #include "core/player.h"
+#include "core/dialogue.h"
 #include "raylib.h"
 
 typedef struct game {
@@ -12,5 +13,7 @@ typedef struct game {
   int ts;
   Player plyr;
   Camera2D cam;
+  DialogueMap dm;
+  DialogueBlock *curactblock;
 } game;
 #endif
