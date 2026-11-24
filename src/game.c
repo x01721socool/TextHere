@@ -13,7 +13,6 @@
 #include "core/astarpathfinding.h"
 #include "core/raycast.h"
 
-DialogueMap dlgmap={0};
 game maingame={ .ts=64, .options=0,.cam=(Camera2D){.zoom=1.0f,.rotation=0.0f} };
 bool musicbool=false;
 int main(int argc, char** argv){
@@ -80,7 +79,7 @@ int main(int argc, char** argv){
       case 2:
         BeginDrawing();
         ClearBackground(DARKGRAY);
-        DrawText("Credits! :D\n\nArtemis Grotosky (me): Software owner,\n                       Software Dev,\n                      basically anything\nelse at the momentlol\n\nShardul Hirolikar: A* Pathfinding\n\nRamon Santamaria: Raylib engine\n\nif u contributed u can write ur name \nhere.jus figure out how to fit ur \nown on ts screen lol",10,10,deffont.baseSize*4,BLACK);
+        DrawText("Credits! :D\n\nArtemis Grotosky (me): Software owner,\n                       Software Dev,\n                      basically anything\nelse at the moment lol\n\nShardul Hirolikar: A* Pathfinding\n\nRamon Santamaria: Raylib engine\n\nif u contributed u can write ur name\nhere. jus figure out how to fit ur\nown on this screen lol",10,10,deffont.baseSize*4,BLACK);
         EndDrawing();
         break;
       case 1:
@@ -96,22 +95,24 @@ int main(int argc, char** argv){
         char levelfolder[64];
         snprintf(levelfolder,sizeof(levelfolder),"assets/maps/%s",premaplevel);
         maingame.dm=LoadDialogueMap(levelfolder);
+        maingame.curactblock=NULL;
         maingame.plyr=(Player){
           .pos={maingame.level.sp.x*maingame.ts+32,maingame.level.sp.y*maingame.ts+32},
           .speed=maingame.level.ips,
           .size=24.0f};
         SetTargetFPS(64);
-        DialogueBlock *activedialogueblock=NULL;
         npc npctest = {
           .pos={5*maingame.ts+32,7*maingame.ts+32},
           .active=true,
           .speed=200.0f};
         while (maingame.options==3) {
-          if (activedialogueblock==NULL){
+          /* Check the spawn/current tile before movement so a dialogue on the
+             starting tile cannot be skipped by the first movement update. */
+          CheckAndStartDialogue(&maingame,levelfolder);
+          if (!maingame.curactblock){
             Pupdate(&maingame.plyr,maingame.ts,maingame.level);
             maingame.cam.target=maingame.plyr.pos;
           }
-          CheckAndStartDialogue(&maingame,levelfolder);
           Updatenpc(&npctest);
           maingame.cam.offset=(Vector2){400.0f,300.0f};
           if (IsKeyPressed(KEY_O)){
@@ -127,18 +128,19 @@ int main(int argc, char** argv){
           Pdraw(&maingame.plyr);
           Drawnpc(&npctest);
           EndMode2D();
-          UpdateAndDrawActiveDialogue(activedialogueblock,
+          UpdateAndDrawActiveDialogue(maingame.curactblock,
               maingame.plyr.pos,
               &maingame.cam,
               levelfolder);
-          if (activedialogueblock
-              &&!activedialogueblock->ds.active){
-            UnloadDialogue(&activedialogueblock->ds);
-            activedialogueblock->hasds=false;
-            activedialogueblock=NULL;
+          if (maingame.curactblock
+              &&!maingame.curactblock->ds.active){
+            UnloadDialogue(&maingame.curactblock->ds);
+            maingame.curactblock->hasds=false;
+            maingame.curactblock=NULL;
           }
           EndDrawing();
         }
+        break;
     }
     if (IsKeyPressed(KEY_M)&&!playbarsel){
       maingame.options=(maingame.options>=2)?0:maingame.options+1;
@@ -148,8 +150,8 @@ int main(int argc, char** argv){
     }
   }
   unloadmap(&maingame.level);
+  FreeDialogueMap(&maingame.dm);
   CloseAudioDevice();
-  FreeDialogueMap(&dlgmap);
   CloseWindow();
   //return 0;
 }

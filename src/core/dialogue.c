@@ -150,19 +150,20 @@ void DrawDialogue(DialogueSystem *ds){
       BLACK);
 }
 void UnloadDialogue(DialogueSystem *ds){
-  if (ds->lines==NULL) return;
-  for(int i=0;i<ds->count;i++){
-    if (ds->lines[i]!=0){
-      free(ds->lines[i]);
-      ds->lines[i]=NULL;
+  if (ds->lines!=NULL){
+    for(int i=0;i<ds->count;i++){
+      if (ds->lines[i]!=0){
+        free(ds->lines[i]);
+        ds->lines[i]=NULL;
+      }
     }
+    free(ds->lines);
+    ds->lines=NULL;
+    ds->count=0;
   }
-  free(ds->lines);
-  ds->lines=NULL;
-  ds->count=0;
   if (ds->currentScene.id>0){
-    UnloadTexture(ds->currentPortrait);
-    ds->currentPortrait.id=0;
+    UnloadTexture(ds->currentScene);
+    ds->currentScene.id=0;
   }
   if (ds->currentPortrait.id>0){
     UnloadTexture(ds->currentPortrait);
@@ -170,6 +171,7 @@ void UnloadDialogue(DialogueSystem *ds){
   }
   if (IsSoundValid(ds->talking)){
     UnloadSound(ds->talking);
+    ds->talking=(Sound){0};
   }
 }
 DialogueMap LoadDialogueMap(const char *levelfolder){
@@ -193,10 +195,14 @@ DialogueMap LoadDialogueMap(const char *levelfolder){
         &y,
         custom);
     if (scanned<2) continue;
-    dm.count++;
-    dm.blocks=realloc(dm.blocks,
-        dm.count*sizeof(DialogueBlock));
-    DialogueBlock *b=&dm.blocks[dm.count -1];
+    DialogueBlock *blocks=realloc(dm.blocks,
+        (dm.count+1)*sizeof(DialogueBlock));
+    if (!blocks){
+      TraceLog(LOG_ERROR,"out of memory loading dialogue map %s",csvpath);
+      break;
+    }
+    dm.blocks=blocks;
+    DialogueBlock *b=&dm.blocks[dm.count++];
     b->tilex=x;
     b->tiley=y;
     b->alreadyseen=false;
@@ -231,8 +237,8 @@ void FreeDialogueMap(DialogueMap *dm){
   dm->count=0;
 }
 void CheckAndStartDialogue(game *g,const char *levelfolder){
-  if (g->dm.blocks==NULL||g->dm.count==0)return;
-  if (!g->curactblock) return;
+  if (!g || !g->dm.blocks || g->dm.count<=0) return;
+  if (g->curactblock) return;
   int ptilex=(int)(g->plyr.pos.x/g->ts);
   int ptiley=(int)(g->plyr.pos.y/g->ts);
   for (int i=0;i<g->dm.count;++i){
@@ -241,6 +247,11 @@ void CheckAndStartDialogue(game *g,const char *levelfolder){
     if (b->tilex==ptilex&&b->tiley==ptiley){
       b->ds=LoadDialogue(b->txtpath,
           g,levelfolder);
+      if (!b->ds.lines || b->ds.count<=0){
+        TraceLog(LOG_WARNING,"could not load dialogue file %s",b->txtpath);
+        b->alreadyseen=true;
+        break;
+      }
       b->hasds=true;
       b->alreadyseen=true;
       g->curactblock=b;
