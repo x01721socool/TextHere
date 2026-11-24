@@ -79,7 +79,7 @@ int main(int argc, char** argv){
       case 2:
         BeginDrawing();
         ClearBackground(DARKGRAY);
-        DrawText("Credits! :D\n\nArtemis Grotosky (me): Software owner,\n                       Software Dev,\n                      basically anything\nelse at the moment lol\n\nShardul Hirolikar: A* Pathfinding\n\nRamon Santamaria: Raylib engine\n\nif u contributed u can write ur name\nhere. jus figure out how to fit ur\nown on this screen lol",10,10,deffont.baseSize*4,BLACK);
+        DrawText("Credits! :D\n\nArtemis Grotosky (me): Software owner,\n                       Software Dev,\n                      basically anything\nelse at the moment lolz\n\nShardul Hirolikar: A* Pathfinding\n\nRamon Santamaria: Raylib engine\n\nif u contributed u can write ur name\nhere. jus figure out how to fit ur\nown on this screen lol",10,10,deffont.baseSize*4,BLACK);
         EndDrawing();
         break;
       case 1:
