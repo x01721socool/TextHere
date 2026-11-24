@@ -27,7 +27,7 @@ typedef struct {
 }DialogueMap;
 
 DialogueSystem LoadDialogue(const char *filename,game *g,const char *levelfolder);
-void UpdateDialogue(DialogueSystem *ds,Vector2 plypos,Camera2D *cam,const char *levelfolder);
+void UpdateDialogue(game *g,const char *levelfolder);
 void DrawDialogue(DialogueSystem *ds);
 void UnloadDialogue(DialogueSystem *ds);
 void ParseDialogueLine(DialogueSystem *ds, Camera2D *cam,Vector2 plypos,const char *levelfolder);
@@ -36,6 +36,5 @@ void FreeDialogueMap(DialogueMap *dm);
 void CheckAndStartDialogue(
     game *g,
     const char *levelfolder);
-void UpdateAndDrawActiveDialogue(DialogueBlock *activeBlock,Vector2 plypos,
-    Camera2D *cam,const char *levelfolder);
+void UpdateAndDrawActiveDialogue(game *g,const char *levelfolder);
 #endif

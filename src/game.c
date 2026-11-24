@@ -128,10 +128,7 @@ int main(int argc, char** argv){
           Pdraw(&maingame.plyr);
           Drawnpc(&npctest);
           EndMode2D();
-          UpdateAndDrawActiveDialogue(maingame.curactblock,
-              maingame.plyr.pos,
-              &maingame.cam,
-              levelfolder);
+          UpdateAndDrawActiveDialogue(&maingame,levelfolder);
           if (maingame.curactblock
               &&!maingame.curactblock->ds.active){
             UnloadDialogue(&maingame.curactblock->ds);
