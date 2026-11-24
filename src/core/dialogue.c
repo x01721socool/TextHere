@@ -231,8 +231,8 @@ void FreeDialogueMap(DialogueMap *dm){
   dm->count=0;
 }
 void CheckAndStartDialogue(game *g,const char *levelfolder){
-  if (!&g->dm||&g->dm.count==0)return;
-  if (g->curactblock) return;
+  if (g->dm.blocks==NULL||g->dm.count==0)return;
+  if (!g->curactblock) return;
   int ptilex=(int)(g->plyr.pos.x/g->ts);
   int ptiley=(int)(g->plyr.pos.y/g->ts);
   for (int i=0;i<g->dm.count;++i){

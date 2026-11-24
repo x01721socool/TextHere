@@ -95,7 +95,7 @@ int main(int argc, char** argv){
         UnloadMusicStream(music);
         char levelfolder[64];
         snprintf(levelfolder,sizeof(levelfolder),"assets/maps/%s",premaplevel);
-        dlgmap=LoadDialogueMap(levelfolder);
+        maingame.dm=LoadDialogueMap(levelfolder);
         maingame.plyr=(Player){
           .pos={maingame.level.sp.x*maingame.ts+32,maingame.level.sp.y*maingame.ts+32},
           .speed=maingame.level.ips,
