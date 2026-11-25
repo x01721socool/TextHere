@@ -26,26 +26,26 @@ DialogueSystem LoadDialogue(const char *filename,game *g, const char *levelfolde
 }
 
 void UpdateDialogue(game *g,const char *levelfolder){ /*DialogueSystem *ds,Vector2 plypos,Camera2D*cam*/
-  if(!g->dm.blocks->ds.active)return;
-  float speed=0.01f;g->dm.blocks->ds.texttimer+=GetFrameTime();
-  if(g->dm.blocks->ds.texttimer>=speed){
-    if (g->dm.blocks->ds.lettercount<(int)(strlen(g->dm.blocks->ds.currentText))){
-      g->dm.blocks->ds.lettercount++;
-      if (IsSoundValid(g->dm.blocks->ds.talking)) {
-        PlaySound(g->dm.blocks->ds.talking);
+  if(!g->curactblock->ds.active)return;
+  float speed=0.01f;g->curactblock->ds.texttimer+=GetFrameTime();
+  if(g->curactblock->ds.texttimer>=speed){
+    if (g->curactblock->ds.lettercount<(int)(strlen(g->curactblock->ds.currentText))){
+      g->curactblock->ds.lettercount++;
+      if (IsSoundValid(g->curactblock->ds.talking)) {
+        PlaySound(g->curactblock->ds.talking);
       }
     }
-    g->dm.blocks->ds.texttimer=0.0f;
+    g->curactblock->ds.texttimer=0.0f;
   }
   if(IsKeyPressed(KEY_ENTER)){
-    if(g->dm.blocks->ds.lettercount<(int)strlen(g->dm.blocks->ds.currentText)){
-      g->dm.blocks->ds.lettercount=(int)strlen(g->dm.blocks->ds.currentText);
+    if(g->curactblock->ds.lettercount<(int)strlen(g->curactblock->ds.currentText)){
+      g->curactblock->ds.lettercount=(int)strlen(g->curactblock->ds.currentText);
     }else{
-      g->dm.blocks->ds.current++;
-      if(g->dm.blocks->ds.current >=g->dm.blocks->ds.count){
-        g->dm.blocks->ds.active=false;
+      g->curactblock->ds.current++;
+      if(g->curactblock->ds.current >=g->curactblock->ds.count){
+        g->curactblock->ds.active=false;
       }else{
-        ParseDialogueLine(&g->dm.blocks->ds,&g->cam,g->plyr.pos,levelfolder);
+        ParseDialogueLine(&g->curactblock->ds,&g->cam,g->plyr.pos,levelfolder);
       }
     }
   }
