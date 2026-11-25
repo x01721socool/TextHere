@@ -30,7 +30,7 @@ DialogueSystem LoadDialogue(const char *filename,game *g,const char *levelfolder
 void UpdateDialogue(game *g,const char *levelfolder);
 void DrawDialogue(DialogueSystem *ds);
 void UnloadDialogue(DialogueSystem *ds);
-void ParseDialogueLine(DialogueSystem *ds, Camera2D *cam,Vector2 plypos,const char *levelfolder);
+void ParseDialogueLine(game *g,const char *levelfolder);
 DialogueMap LoadDialogueMap(const char *levelfolder);
 void FreeDialogueMap(DialogueMap *dm);
 void CheckAndStartDialogue(

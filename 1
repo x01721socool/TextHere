@@ -1,0 +1,146 @@
+cc src/game.c src/core/*.c -lm -lraylib -lX11 -Wformat=0 -lGL -o game
+src/core/dialogue.c: In function ‘LoadDialogue’:
+src/core/dialogue.c:24:35: error: passing argument 1 of ‘ParseDialogueLine’ from incompatible pointer type [-Wincompatible-pointer-types]
+   24 |   if(ds.count>0)ParseDialogueLine(&ds,&g->cam,g->plyr.pos,levelfolder);
+      |                                   ^~~
+      |                                   |
+      |                                   DialogueSystem *
+In file included from src/core/dialogue.c:2:
+src/core/dialogue.h:33:30: note: expected ‘game *’ but argument is of type ‘DialogueSystem *’
+   33 | void ParseDialogueLine(game *g,const char *levelfolder);
+      |                        ~~~~~~^
+src/core/dialogue.c:24:39: error: passing argument 2 of ‘ParseDialogueLine’ from incompatible pointer type [-Wincompatible-pointer-types]
+   24 |   if(ds.count>0)ParseDialogueLine(&ds,&g->cam,g->plyr.pos,levelfolder);
+      |                                       ^~~~~~~
+      |                                       |
+      |                                       Camera2D *
+src/core/dialogue.h:33:44: note: expected ‘const char *’ but argument is of type ‘Camera2D *’
+   33 | void ParseDialogueLine(game *g,const char *levelfolder);
+      |                                ~~~~~~~~~~~~^~~~~~~~~~~
+src/core/dialogue.c:24:17: error: too many arguments to function ‘ParseDialogueLine’; expected 2, have 4
+   24 |   if(ds.count>0)ParseDialogueLine(&ds,&g->cam,g->plyr.pos,levelfolder);
+      |                 ^~~~~~~~~~~~~~~~~             ~~~~~~~~~~~
+src/core/dialogue.h:33:6: note: declared here
+   33 | void ParseDialogueLine(game *g,const char *levelfolder);
+      |      ^~~~~~~~~~~~~~~~~
+src/core/dialogue.c: In function ‘ParseDialogueLine’:
+src/core/dialogue.c:54:24: error: invalid type argument of ‘->’ (have ‘DialogueSystem’)
+   54 |   if(g->curactblock->ds->current >= g->curactblock->ds->count)return;
+      |                        ^~
+src/core/dialogue.c:54:55: error: invalid type argument of ‘->’ (have ‘DialogueSystem’)
+   54 |   if(g->curactblock->ds->current >= g->curactblock->ds->count)return;
+      |                                                       ^~
+src/core/dialogue.c:56:37: error: invalid type argument of ‘->’ (have ‘DialogueSystem’)
+   56 |   strncpy(linecpy,g->curactblock->ds->lines[g->curactblock->ds->current], sizeof(linecpy));
+      |                                     ^~
+src/core/dialogue.c:56:63: error: invalid type argument of ‘->’ (have ‘DialogueSystem’)
+   56 |   strncpy(linecpy,g->curactblock->ds->lines[g->curactblock->ds->current], sizeof(linecpy));
+      |                                                               ^~
+src/core/dialogue.c:62:13: error: invalid type argument of ‘->’ (have ‘Camera2D’)
+   62 |       g->cam->target=g->plyr.pos;
+      |             ^~
+src/core/dialogue.c:70:15: error: invalid type argument of ‘->’ (have ‘Camera2D’)
+   70 |         g->cam->target=g->plyr.pos;
+      |               ^~
+src/core/dialogue.c:72:13: error: invalid type argument of ‘->’ (have ‘Camera2D’)
+   72 |       g->cam->target=(Vector2){(float)(x*64),(float)(y*64)};
+      |             ^~
+src/core/dialogue.c:77:23: error: invalid type argument of ‘->’ (have ‘DialogueSystem’)
+   77 |     g->curactblock->ds->current++;
+      |                       ^~
+src/core/dialogue.c:78:37: error: incompatible type for argument 1 of ‘ParseDialogueLine’
+   78 |     ParseDialogueLine(g->curactblock->ds,g->cam,g->plyr.pos,levelfolder);
+      |                       ~~~~~~~~~~~~~~^~~~
+      |                                     |
+      |                                     DialogueSystem
+src/core/dialogue.c:53:30: note: expected ‘game *’ but argument is of type ‘DialogueSystem’
+   53 | void ParseDialogueLine(game *g,const char *levelfolder){
+      |                        ~~~~~~^
+src/core/dialogue.c:78:43: error: incompatible type for argument 2 of ‘ParseDialogueLine’
+   78 |     ParseDialogueLine(g->curactblock->ds,g->cam,g->plyr.pos,levelfolder);
+      |                                          ~^~~~~
+      |                                           |
+      |                                           Camera2D
+src/core/dialogue.c:53:44: note: expected ‘const char *’ but argument is of type ‘Camera2D’
+   53 | void ParseDialogueLine(game *g,const char *levelfolder){
+      |                                ~~~~~~~~~~~~^~~~~~~~~~~
+src/core/dialogue.c:78:5: error: too many arguments to function ‘ParseDialogueLine’; expected 2, have 4
+   78 |     ParseDialogueLine(g->curactblock->ds,g->cam,g->plyr.pos,levelfolder);
+      |     ^~~~~~~~~~~~~~~~~                           ~~~~~~~~~~~
+src/core/dialogue.c:53:6: note: declared here
+   53 | void ParseDialogueLine(game *g,const char *levelfolder){
+      |      ^~~~~~~~~~~~~~~~~
+src/core/dialogue.c:85:29: error: invalid type argument of ‘->’ (have ‘DialogueSystem’)
+   85 |       if (g->curactblock->ds->currentScene.id!=0) UnloadTexture(g->curactblock->ds->currentScene);
+      |                             ^~
+src/core/dialogue.c:85:83: error: invalid type argument of ‘->’ (have ‘DialogueSystem’)
+   85 |       if (g->curactblock->ds->currentScene.id!=0) UnloadTexture(g->curactblock->ds->currentScene);
+      |                                                                                   ^~
+src/core/dialogue.c:86:25: error: invalid type argument of ‘->’ (have ‘DialogueSystem’)
+   86 |       g->curactblock->ds->currentScene=LoadTexture(path);
+      |                         ^~
+src/core/dialogue.c:87:24: error: invalid type argument of ‘->’ (have ‘DialogueSystem’)
+   87 |     }g->curactblock->ds->current++;
+      |                        ^~
+src/core/dialogue.c:88:37: error: incompatible type for argument 1 of ‘ParseDialogueLine’
+   88 |     ParseDialogueLine(g->curactblock->ds,g->cam,g->plyr.pos,levelfolder);
+      |                       ~~~~~~~~~~~~~~^~~~
+      |                                     |
+      |                                     DialogueSystem
+src/core/dialogue.c:53:30: note: expected ‘game *’ but argument is of type ‘DialogueSystem’
+   53 | void ParseDialogueLine(game *g,const char *levelfolder){
+      |                        ~~~~~~^
+src/core/dialogue.c:88:43: error: incompatible type for argument 2 of ‘ParseDialogueLine’
+   88 |     ParseDialogueLine(g->curactblock->ds,g->cam,g->plyr.pos,levelfolder);
+      |                                          ~^~~~~
+      |                                           |
+      |                                           Camera2D
+src/core/dialogue.c:53:44: note: expected ‘const char *’ but argument is of type ‘Camera2D’
+   53 | void ParseDialogueLine(game *g,const char *levelfolder){
+      |                                ~~~~~~~~~~~~^~~~~~~~~~~
+src/core/dialogue.c:88:5: error: too many arguments to function ‘ParseDialogueLine’; expected 2, have 4
+   88 |     ParseDialogueLine(g->curactblock->ds,g->cam,g->plyr.pos,levelfolder);
+      |     ^~~~~~~~~~~~~~~~~                           ~~~~~~~~~~~
+src/core/dialogue.c:53:6: note: declared here
+   53 | void ParseDialogueLine(game *g,const char *levelfolder){
+      |      ^~~~~~~~~~~~~~~~~
+src/core/dialogue.c:91:30: error: invalid type argument of ‘->’ (have ‘DialogueSystem’)
+   91 |     strcpy(g->curactblock->ds->currentName,name);
+      |                              ^~
+src/core/dialogue.c:95:41: error: invalid type argument of ‘->’ (have ‘DialogueSystem’)
+   95 |     if (!IsSoundValid(g->curactblock->ds->talking)) {
+      |                                         ^~
+src/core/dialogue.c:96:84: error: invalid type argument of ‘->’ (have ‘DialogueSystem’)
+   96 |       snprintf(snbuf,sizeof(snbuf),"assets/sound/talking/%s.wav",g->curactblock->ds->currentName);
+      |                                                                                    ^~
+src/core/dialogue.c:97:25: error: invalid type argument of ‘->’ (have ‘DialogueSystem’)
+   97 |       g->curactblock->ds->talking=LoadSound(snbuf);
+      |                         ^~
+src/core/dialogue.c:98:43: error: invalid type argument of ‘->’ (have ‘DialogueSystem’)
+   98 |       if (!IsSoundValid(g->curactblock->ds->talking)){
+      |                                           ^~
+src/core/dialogue.c:108:29: error: invalid type argument of ‘->’ (have ‘DialogueSystem’)
+  108 |       if (g->curactblock->ds->currentPortrait.id!=0)
+      |                             ^~
+src/core/dialogue.c:109:41: error: invalid type argument of ‘->’ (have ‘DialogueSystem’)
+  109 |         UnloadTexture(g->curactblock->ds->currentPortrait);
+      |                                         ^~
+src/core/dialogue.c:110:25: error: invalid type argument of ‘->’ (have ‘DialogueSystem’)
+  110 |       g->curactblock->ds->currentPortrait=LoadTexture(path);
+      |                         ^~
+src/core/dialogue.c:113:33: error: invalid type argument of ‘->’ (have ‘DialogueSystem’)
+  113 |       strncpy(g->curactblock->ds->currentText,text,
+      |                                 ^~
+src/core/dialogue.c:114:36: error: invalid type argument of ‘->’ (have ‘DialogueSystem’)
+  114 |           sizeof(g->curactblock->ds->currentText)-1);
+      |                                    ^~
+src/core/dialogue.c:116:33: error: invalid type argument of ‘->’ (have ‘DialogueSystem’)
+  116 |       strncpy(g->curactblock->ds->currentText,"...",sizeof("...")-1);
+      |                                 ^~
+src/core/dialogue.c:118:23: error: invalid type argument of ‘->’ (have ‘DialogueSystem’)
+  118 |     g->curactblock->ds->lettercount=0;g->curactblock->ds->texttimer=0.0f;
+      |                       ^~
+src/core/dialogue.c:118:57: error: invalid type argument of ‘->’ (have ‘DialogueSystem’)
+  118 |     g->curactblock->ds->lettercount=0;g->curactblock->ds->texttimer=0.0f;
+      |                                                         ^~
+make: *** [Makefile:2: all] Error 1

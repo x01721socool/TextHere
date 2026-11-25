@@ -21,7 +21,7 @@ DialogueSystem LoadDialogue(const char *filename,game *g, const char *levelfolde
     ds.lines[ds.count -1]=strdup(buffer);
   }
   fclose(file);
-  if(ds.count>0)ParseDialogueLine(&ds,&g->cam,g->plyr.pos,levelfolder);
+  if(ds.count>0)ParseDialogueLine(g,levelfolder);
   return ds;
 }
 
@@ -45,57 +45,57 @@ void UpdateDialogue(game *g,const char *levelfolder){ /*DialogueSystem *ds,Vecto
       if(g->curactblock->ds.current >=g->curactblock->ds.count){
         g->curactblock->ds.active=false;
       }else{
-        ParseDialogueLine(&g->curactblock->ds,&g->cam,g->plyr.pos,levelfolder);
+        ParseDialogueLine(g,levelfolder);
       }
     }
   }
 }
-void ParseDialogueLine(DialogueSystem *ds,Camera2D *cam, Vector2 plypos,const char *levelfolder){
-  if(ds->current >= ds->count)return;
+void ParseDialogueLine(game *g,const char *levelfolder){
+  if(g->curactblock->ds.current >= g->curactblock->ds.count)return;
   char linecpy[256];
-  strncpy(linecpy,ds->lines[ds->current], sizeof(linecpy));
+  strncpy(linecpy,g->curactblock->ds.lines[g->curactblock->ds.current], sizeof(linecpy));
   char *name =strtok(linecpy, ":");
   if (!name) return;
   if (strcmp(name,"CAMERA")==0){
     char *option = strtok(NULL,":");
     if (strcmp(option,"CENTERPLAYER")==0){
-      cam->target=plypos;
+      g->cam.target=g->plyr.pos;
     }
     else if (strcmp(option,"TPTOPOS")==0){
       int x,y;
       char *cords=strtok(NULL,":");
       if (sscanf(cords,"%d,%d",&x,&y)<2){
-        TraceLog(LOG_WARNING,"faulty cam cords"
+        TraceLog(LOG_WARNING,"faulty g->cam cords"
             "!: %s",linecpy);
-        cam->target=plypos;
+        g->cam.target=g->plyr.pos;
       }
-      cam->target=(Vector2){(float)(x*64),(float)(y*64)};
+      g->cam.target=(Vector2){(float)(x*64),(float)(y*64)};
     } else {
-      TraceLog(LOG_WARNING,"BAD camera option!: %s",
+      TraceLog(LOG_WARNING,"BAD g->camera option!: %s",
           linecpy);
     }
-    ds->current++;
-    ParseDialogueLine(ds,cam,plypos,levelfolder);
+    g->curactblock->ds.current++;
+    ParseDialogueLine(g,levelfolder);
     return;
   } else if (strcmp(name,"SCENE")==0){
     char *option = strtok(NULL,":");
     if (strcmp(option,"NONE")!=0){
       char path[256];
       snprintf(path,sizeof(path),"%s/scenes/%s.png",levelfolder,option);
-      if (ds->currentScene.id!=0) UnloadTexture(ds->currentScene);
-      ds->currentScene=LoadTexture(path);
-    }ds->current++;
-    ParseDialogueLine(ds,cam,plypos,levelfolder);
+      if (g->curactblock->ds.currentScene.id!=0) UnloadTexture(g->curactblock->ds.currentScene);
+      g->curactblock->ds.currentScene=LoadTexture(path);
+    }g->curactblock->ds.current++;
+    ParseDialogueLine(g,levelfolder);
     return;
   } else{
-    strcpy(ds->currentName,name);
+    strcpy(g->curactblock->ds.currentName,name);
     char *emotion=strtok(NULL,":");
     char *text=strtok(NULL,":");
     char snbuf[256];
-    if (!IsSoundValid(ds->talking)) {
-      snprintf(snbuf,sizeof(snbuf),"assets/sound/talking/%s.wav",ds->currentName);
-      ds->talking=LoadSound(snbuf);
-      if (!IsSoundValid(ds->talking)){
+    if (!IsSoundValid(g->curactblock->ds.talking)) {
+      snprintf(snbuf,sizeof(snbuf),"assets/sound/talking/%s.wav",g->curactblock->ds.currentName);
+      g->curactblock->ds.talking=LoadSound(snbuf);
+      if (!IsSoundValid(g->curactblock->ds.talking)){
         TraceLog(LOG_WARNING,"%s, the file may not exist"
             "for talking reasons",snbuf);
       }
@@ -105,17 +105,17 @@ void ParseDialogueLine(DialogueSystem *ds,Camera2D *cam, Vector2 plypos,const ch
       char path[256];
       snprintf(path,sizeof(path),"assets/sprite/"
           "dialogue/%s/%s.png",name,emotion);
-      if (ds->currentPortrait.id!=0)
-        UnloadTexture(ds->currentPortrait);
-      ds->currentPortrait=LoadTexture(path);
+      if (g->curactblock->ds.currentPortrait.id!=0)
+        UnloadTexture(g->curactblock->ds.currentPortrait);
+      g->curactblock->ds.currentPortrait=LoadTexture(path);
     }
     if (text){
-      strncpy(ds->currentText,text,
-          sizeof(ds->currentText)-1);
+      strncpy(g->curactblock->ds.currentText,text,
+          sizeof(g->curactblock->ds.currentText)-1);
     } else {
-      strncpy(ds->currentText,"...",sizeof("...")-1);
+      strncpy(g->curactblock->ds.currentText,"...",sizeof("...")-1);
     }
-    ds->lettercount=0;ds->texttimer=0.0f;
+    g->curactblock->ds.lettercount=0;g->curactblock->ds.texttimer=0.0f;
   }}
 
 void DrawDialogue(DialogueSystem *ds){
