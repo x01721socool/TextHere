@@ -115,9 +115,6 @@ int main(int argc, char** argv){
           }
           Updatenpc(&npctest);
           maingame.cam.offset=(Vector2){400.0f,300.0f};
-          if (IsKeyPressed(KEY_O)){
-            levelselected=false;
-          }
           if (IsKeyPressed(KEY_G)){
             findpathinradius(&npctest,maingame.plyr.pos,maingame,2);
           }

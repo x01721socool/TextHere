@@ -245,8 +245,8 @@ void CheckAndStartDialogue(game *g,const char *levelfolder){
     DialogueBlock *b = &g->dm.blocks[i];
     if (b->alreadyseen) continue;
     if (b->tilex==ptilex&&b->tiley==ptiley){
-      b->ds=LoadDialogue(b->txtpath,
-          g,levelfolder);
+      g->curactblock=b;
+      b->ds=LoadDialogue(b->txtpath,g,levelfolder);
       if (!b->ds.lines || b->ds.count<=0){
         TraceLog(LOG_WARNING,"could not load dialogue file %s",b->txtpath);
         b->alreadyseen=true;
@@ -254,7 +254,6 @@ void CheckAndStartDialogue(game *g,const char *levelfolder){
       }
       b->hasds=true;
       b->alreadyseen=true;
-      g->curactblock=b;
       break;
     }
   }
