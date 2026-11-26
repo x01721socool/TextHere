@@ -1,5 +1,8 @@
 # how to make your own map
 
+map is basically my word for *levels*. each level has its own folder for it that packs mandatory info about the *level*, what to render,
+and even add on some dialogues.
+
 ## what a map file should look like:
 
 ```
@@ -38,7 +41,7 @@ something like this:
 # ``map_render.csv``
 
 look at the image ``assets/spritesheet.png``. pick a tile you would like to use and find its x and y
-position ** in terms of grid, not pixels **. note:grid axises begin in 0. calculate their id by 
+position **in terms of grid, not pixels**. note:grid axises begin in 0. calculate their id by 
 this equation
 
 ```ypos*(spritesheet width in terms of grid)+xpos```
@@ -46,8 +49,8 @@ this equation
 go back to map_render.csv, and use that id in that coordinate. map_render MUST be have the same rows
 and collumns as what you'll set the size of the map in info.txt
 
-note that you can do all this in Tiled with the ``assets/sprite/fh.tsx`` as a spritesheet, though
-documentation wont be given for this due to lack of experience with it.
+~~note that you can do all this in Tiled with the ``assets/sprite/fh.tsx`` as a spritesheet, though
+documentation wont be given for this due to lack of experience with it.~~ no more tsx lolz!!!
 
 ## setting up the information about the map (``info.txt``)
 

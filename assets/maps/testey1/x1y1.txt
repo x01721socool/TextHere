@@ -1,7 +1,16 @@
-ny:suprise:also this is camera test
-CAMERA:TPTOPOS:3,6
-ny:norm2:this is a random pos
+ny:norm:yay another dialogue. definetly what i wanted
+redguy:norm:hey pal!
+CAMERA:TPTOPOS:7,6
+redguy:nonono:over here!
 CAMERA:CENTERPLAYER
-ny:norm:ok go back to me
-SCENE:testscene
-ny:suprise:poop fart
+ny:suprise:whoa who tf are you???
+redguy:normtalk:im initially called redguy but you can call me 'npc'.
+redguy:normtalk:you can press G anywhere for me to come up to you.
+ny:norm2:k thats great
+ny:norm:how can i get out tho
+redguy:talkside:oh uh you can't do that.
+redguy:normtalkside:but you can so by forcefully killing this process!
+redguy:talkside:even though you would've know that if you read the documents before.
+ny:suprise:wow the dev(s) are really lazy
+redguy:norm:anyways putting that aside, you should definetly try the G out!
+redguy:norm:it's literally my ONLY mechanic!

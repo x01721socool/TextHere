@@ -14,7 +14,7 @@
 #include "core/raycast.h"
 
 game maingame={ .ts=64, .options=0,.cam=(Camera2D){.zoom=1.0f,.rotation=0.0f} };
-bool musicbool=false;
+bool musicbool=true;
 int main(int argc, char** argv){
   InitWindow(800,600,"TextHere");
   bool levelselected=false; 
@@ -78,7 +78,7 @@ int main(int argc, char** argv){
         break;
       case 2:
         BeginDrawing();
-        ClearBackground(DARKGRAY);
+        ClearBackground(RAYWHITE);
         DrawText("Credits! :D\n\nArtemis Grotosky (me): Software owner,\n                       Software Dev,\n                      basically anything\nelse at the moment lolz\n\nShardul Hirolikar: A* Pathfinding\n\nRamon Santamaria: Raylib engine\n\nif u contributed u can write ur name\nhere. jus figure out how to fit ur\nown on this screen lol",10,10,deffont.baseSize*4,BLACK);
         EndDrawing();
         break;
@@ -119,7 +119,7 @@ int main(int argc, char** argv){
             findpathinradius(&npctest,maingame.plyr.pos,maingame,2);
           }
           BeginDrawing();
-          ClearBackground(RAYWHITE);
+          ClearBackground(BLACK);
           BeginMode2D(maingame.cam);
           drawmap(&maingame);
           Pdraw(&maingame.plyr);

@@ -91,7 +91,7 @@ void ParseDialogueLine(game *g,const char *levelfolder){
     char *emotion=strtok(NULL,":");
     char *text=strtok(NULL,":");
     char snbuf[256];
-    if (!IsSoundValid(g->curactblock->ds.talking)) {
+    if (/*!IsSoundValid(g->curactblock->ds.talking)*/true) {
       snprintf(snbuf,sizeof(snbuf),"assets/sound/talking/%s.wav",g->curactblock->ds.currentName);
       g->curactblock->ds.talking=LoadSound(snbuf);
       if (!IsSoundValid(g->curactblock->ds.talking)){

@@ -1,4 +1,4 @@
-#guide to playing the game
+# guide to playing the game
 
 we'll skip over the building process as that is mentioned in the README.md.
 

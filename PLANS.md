@@ -1,0 +1,13 @@
+# plans for the game
+
+if ur contributing my game, its suggested to follow the
+game's plan on what feature to add.
+
+- implementing exit via escape button
+- designing the start menu
+- more dialogue functionality
+- rendering player
+- differentiating types of npc and their mechanic
+- shooting (literally the point of the game)
+
+and so on so forth
