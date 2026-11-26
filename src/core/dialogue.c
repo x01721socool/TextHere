@@ -21,11 +21,10 @@ DialogueSystem LoadDialogue(const char *filename,game *g, const char *levelfolde
     ds.lines[ds.count -1]=strdup(buffer);
   }
   fclose(file);
-  if(ds.count>0)ParseDialogueLine(g,levelfolder);
   return ds;
 }
 
-void UpdateDialogue(game *g,const char *levelfolder){ /*DialogueSystem *ds,Vector2 plypos,Camera2D*cam*/
+void UpdateDialogue(game *g,const char *levelfolder){
   if(!g->curactblock->ds.active)return;
   float speed=0.01f;g->curactblock->ds.texttimer+=GetFrameTime();
   if(g->curactblock->ds.texttimer>=speed){
@@ -245,7 +244,6 @@ void CheckAndStartDialogue(game *g,const char *levelfolder){
     DialogueBlock *b = &g->dm.blocks[i];
     if (b->alreadyseen) continue;
     if (b->tilex==ptilex&&b->tiley==ptiley){
-      g->curactblock=b;
       b->ds=LoadDialogue(b->txtpath,g,levelfolder);
       if (!b->ds.lines || b->ds.count<=0){
         TraceLog(LOG_WARNING,"could not load dialogue file %s",b->txtpath);
@@ -254,6 +252,8 @@ void CheckAndStartDialogue(game *g,const char *levelfolder){
       }
       b->hasds=true;
       b->alreadyseen=true;
+      g->curactblock=b;
+      ParseDialogueLine(g, levelfolder);
       break;
     }
   }
